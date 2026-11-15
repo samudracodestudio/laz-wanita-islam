@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview Desain & Tipografi LAZ Wanita Indonesia</title>
+  
+  <!-- GOOGLE FONTS KOLEKSI "FEMININ & BERMARTABAT" -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --lilac-primary: #7B5294;
+      --lilac-dark: #4F2D64;
+      --lilac-light: #F7F2FA;
+      --lilac-soft: #E8DCEF;
+      --gold-accent: #D4AF37; --gold-gradient: linear-gradient(135deg, #ECC874 0%, #C59A3F 50%, #9E7422 100%); --gold-glow: 0 4px 15px rgba(197, 154, 63, 0.4);
+      --gold-light: #FDF7E7;
+      --text-dark: #22222B;
+      --text-muted: #666675;
+      --bg-gray: #F8F9FA;
+      --white: #FFFFFF;
+      --border-color: #E6E4EA;
+
+      /* DYNAMIC FONT VARIABLES */
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: #181820;
+      color: var(--text-dark);
+      padding: 20px;
+    }
+
+    /* CONTROL PANEL PREVIEW ATAS */
+    .preview-header {
+      max-width: 1240px;
+      margin: 0 auto 20px auto;
+      background: #242430;
+      padding: 16px 24px;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      color: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .toolbar-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .preview-title {
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .preview-title span {
+      background: var(--lilac-primary);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+    }
+
+    /* FONT SELECTOR TABS */
+    .font-selector-bar {
+      background: #1A1A24;
+      padding: 10px 14px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #333344;
+      flex-wrap: wrap;
+    }
+
+    .font-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold-accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-right: 6px;
+    }
+
+    .btn-font {
+      background: #282838;
+      border: 1px solid #3E3E54;
+      color: #C0C0D0;
+      padding: 7px 14px;
+      font-size: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: all 0.2s ease;
+    }
+
+    .btn-font strong {
+      font-size: 13px;
+      color: white;
+    }
+
+    .btn-font span {
+      font-size: 10px;
+      color: #9292A6;
+    }
+
+    .btn-font.active {
+      background: var(--lilac-primary);
+      border-color: var(--gold-accent);
+      color: white;
+      box-shadow: 0 0 0 2px rgba(197, 154, 63, 0.4);
+    }
+
+    .btn-font.active span {
+      color: #F0E6F7;
+    }
+
+    .view-switcher {
+      display: flex;
+      background: #14141C;
+      padding: 4px;
+      border-radius: 8px;
+      gap: 4px;
+    }
+
+    .btn-switch {
+      background: transparent;
+      border: none;
+      color: #9A9AA6;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-switch.active {
+      background: var(--lilac-primary);
+      color: white;
+    }
+
+    /* CONTAINER PREVIEW */
+    .viewport-wrapper {
+      display: flex;
+      justify-content: center;
+      transition: all 0.3s ease;
+      padding-bottom: 60px;
+    }
+
+    .device-container {
+      background: white;
+      transition: all 0.3s ease;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    /* Mode Desktop */
+    .device-container.desktop-view {
+      width: 100%;
+      max-width: 1200px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* Mode Mobile */
+    .device-container.mobile-view {
+      width: 390px;
+      min-height: 844px;
+      border-radius: 40px;
+      border: 12px solid #2B2B36;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .mobile-notch {
+      display: none;
+      width: 140px;
+      height: 24px;
+      background: #2B2B36;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+      z-index: 1000;
+    }
+
+    .device-container.mobile-view .mobile-notch {
+      display: block;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      background: linear-gradient(90deg, #3E1E52 0%, #58336E 50%, #46225B 100%);
+      color: white;
+      padding: 9px 30px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .topbar-right {
+      display: flex;
+      gap: 15px;
+    }
+
+    .topbar a {
+      color: #E2D5EC;
+      text-decoration: none;
+    }
+
+    /* LEGALITY STRIP */
+    .legality-strip {
+      background: #FDF9F0;
+      border-bottom: 1px solid #F4E8D0;
+      padding: 6px 30px;
+      font-size: 11px;
+      color: #8A6822;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .legality-strip span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 30px;
+      background: white;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-badge {
+      width: 46px;
+      height: 46px;
+      background: linear-gradient(135deg, var(--lilac-primary), var(--lilac-dark));
+      border: 2px solid var(--gold-accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 19px;
+      font-family: var(--font-heading);
+    }
+
+    .brand-text h1 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--lilac-dark);
+      line-height: 1.1;
+      font-family: var(--font-heading);
+      letter-spacing: 0.5px;
+    }
+
+    .brand-text span {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--lilac-primary);
+    }
+
+    .btn-donasi-header {
+      background: linear-gradient(135deg, #F5D77F 0%, #D4AF37 40%, #B3862D 100%) !important;
+      color: #362203 !important;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+      padding: 10px 22px;
+      border-radius: 20px;
+      font-size: 13px !important;
+      font-weight: 800 !important;
+      box-shadow: 0 4px 15px rgba(197, 154, 63, 0.45), inset 0 1px 1px rgba(255,255,255,0.6);
+      border: 1px solid #E6C265 !important;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-donasi-header:hover {
+      background: linear-gradient(135deg, #FFF0A8 0%, #E5BE4B 45%, #9E7422 100%) !important;
+      box-shadow: 0 6px 20px rgba(197, 154, 63, 0.6), inset 0 1px 2px rgba(255,255,255,0.8);
+      transform: translateY(-1px);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 20px;
+      color: var(--lilac-dark);
+      cursor: pointer;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      background: linear-gradient(180deg, #F9F4FC 0%, #F3EAF8 40%, #FFFFFF 100%);
+      padding: 55px 30px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--lilac-soft);
+      color: var(--lilac-dark);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      border: 1px solid rgba(123, 82, 148, 0.2);
+    }
+
+    .hero-content h2 {
+      font-family: var(--font-heading);
+      font-size: 40px;
+      color: var(--lilac-dark);
+      line-height: 1.25;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .hero-content h2 span {
+      color: var(--gold-accent);
+      font-style: italic;
+    }
+
+    .hero-content p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 26px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-primary-hero {
+      background: linear-gradient(135deg, #956AB2 0%, #7B5294 50%, #5C3275 100%);
+      color: white;
+      padding: 13px 26px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 18px rgba(123, 82, 148, 0.4), inset 0 1px 1px rgba(255,255,255,0.3);
+      border: 1px solid #A47BC0;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary-hero:hover {
+      background: linear-gradient(135deg, #A87DC5 0%, #8A5FA3 50%, #683984 100%);
+      box-shadow: 0 8px 24px rgba(123, 82, 148, 0.55), inset 0 1px 2px rgba(255,255,255,0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-calc-hero {
+      background: white;
+      color: var(--lilac-dark);
+      border: 1.5px solid var(--lilac-soft);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      transition: all 0.25s ease;
+    }
+
+    .btn-calc-hero:hover {
+      border-color: var(--gold-accent);
+      background: #FDFBF7;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(197, 154, 63, 0.2);
+    }
+
+    .btn-secondary-hero {
+      background: white;
+      color: var(--lilac-dark);
+      border: 1.5px solid var(--lilac-primary);
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    /* PLACEHOLDER VISUAL HERO */
+    .hero-visual-card {
+      background: var(--lilac-light);
+      border: 2px dashed #C3B0D2;
+      border-radius: 20px;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .visual-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--gold-accent);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 10px;
+    }
+
+    .visual-icon {
+      font-size: 48px;
+      color: var(--lilac-primary);
+      margin-bottom: 12px;
+    }
+
+    .visual-title {
+      font-weight: 700;
+      color: var(--lilac-dark);
+      margin-bottom: 6px;
+      font-size: 16px;
+      font-family: var(--font-heading);
+    }
+
+    .visual-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* VALUES STRIP */
+    .values-strip {
+      background: white;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 24px 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .val-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .val-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--lilac-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--lilac-primary);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .val-text h4 {
+      font-size: 15px;
+      color: var(--text-dark);
+      font-weight: 700;
+      font-family: var(--font-heading);
+    }
+
+    .val-text p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* SECTION PROGRAM */
+    .section-programs {
+      padding: 50px 30px;
+      background: var(--bg-gray);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 36px auto;
+    }
+
+    .section-header h3 {
+      font-size: 28px;
+      color: var(--lilac-dark);
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-family: var(--font-heading);
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .program-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+
+    .program-img-placeholder {
+      height: 160px;
+      background: #EAE6EF;
+      border-bottom: 2px dashed #CBB8DC;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--lilac-primary);
+      font-size: 12px;
+      gap: 6px;
+    }
+
+    .program-body {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .program-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-accent);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .program-body h4 {
+      font-size: 18px;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.3;
+      font-family: var(--font-heading);
+    }
+
+    .program-body p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .btn-card-donasi {
+      background: linear-gradient(135deg, #FBF6EC 0%, #F5ECDB 100%);
+      color: #7D5C14;
+      text-decoration: none;
+      text-align: center;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 12px;
+      border: 1px solid #E5D2A8;
+      transition: all 0.25s ease;
+    }
+
+    .btn-card-donasi:hover {
+      background: linear-gradient(135deg, #F5D77F 0%, #D4AF37 45%, #B3862D 100%);
+      color: #362203;
+      border-color: #C59A3F;
+      box-shadow: 0 4px 12px rgba(197, 154, 63, 0.35);
+      transform: translateY(-1px);
+    }
+
+    /* SECTION BARU: KISAH NYATA / SUARA IBU BERDAYA (HUMAN TOUCH) */
+    .section-story {
+      padding: 50px 30px;
+      background: white;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .story-card-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #FAF6FC 0%, #F5ECF9 100%);
+      border-radius: 20px;
+      border: 1px solid var(--lilac-soft);
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 36px;
+      align-items: center;
+      position: relative;
+    }
+
+    .story-img-box {
+      background: #E5DBED;
+      border: 2px dashed #BFA6D3;
+      border-radius: 16px;
+      height: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: var(--lilac-dark);
+      font-size: 12px;
+    }
+
+    .quote-icon {
+      font-size: 32px;
+      color: var(--gold-accent);
+      margin-bottom: 12px;
+    }
+
+    .story-quote {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--lilac-dark);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .story-author {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .story-role {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* SECTION BARU: STRUKTUR PENGURUS & DEWAN PENGAWAS SYARIAH */
+    .section-governance {
+      padding: 50px 30px;
+      background: #FDFBFE;
+    }
+
+    .governance-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .leader-card {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .leader-card:hover {
+      border-color: var(--lilac-primary);
+      box-shadow: 0 6px 16px rgba(123, 82, 148, 0.08);
+    }
+
+    .leader-avatar-box {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: var(--lilac-light);
+      border: 2px solid var(--gold-accent);
+      margin: 0 auto 14px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--lilac-primary);
+      font-size: 11px;
+    }
+
+    .leader-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+      font-family: var(--font-heading);
+    }
+
+    .leader-role {
+      font-size: 11px;
+      color: var(--lilac-dark);
+      font-weight: 600;
+      background: var(--lilac-soft);
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 12px;
+    }
+
+    /* SECTION BERITA & ARTIKEL */
+    .section-news {
+      padding: 55px 30px;
+      background: var(--bg-gray);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto 30px auto;
+    }
+
+    .news-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      border-color: #D3C3E0;
+    }
+
+    .news-img-holder {
+      height: 170px;
+      background: #EDE6F2;
+      border-bottom: 2px dashed #CBB8DC;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--lilac-primary);
+      font-size: 12px;
+      gap: 6px;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .news-body {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .news-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .news-meta .category {
+      color: var(--lilac-dark);
+      font-weight: 700;
+      background: var(--lilac-light);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .news-body h4 {
+      font-size: 16px;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.4;
+      font-family: var(--font-heading);
+    }
+
+    .news-body p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .news-link {
+      color: var(--lilac-primary);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-more-news-wrapper {
+      text-align: center;
+    }
+
+    .btn-more-news {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1.5px solid var(--lilac-primary);
+      color: var(--lilac-dark);
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-more-news:hover {
+      background: var(--lilac-primary);
+      color: white;
+    }
+
+    /* SECTION REKENING & QRIS */
+    .section-donation {
+      padding: 50px 30px;
+      background: white;
+    }
+
+    .donation-box {
+      max-width: 900px;
+      margin: 0 auto;
+      border: 2px solid var(--lilac-soft);
+      border-radius: 16px;
+      padding: 30px;
+      background: #FDFAFF;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+    }
+
+    .bank-card {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .bank-info h5 {
+      font-size: 14px;
+      color: var(--lilac-dark);
+      margin-bottom: 2px;
+      font-weight: 700;
+    }
+
+    .acc-number {
+      font-family: monospace;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .acc-name {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .btn-copy {
+      background: var(--bg-gray);
+      border: 1px solid #CCC;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .qris-panel {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qris-code-box {
+      width: 160px;
+      height: 160px;
+      background: #F2EEF5;
+      border: 2px dashed #B8A1C9;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 12px 0;
+      font-size: 12px;
+      color: var(--lilac-dark);
+      font-weight: 600;
+    }
+
+    .whatsapp-confirm-box {
+      margin-top: 16px;
+      background: #E8F8F0;
+      border: 1px solid #C4EDD8;
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .btn-whatsapp-confirm {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      margin-top: 6px;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: linear-gradient(135deg, #3B1B4F 0%, #4F2D64 60%, #351747 100%);
+      color: white;
+      padding: 45px 30px 24px 30px;
+      font-size: 13px;
+      border-top: 3px solid #D4AF37;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-brand h4 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--gold-accent);
+      font-family: var(--font-heading);
+    }
+
+    .footer-brand p {
+      color: #DDD4E4;
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
+    .footer-col h5 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: white;
+      font-family: var(--font-heading);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col a {
+      color: #DDD4E4;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 16px;
+      text-align: center;
+      color: #BBA9CA;
+      font-size: 12px;
+    }
+
+    /* STICKY BOTTOM BAR (Khusus Smartphone) */
+    .mobile-bottom-bar {
+      display: none;
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+      padding: 10px 16px;
+      border-top: 1px solid var(--border-color);
+      z-index: 999;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .btn-mobile-act {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-mobile-donasi {
+      background: linear-gradient(135deg, #F5D77F 0%, #D4AF37 40%, #B3862D 100%);
+      color: #362203;
+      font-weight: 800;
+      border: 1px solid #E6C265;
+      box-shadow: 0 2px 8px rgba(197, 154, 63, 0.35);
+    }
+
+    .btn-mobile-wa {
+      background: #25D366;
+      color: white;
+    }
+
+    /* MOBILE CONTAINER ADAPTATION */
+    .device-container.mobile-view .topbar,
+    .device-container.mobile-view .legality-strip {
+      display: none;
+    }
+
+    .device-container.mobile-view .navbar {
+      padding: 12px 18px;
+      padding-top: 28px;
+    }
+
+    .device-container.mobile-view .nav-links,
+    .device-container.mobile-view .btn-donasi-header {
+      display: none;
+    }
+
+    .device-container.mobile-view .mobile-menu-btn {
+      display: block;
+    }
+
+    .device-container.mobile-view .hero-section {
+      grid-template-columns: 1fr;
+      padding: 30px 20px;
+      gap: 24px;
+    }
+
+    .device-container.mobile-view .hero-content h2 {
+      font-size: 28px;
+    }
+
+    .device-container.mobile-view .hero-btns {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .device-container.mobile-view .values-strip {
+      grid-template-columns: 1fr;
+      padding: 20px;
+      gap: 16px;
+    }
+
+    .device-container.mobile-view .program-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .device-container.mobile-view .story-card-wrapper {
+      grid-template-columns: 1fr;
+      padding: 24px 20px;
+      gap: 20px;
+    }
+
+    .device-container.mobile-view .governance-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .device-container.mobile-view .news-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .device-container.mobile-view .donation-box {
+      grid-template-columns: 1fr;
+      padding: 18px;
+    }
+
+    .device-container.mobile-view .footer-content {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .device-container.mobile-view .mobile-bottom-bar {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CONTROL PANEL PREVIEW DENGAN FONT SELECTOR & NAV TABS -->
+  <div class="preview-header">
+    <div class="toolbar-row">
+      <div class="preview-title">
+        <i class="fa-solid fa-home" style="color: var(--gold-accent);"></i>
+        <span>HALAMAN 1</span> Beranda Utama LAZ Wanita Indonesia
+      </div>
+      
+      <!-- TABS PINDAH HALAMAN -->
+      <div class="nav-page-tabs" style="display: flex; gap: 6px;">
+        <a href="index.html" class="btn-font active" style="padding: 6px 12px; font-weight: 700; text-decoration: none;">Beranda</a>
+        <a href="tentang-kami.html" class="btn-font" style="padding: 6px 12px; text-decoration: none;">Tentang Kami</a>
+        <a href="program.html" class="btn-font" style="padding: 6px 12px; text-decoration: none;">Program</a>
+        <a href="tunaikan-zakat.html" class="btn-font" style="padding: 6px 12px; text-decoration: none;">ZIS & Rekening</a>
+        <a href="laporan.html" class="btn-font" style="padding: 6px 12px; text-decoration: none;">Laporan</a>
+      </div>
+
+      <div class="view-switcher">
+        <button class="btn-switch active" id="btnDesktop" onclick="setMode('desktop')">
+          <i class="fa-solid fa-laptop"></i> Desktop
+        </button>
+        <button class="btn-switch" id="btnMobile" onclick="setMode('mobile')">
+          <i class="fa-solid fa-mobile-screen"></i> Layar HP
+        </button>
+      </div>
+    </div>
+
+    <!-- TABS PILIHAN FONT INTERAKTIF -->
+    <div class="font-selector-bar">
+      <div class="font-label"><i class="fa-solid fa-font"></i> Pilih Tipografi:</div>
+      
+      <button class="btn-font active" onclick="changeFont('playfair', this)">
+        <strong>1. Playfair Display</strong>
+        <span>Anggun & Berwibawa</span>
+      </button>
+
+      <button class="btn-font" onclick="changeFont('cormorant', this)">
+        <strong>2. Cormorant Garamond</strong>
+        <span>Elegan & Feminin Halus</span>
+      </button>
+
+      <button class="btn-font" onclick="changeFont('lora', this)">
+        <strong>3. Lora</strong>
+        <span>Hangat, Santun & Keibuan</span>
+      </button>
+
+      <button class="btn-font" onclick="changeFont('bodoni', this)">
+        <strong>4. Bodoni Moda</strong>
+        <span>Modern Berdaya & Kuat</span>
+      </button>
+
+      <button class="btn-font" onclick="changeFont('jakarta', this)">
+        <strong>5. Plus Jakarta Sans</strong>
+        <span>Minimalis ala Dompet Dhuafa</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- VIEWPORT CONTAINER -->
+  <div class="viewport-wrapper">
+    <div class="device-container desktop-view" id="deviceFrame">
+      <div class="mobile-notch"></div>
+
+      <!-- 1. TOPBAR DESKTOP -->
+      <div class="topbar">
+        <div><i class="fa-solid fa-award" style="color: var(--gold-accent);"></i> Badan Khusus Ormas Wanita Indonesia | Menjaga Amanah, Menguatkan Keluarga</div>
+        <div class="topbar-right">
+          <a href="#"><i class="fa-brands fa-whatsapp"></i> 0812-XXXX-XXXX</a>
+          <a href="#"><i class="fa-regular fa-envelope"></i> laz@wanitaindonesia.or.id</a>
+        </div>
+      </div>
+
+      <!-- LEGALITY STRIP (PENAMBAHAN BARU: TRUST FACTOR) -->
+      <div class="legality-strip">
+        <span><i class="fa-solid fa-shield-check" style="color: var(--gold-accent);"></i> Beroperasi di bawah naungan Badan Hukum Ormas Wanita Indonesia (SK Kemenkumham Terdaftar)</span>
+        <span>Laporan Keuangan & Penyaluran Dipertanggungjawabkan Berkala Tiap 6 Bulan (Pleno WI)</span>
+      </div>
+
+      <!-- 2. NAVBAR -->
+      <nav class="navbar">
+        <div class="brand-logo">
+          <div class="logo-badge">WI</div>
+          <div class="brand-text">
+            <h1>LAZ WANITA INDONESIA</h1>
+            <span>Keluarga Mandiri • Indonesia Bermartabat</span>
+          </div>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html" style="color: var(--lilac-primary);">Beranda</a></li>
+          <li><a href="tentang-kami.html">Tentang Kami</a></li>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="kabar.html">Kabar & Cerita</a></li>
+          <li><a href="laporan.html">Laporan Publik</a></li>
+          <li><a href="tunaikan-zakat.html" class="btn-donasi-header"><i class="fa-solid fa-hand-holding-heart"></i> Tunaikan Zakat & Kebaikan</a></li>
+        </ul>
+        <div class="mobile-menu-btn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </nav>
+
+      <!-- 3. HERO SECTION -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="tag-pill">
+            <i class="fa-solid fa-shield-heart" style="color: var(--gold-accent);"></i> Fokus Ketahanan Keluarga Inti
+          </div>
+          <h2>Menguatkan Keluarga, <span>Memberdayakan Perempuan</span>, Memuliakan Indonesia</h2>
+          <p>Lembaga filantropi Islam yang berakar dari kepedulian kaum ibu. Menghimpun zakat, infak, dan sedekah untuk membebaskan keluarga dari jerat rentenir dan menopang masa depan anak Indonesia.</p>
+          <div class="hero-btns">
+            <a href="#donasi" class="btn-primary-hero"><i class="fa-solid fa-qrcode"></i> Ulurkan Kebaikan</a>
+            <a href="tunaikan-zakat.html" class="btn-calc-hero"><i class="fa-solid fa-calculator" style="color: var(--gold-accent);"></i> Hitung Zakat</a>
+            <a href="#program" class="btn-secondary-hero">Pelajari Program</a>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <div class="visual-badge">Aset Visual Asli 800x600px</div>
+          <div class="visual-icon"><i class="fa-solid fa-people-roof"></i></div>
+          <div class="visual-title">[ Foto Asli Dokumentasi Lapangan ]</div>
+          <div class="visual-desc">Wajib foto asli pengurus berseragam WI saat bakti sosial, aksi bencana Aceh/karhutla, atau senyum ibu binaan UMKM. Hindari render AI palsu.</div>
+        </div>
+      </section>
+
+      <!-- 4. VALUES STRIP -->
+      <div class="values-strip">
+        <div class="val-item">
+          <div class="val-icon"><i class="fa-solid fa-seedling"></i></div>
+          <div class="val-text">
+            <h4>Pemberdayaan UMKM</h4>
+            <p>Lepas dari jerat pinjaman online dan rentenir</p>
+          </div>
+        </div>
+        <div class="val-item">
+          <div class="val-icon"><i class="fa-solid fa-house-chimney-crack"></i></div>
+          <div class="val-text">
+            <h4>Aksi Kemanusiaan</h4>
+            <p>Respons cepat bencana, banjir, dan karhutla</p>
+          </div>
+        </div>
+        <div class="val-item">
+          <div class="val-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="val-text">
+            <h4>Pendidikan & Karakter</h4>
+            <p>Sekolah darurat & pendampingan anak dhuafa</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. PROGRAM SECTION (Benchmark Dompet Dhuafa) -->
+      <section class="section-programs" id="program">
+        <div class="section-header">
+          <h3>Program Prioritas LAZ WI</h3>
+          <p>Disalurkan tepat sasaran kepada mustahik perempuan, keluarga inti, dan wilayah tertinggal.</p>
+        </div>
+
+        <div class="program-grid">
+          <!-- Card 1 -->
+          <div class="program-card">
+            <div class="program-img-placeholder">
+              <i class="fa-solid fa-store" style="font-size: 24px;"></i>
+              <span>[ Foto: Ibu Binaan Usaha ]</span>
+            </div>
+            <div class="program-body">
+              <span class="program-tag">Ekonomi & Kemandirian</span>
+              <h4>Modal Usaha Bebas Riba untuk Ibu Tangguh</h4>
+              <p>Bantuan modal bergulir dan pelatihan UMKM agar para ibu memiliki kekuatan ekonomi mandiri di keluarga.</p>
+              <a href="#donasi" class="btn-card-donasi">Ulurkan Bantuan <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="program-card">
+            <div class="program-img-placeholder">
+              <i class="fa-solid fa-fire-flame-curved" style="font-size: 24px;"></i>
+              <span>[ Foto: Posko Bencana ]</span>
+            </div>
+            <div class="program-body">
+              <span class="program-tag">Kemanusiaan</span>
+              <h4>Tanggap Bencana Alam & Karhutla</h4>
+              <p>Penyaluran logistik cepat, dapur umum ramah anak, dan bantuan medis untuk keluarga terdampak bencana.</p>
+              <a href="#donasi" class="btn-card-donasi">Ulurkan Bantuan <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="program-card">
+            <div class="program-img-placeholder">
+              <i class="fa-solid fa-school" style="font-size: 24px;"></i>
+              <span>[ Foto: Anak Belajar ]</span>
+            </div>
+            <div class="program-body">
+              <span class="program-tag">Pendidikan</span>
+              <h4>Ruang Belajar & Sekolah Darurat</h4>
+              <p>Memastikan anak-anak di daerah bencana dan pelosok tetap mendapat hak belajar yang bermartabat.</p>
+              <a href="#donasi" class="btn-card-donasi">Ulurkan Bantuan <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. SECTION BARU: KISAH NYATA (SUARA IBU - SENTUHAN EMOSIONAL) -->
+      <section class="section-story" id="kisah">
+        <div class="story-card-wrapper">
+          <div class="story-img-box">
+            <i class="fa-solid fa-camera" style="font-size: 32px; margin-bottom: 8px;"></i>
+            <strong>[ Foto Asli Ibu Binaan ]</strong>
+            <span>Contoh: Ibu perajin peyek / warung makan yang didampingi di wilayah binaan DIY.</span>
+          </div>
+          <div>
+            <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+            <div class="story-quote">
+              "Dulu setiap sore saya bingung cari pinjaman untuk bayar bunga keliling harian. Alhamdulillah lewat pendampingan dan modal bergulir dari ibu-ibu LAZ WI, usaha saya sekarang tenang, bebas rentenir, dan anak-anak bisa tetap sekolah."
+            </div>
+            <div class="story-author">Ibu Siti Khodijah (46 Tahun)</div>
+            <div class="story-role">Penerima Manfaat Modal Usaha Bergulir — Binaan Wilayah DIY</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. SECTION BARU: TATA KELOLA & DEWAN PENGAWAS (STRUKTUR HARI SELASA) -->
+      <section class="section-governance" id="pengurus">
+        <div class="section-header">
+          <h3>Dewan Pengurus & Kepatuhan Syariah</h3>
+          <p>Dikelola secara profesional, amanah, dan diawasi oleh para tokoh serta alim ulama terpercaya.</p>
+        </div>
+
+        <div class="governance-grid">
+          <!-- Tokoh 1 -->
+          <div class="leader-card">
+            <div class="leader-avatar-box">
+              <i class="fa-solid fa-user-tie" style="font-size: 24px;"></i>
+              <span>[ Foto Resmi ]</span>
+            </div>
+            <div class="leader-name">Nama Tokoh Ulama</div>
+            <div class="leader-role">Dewan Pengawas Syariah</div>
+          </div>
+
+          <!-- Tokoh 2 -->
+          <div class="leader-card">
+            <div class="leader-avatar-box">
+              <i class="fa-solid fa-user-shield" style="font-size: 24px;"></i>
+              <span>[ Foto Resmi ]</span>
+            </div>
+            <div class="leader-name">Nama Pimpinan WI</div>
+            <div class="leader-role">Dewan Pembina / Pengawas</div>
+          </div>
+
+          <!-- Tokoh 3 -->
+          <div class="leader-card">
+            <div class="leader-avatar-box">
+              <i class="fa-solid fa-user-check" style="font-size: 24px;"></i>
+              <span>[ Foto Resmi ]</span>
+            </div>
+            <div class="leader-name">Nama Direktur LAZ</div>
+            <div class="leader-role">Ketua / Direktur Eksekutif</div>
+          </div>
+
+          <!-- Tokoh 4 -->
+          <div class="leader-card">
+            <div class="leader-avatar-box">
+              <i class="fa-solid fa-calculator" style="font-size: 24px;"></i>
+              <span>[ Foto Resmi ]</span>
+            </div>
+            <div class="leader-name">Nama Bendahara</div>
+            <div class="leader-role">Direktur Keuangan & Amil</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. SECTION KABAR & CERITA AKSI (BERITA & ARTIKEL) -->
+      <section class="section-news" id="berita">
+        <div class="section-header">
+          <h3>Kabar & Cerita Aksi Lapangan</h3>
+          <p>Catatan jejak ikhtiar kemanusiaan, pemberdayaan kaum ibu, dan kabar terkini LAZ Wanita Indonesia.</p>
+        </div>
+
+        <div class="news-grid">
+          <!-- Berita 1: Bencana -->
+          <article class="news-card">
+            <div class="news-img-holder">
+              <i class="fa-solid fa-truck-medical" style="font-size: 26px;"></i>
+              <strong>[ Foto Aksi Tanggap Darurat ]</strong>
+              <span>Penyaluran logistik ibu & anak di lokasi bencana</span>
+            </div>
+            <div class="news-body">
+              <div class="news-meta">
+                <span class="category">Kemanusiaan</span>
+                <span>12 November 2026</span>
+              </div>
+              <h4>Respons Cepat Bencana: LAZ WI Dirikan Pos Ramah Ibu & Perlengkapan Bayi</h4>
+              <p>Menjangkau keluarga terdampak bencana dengan fokus perlindungan kesehatan balita, pemulihan gizi, dan tenda darurat keluarga.</p>
+              <a href="#" class="news-link">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Berita 2: Ekonomi UMKM -->
+          <article class="news-card">
+            <div class="news-img-holder">
+              <i class="fa-solid fa-hand-holding-dollar" style="font-size: 26px;"></i>
+              <strong>[ Foto Pelatihan UMKM Ibu ]</strong>
+              <span>Ibu-ibu berkumpul menerima modal & mentoring usaha</span>
+            </div>
+            <div class="news-body">
+              <div class="news-meta">
+                <span class="category">Pemberdayaan Ekonomi</span>
+                <span>08 November 2026</span>
+              </div>
+              <h4>Bebaskan Ibu dari Jerat Pinjol: Program Modal Bergulir Bergulir di DIY</h4>
+              <p>Sebanyak 35 ibu pelaku usaha mikro di kawasan tertinggal mendapatkan suntikan modal bebas riba dan pendampingan literasi keuangan syariah.</p>
+              <a href="#" class="news-link">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Berita 3: Edukasi Ketahanan Keluarga -->
+          <article class="news-card">
+            <div class="news-img-holder">
+              <i class="fa-solid fa-book-open-reader" style="font-size: 26px;"></i>
+              <strong>[ Foto Edukasi & Dakwah ]</strong>
+              <span>Kajian parenting syariah & ketahanan keluarga</span>
+            </div>
+            <div class="news-body">
+              <div class="news-meta">
+                <span class="category">Ketahanan Keluarga</span>
+                <span>02 November 2026</span>
+              </div>
+              <h4>Mengapa Ketahanan Keluarga Menjadi Kunci Mengikis Kemiskinan Ekstrem?</h4>
+              <p>Ulasan mendalam ormas Wanita Indonesia mengenai peran sentral ibu rumah tangga dalam membentengi moral, ekonomi, dan pendidikan generasi penerus.</p>
+              <a href="#" class="news-link">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="btn-more-news-wrapper">
+          <a href="#" class="btn-more-news">
+            <i class="fa-solid fa-newspaper"></i> Lihat Semua Kabar & Publikasi
+          </a>
+        </div>
+      </section>
+
+      <!-- 9. DONATION SECTION -->
+      <section class="section-donation" id="donasi">
+        <div class="section-header">
+          <h3>Tunaikan Zakat, Infak & Sedekah</h3>
+          <p>Pilih kemudahan transfer bank atau scan QRIS melalui aplikasi perbankan & dompet digital Anda.</p>
+        </div>
+
+        <div class="donation-box">
+          <!-- Kolom Rekening -->
+          <div class="bank-list">
+            <h4 style="font-size: 15px; color: var(--lilac-dark); margin-bottom: 12px; font-family: var(--font-heading);">Rekening Resmi Lembaga:</h4>
+            
+            <div class="bank-card">
+              <div class="bank-info">
+                <h5>Bank Syariah Indonesia (BSI) - Zakat</h5>
+                <div class="acc-number">7123-4567-89</div>
+                <div class="acc-name">a.n. LAZ Wanita Indonesia</div>
+              </div>
+              <button class="btn-copy" onclick="copyText('7123456789')"><i class="fa-regular fa-copy"></i> Salin</button>
+            </div>
+
+            <div class="bank-card">
+              <div class="bank-info">
+                <h5>Bank Mandiri - Infak & Kemanusiaan</h5>
+                <div class="acc-number">137-00-9876-5432</div>
+                <div class="acc-name">a.n. LAZ Wanita Indonesia</div>
+              </div>
+              <button class="btn-copy" onclick="copyText('1370098765432')"><i class="fa-regular fa-copy"></i> Salin</button>
+            </div>
+
+            <div class="whatsapp-confirm-box">
+              <div style="font-size: 12px; color: #2E6B48; font-weight: 600;">Sudah mentransfer? Konfirmasi donasi Anda:</div>
+              <a href="https://wa.me/" target="_blank" class="btn-whatsapp-confirm">
+                <i class="fa-brands fa-whatsapp"></i> Konfirmasi via WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Kolom QRIS Statis -->
+          <div class="qris-panel">
+            <span style="font-size: 12px; font-weight: 700; color: var(--lilac-dark);">SCAN QRIS CEPAT</span>
+            <div class="qris-code-box">
+              <i class="fa-solid fa-qrcode" style="font-size: 54px; margin-bottom: 8px;"></i>
+              <span>[ GAMBAR QRIS STATIS ]</span>
+            </div>
+            <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">
+              Mendukung BCA, Mandiri, BSI, GoPay, OVO, ShopeePay, LinkAja, & DANA.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. FOOTER -->
+      <footer class="site-footer">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h4>LAZ WANITA INDONESIA</h4>
+            <p>Badan Khusus Organisasi Kemasyarakatan Wanita Indonesia. Berkhidmat mengangkat harkat perempuan dan ketahanan keluarga berbasis syariat Islam.</p>
+          </div>
+          <div class="footer-col">
+            <h5>Navigasi</h5>
+            <ul>
+              <li><a href="#">Tentang Kami & Sejarah</a></li>
+              <li><a href="#pengurus">Struktur Pengurus & DPS</a></li>
+              <li><a href="#">Laporan Pertanggungjawaban (Pleno)</a></li>
+              <li><a href="#">Legalitas Lembaga</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Layanan & Sekretariat</h5>
+            <p style="color: #DDD4E4; font-size: 13px; line-height: 1.6;">
+              Kantor Pusat Wanita Indonesia<br>
+              WhatsApp Amil: 0812-XXXX-XXXX<br>
+              Email: info@wanitaindonesia.or.id
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; 2026 LAZ Wanita Indonesia. Hak Cipta Dilindungi Undang-Undang.
+        </div>
+      </footer>
+
+      <!-- MOBILE BOTTOM BAR (3 TOMBOL: HITUNG ZAKAT, DONASI, WA) -->
+      <div class="mobile-bottom-bar">
+        <a href="tunaikan-zakat.html" class="btn-mobile-act" style="background: white; border: 1px solid var(--lilac-primary); color: var(--lilac-dark);"><i class="fa-solid fa-calculator" style="color: var(--gold-accent);"></i> Hitung</a>
+        <a href="#donasi" class="btn-mobile-act btn-mobile-donasi"><i class="fa-solid fa-hand-holding-dollar"></i> Tunaikan</a>
+        <a href="https://wa.me/" target="_blank" class="btn-mobile-act btn-mobile-wa"><i class="fa-brands fa-whatsapp"></i> Chat WA</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function setMode(mode) {
+      const frame = document.getElementById('deviceFrame');
+      const btnDesktop = document.getElementById('btnDesktop');
+      const btnMobile = document.getElementById('btnMobile');
+
+      if (mode === 'mobile') {
+        frame.className = 'device-container mobile-view';
+        btnMobile.classList.add('active');
+        btnDesktop.classList.remove('active');
+      } else {
+        frame.className = 'device-container desktop-view';
+        btnDesktop.classList.add('active');
+        btnMobile.classList.remove('active');
+      }
+    }
+
+    function changeFont(fontType, btnElement) {
+      document.querySelectorAll('.btn-font').forEach(b => b.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      const root = document.documentElement;
+
+      if (fontType === 'playfair') {
+        root.style.setProperty('--font-heading', "'Playfair Display', serif");
+      } else if (fontType === 'cormorant') {
+        root.style.setProperty('--font-heading', "'Cormorant Garamond', serif");
+      } else if (fontType === 'lora') {
+        root.style.setProperty('--font-heading', "'Lora', serif");
+      } else if (fontType === 'bodoni') {
+        root.style.setProperty('--font-heading', "'Bodoni Moda', serif");
+      } else if (fontType === 'jakarta') {
+        root.style.setProperty('--font-heading', "'Plus Jakarta Sans', sans-serif");
+      }
+    }
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text);
+      alert('Nomor rekening ' + text + ' berhasil disalin!');
+    }
+  </script>
+</body>
+</html>

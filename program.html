@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Program Pemberdayaan - LAZ Wanita Indonesia</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --lilac-primary: #7B5294;
+      --lilac-dark: #4F2D64;
+      --lilac-light: #F7F2FA;
+      --lilac-soft: #E8DCEF;
+      --gold-accent: #D4AF37;
+      --gold-gradient: linear-gradient(135deg, #F5D77F 0%, #D4AF37 40%, #B3862D 100%);
+      --text-dark: #22222B;
+      --text-muted: #666675;
+      --bg-gray: #F8F9FA;
+      --white: #FFFFFF;
+      --border-color: #E6E4EA;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background-color: #181820; color: var(--text-dark); padding: 20px; }
+
+    /* TOOLBAR */
+    .preview-header {
+      max-width: 1240px; margin: 0 auto 20px auto; background: #242430; padding: 14px 24px;
+      border-radius: 14px; display: flex; justify-content: space-between; align-items: center; color: white;
+    }
+    .preview-title { font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    .preview-title span { background: var(--lilac-primary); color: white; padding: 3px 10px; border-radius: 6px; font-size: 11px; }
+
+    .nav-page-tabs { display: flex; gap: 8px; }
+    .page-tab-btn {
+      background: #1A1A24; border: 1px solid #3E3E54; color: #CCC; padding: 6px 14px;
+      border-radius: 6px; font-size: 12px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 6px;
+    }
+    .page-tab-btn.active { background: var(--lilac-primary); border-color: var(--gold-accent); color: white; }
+
+    .view-switcher { display: flex; background: #14141C; padding: 4px; border-radius: 8px; gap: 4px; }
+    .btn-switch {
+      background: transparent; border: none; color: #9A9AA6; padding: 6px 14px; font-size: 12px;
+      font-weight: 600; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 6px;
+    }
+    .btn-switch.active { background: var(--lilac-primary); color: white; }
+
+    /* VIEWPORT */
+    .viewport-wrapper { display: flex; justify-content: center; padding-bottom: 60px; }
+    .device-container { background: white; transition: all 0.3s ease; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+    .device-container.desktop-view { width: 100%; max-width: 1200px; border-radius: 12px; overflow: hidden; }
+    .device-container.mobile-view { width: 390px; min-height: 844px; border-radius: 40px; border: 12px solid #2B2B36; overflow: hidden; margin: 20px 0; }
+    
+    .mobile-notch { display: none; width: 140px; height: 24px; background: #2B2B36; position: absolute; top: 0; left: 50%; transform: translateX(-50%); border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; z-index: 1000; }
+    .device-container.mobile-view .mobile-notch { display: block; }
+
+    /* STYLES */
+    .topbar {
+      background: linear-gradient(90deg, #3E1E52 0%, #58336E 50%, #46225B 100%);
+      color: white; padding: 9px 30px; font-size: 12px; display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    .topbar a { color: #E2D5EC; text-decoration: none; margin-left: 15px; }
+
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center; padding: 16px 30px; background: white;
+      border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100;
+    }
+    .brand-logo { display: flex; align-items: center; gap: 14px; }
+    .logo-badge {
+      width: 46px; height: 46px; background: linear-gradient(135deg, var(--lilac-primary), var(--lilac-dark));
+      border: 2px solid var(--gold-accent); border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 800; font-size: 19px; font-family: var(--font-heading);
+    }
+    .brand-text h1 { font-size: 17px; font-weight: 800; color: var(--lilac-dark); line-height: 1.1; font-family: var(--font-heading); }
+    .brand-text span { font-size: 11px; color: var(--text-muted); }
+    .nav-links { display: flex; list-style: none; gap: 24px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text-dark); font-size: 14px; font-weight: 600; }
+    .nav-links a.active { color: var(--lilac-primary); font-weight: 700; }
+    
+    .btn-donasi-header {
+      background: var(--gold-gradient); color: #362203 !important; padding: 10px 22px; border-radius: 20px;
+      font-size: 13px !important; font-weight: 800 !important; box-shadow: 0 4px 15px rgba(197, 154, 63, 0.45);
+      border: 1px solid #E6C265 !important;
+    }
+
+    /* HERO */
+    .page-hero {
+      background: linear-gradient(135deg, #4A2761 0%, #7B5294 100%);
+      color: white; padding: 50px 30px; text-align: center;
+    }
+    .page-hero h2 { font-family: var(--font-heading); font-size: 36px; margin-bottom: 10px; font-weight: 700; }
+    .page-hero h2 span { color: #F5D77F; }
+    .page-hero p { font-size: 15px; color: #EBDCF5; max-width: 700px; margin: 0 auto; line-height: 1.6; }
+
+    /* PROGRAM DETAIL ITEMS */
+    .programs-container { padding: 50px 30px; }
+    
+    .program-detail-card {
+      background: white; border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden;
+      margin-bottom: 36px; display: grid; grid-template-columns: 1fr 1.4fr; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+    .program-detail-card:nth-child(even) { grid-template-columns: 1.4fr 1fr; }
+    .program-detail-card:nth-child(even) .program-visual-side { order: 2; }
+    .program-detail-card:nth-child(even) .program-info-side { order: 1; }
+
+    .program-visual-side {
+      background: #EFE9F5; border-right: 1px solid var(--border-color); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; padding: 40px 20px; text-align: center; color: var(--lilac-dark);
+    }
+    .program-detail-card:nth-child(even) .program-visual-side { border-right: none; border-left: 1px solid var(--border-color); }
+
+    .program-info-side { padding: 36px; display: flex; flex-direction: column; justify-content: center; }
+    .program-pill {
+      font-size: 11px; font-weight: 700; color: var(--gold-accent); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;
+    }
+    .program-info-side h3 { font-family: var(--font-heading); font-size: 24px; color: var(--lilac-dark); margin-bottom: 12px; }
+    .program-info-side p { font-size: 14px; color: #555566; line-height: 1.7; margin-bottom: 16px; }
+    
+    .impact-points {
+      background: var(--lilac-light); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; font-size: 13px; color: #4B3A5A;
+    }
+    .impact-points li { margin-left: 18px; margin-bottom: 6px; }
+
+    .btn-act-program {
+      align-self: flex-start; background: var(--gold-gradient); color: #362203; text-decoration: none;
+      padding: 11px 24px; border-radius: 8px; font-size: 13px; font-weight: 800; border: 1px solid #E6C265;
+      box-shadow: 0 4px 12px rgba(197, 154, 63, 0.35); display: inline-flex; align-items: center; gap: 8px;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: linear-gradient(135deg, #3B1B4F 0%, #4F2D64 60%, #351747 100%);
+      color: white; padding: 45px 30px 24px 30px; font-size: 13px; border-top: 3px solid #D4AF37;
+    }
+    .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+    .footer-brand h4 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: var(--gold-accent); font-family: var(--font-heading); }
+    .footer-brand p { color: #DDD4E4; line-height: 1.6; }
+    .footer-col h5 { font-size: 15px; font-weight: 700; margin-bottom: 12px; color: white; font-family: var(--font-heading); }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #DDD4E4; text-decoration: none; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px; text-align: center; color: #BBA9CA; font-size: 12px; }
+
+    .mobile-bottom-bar {
+      display: none; position: sticky; bottom: 0; left: 0; right: 0; background: white;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.1); padding: 10px 16px; border-top: 1px solid var(--border-color);
+      z-index: 999; justify-content: space-between; gap: 10px;
+    }
+    .btn-mobile-act {
+      flex: 1; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; text-align: center;
+      text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .btn-mobile-donasi { background: var(--gold-gradient); color: #362203; border: 1px solid #E6C265; font-weight: 800; }
+    .btn-mobile-wa { background: #25D366; color: white; }
+
+    /* MOBILE TWEAKS */
+    .device-container.mobile-view .topbar { display: none; }
+    .device-container.mobile-view .nav-links, .device-container.mobile-view .btn-donasi-header { display: none; }
+    .device-container.mobile-view .navbar { padding: 12px 18px; padding-top: 28px; }
+    .device-container.mobile-view .program-detail-card, .device-container.mobile-view .program-detail-card:nth-child(even) { grid-template-columns: 1fr; }
+    .device-container.mobile-view .program-detail-card:nth-child(even) .program-visual-side { order: 0; border-left: none; border-bottom: 1px solid var(--border-color); }
+    .device-container.mobile-view .program-visual-side { border-right: none; border-bottom: 1px solid var(--border-color); padding: 24px 16px; }
+    .device-container.mobile-view .program-info-side { padding: 24px 18px; }
+    .device-container.mobile-view .footer-content { grid-template-columns: 1fr; gap: 20px; }
+    .device-container.mobile-view .mobile-bottom-bar { display: flex; }
+  </style>
+</head>
+<body>
+
+  <!-- TOOLBAR -->
+  <div class="preview-header">
+    <div class="preview-title">
+      <i class="fa-solid fa-hand-holding-heart" style="color: var(--gold-accent);"></i>
+      <span>HALAMAN 3</span> Program Pemberdayaan & Aksi Nyata
+    </div>
+    
+    <div class="nav-page-tabs">
+      <a href="index.html" class="page-tab-btn"><i class="fa-solid fa-home"></i> Beranda</a>
+      <a href="tentang-kami.html" class="page-tab-btn"><i class="fa-solid fa-landmark"></i> Tentang Kami</a>
+      <a href="program.html" class="page-tab-btn active"><i class="fa-solid fa-hand-holding-heart"></i> Program</a>
+      <a href="tunaikan-zakat.html" class="page-tab-btn"><i class="fa-solid fa-qrcode"></i> ZIS & Rekening</a>
+      <a href="laporan.html" class="page-tab-btn"><i class="fa-solid fa-file-pdf"></i> Laporan</a>
+    </div>
+
+    <div class="view-switcher">
+      <button class="btn-switch active" id="btnDesktop" onclick="setMode('desktop')"><i class="fa-solid fa-laptop"></i> Desktop</button>
+      <button class="btn-switch" id="btnMobile" onclick="setMode('mobile')"><i class="fa-solid fa-mobile-screen"></i> HP</button>
+    </div>
+  </div>
+
+  <!-- CONTAINER PREVIEW -->
+  <div class="viewport-wrapper">
+    <div class="device-container desktop-view" id="deviceFrame">
+      <div class="mobile-notch"></div>
+
+      <!-- TOPBAR -->
+      <div class="topbar">
+        <div><i class="fa-solid fa-award" style="color: var(--gold-accent);"></i> Badan Khusus Ormas Wanita Indonesia | Menjaga Amanah, Menguatkan Keluarga</div>
+        <div>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i> 0812-XXXX-XXXX</a>
+          <a href="#"><i class="fa-regular fa-envelope"></i> laz@wanitaindonesia.or.id</a>
+        </div>
+      </div>
+
+      <!-- NAVBAR -->
+      <nav class="navbar">
+        <div class="brand-logo">
+          <div class="logo-badge">WI</div>
+          <div class="brand-text">
+            <h1>LAZ WANITA INDONESIA</h1>
+            <span>Keluarga Mandiri • Indonesia Bermartabat</span>
+          </div>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang-kami.html">Tentang Kami</a></li>
+          <li><a href="program.html" class="active">Program</a></li>
+          <li><a href="kabar.html">Kabar & Cerita</a></li>
+          <li><a href="laporan.html">Laporan Publik</a></li>
+          <li><a href="tunaikan-zakat.html" class="btn-donasi-header"><i class="fa-solid fa-hand-holding-heart"></i> Tunaikan Zakat & Kebaikan</a></li>
+        </ul>
+      </nav>
+
+      <!-- PAGE HERO -->
+      <header class="page-hero">
+        <h2>3 Pilar Program <span>LAZ Wanita Indonesia</span></h2>
+        <p>Disalurkan secara tepat sasaran, terukur, dan berkelanjutan untuk mengangkat martabat mustahik perempuan dan ketahanan keluarga di wilayah tertinggal.</p>
+      </header>
+
+      <!-- DETAIL PROGRAM -->
+      <main class="programs-container">
+        
+        <!-- PROGRAM 1: UMKM PEREMPUAN -->
+        <article class="program-detail-card">
+          <div class="program-visual-side">
+            <i class="fa-solid fa-store" style="font-size: 54px; margin-bottom: 12px; color: var(--lilac-primary);"></i>
+            <strong style="font-size: 15px; font-family: var(--font-heading);">[ Foto Ibu Pelaku Usaha Binaan ]</strong>
+            <span style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Dokumentasi asli pendampingan warung makan / kerajinan ibu-ibu di DIY</span>
+          </div>
+          <div class="program-info-side">
+            <span class="program-pill">Pilar 1: Kemandirian Ekonomi</span>
+            <h3>Penguatan Modal Usaha Bebas Riba (Ibu Tangguh)</h3>
+            <p>
+              Program permodalan bergulir qardhul hasan (tanpa bunga) dan pelatihan manajemen keuangan rumah tangga yang dirancang khusus untuk memutus jeratan rentenir keliling dan pinjaman online ilegal yang mengancam keutuhan keluarga miskin.
+            </p>
+            <div class="impact-points">
+              <strong>Fokus Intervensi:</strong>
+              <ul>
+                <li>Suntikan modal alat dan bahan baku usaha mikro rumahan.</li>
+                <li>Mentoring pencatatan kas harian & literasi syariah bebas bunga.</li>
+                <li>Pemberdayaan kelompok usaha bersama berbasis majelis taklim perempuan.</li>
+              </ul>
+            </div>
+            <a href="tunaikan-zakat.html" class="btn-act-program"><i class="fa-solid fa-hand-holding-heart"></i> Ulurkan Bantuan untuk Program Ini</a>
+          </div>
+        </article>
+
+        <!-- PROGRAM 2: TANGGAP BENCANA & KARHUTLA -->
+        <article class="program-detail-card">
+          <div class="program-visual-side">
+            <i class="fa-solid fa-fire-flame-curved" style="font-size: 54px; margin-bottom: 12px; color: var(--lilac-primary);"></i>
+            <strong style="font-size: 15px; font-family: var(--font-heading);">[ Foto Posko Kemanusiaan ]</strong>
+            <span style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Dokumentasi aksi lapangan bencana di Aceh & respons tanggap karhutla</span>
+          </div>
+          <div class="program-info-side">
+            <span class="program-pill">Pilar 2: Tanggap Darurat & Sosial</span>
+            <h3>Respons Cepat Kemanusiaan, Kebencanaan & Karhutla</h3>
+            <p>
+              Memanfaatkan rekam jejak panjang relawan Wanita Indonesia dalam merespons bencana alam di berbagai titik (seperti penanganan banjir, gempa, hingga kabut asap karhutla) dengan pendekatan ramah ibu dan anak.
+            </p>
+            <div class="impact-points">
+              <strong>Fokus Intervensi:</strong>
+              <ul>
+                <li>Dapur umum higienis khusus nutrisi balita, ibu hamil, dan lansia.</li>
+                <li>Penyaluran hygiene kit wanita dan perlengkapan bayi darurat.</li>
+                <li>Bantuan oksigen & masker medis di kawasan terdampak kebakaran hutan.</li>
+              </ul>
+            </div>
+            <a href="tunaikan-zakat.html" class="btn-act-program"><i class="fa-solid fa-hand-holding-heart"></i> Ulurkan Bantuan untuk Program Ini</a>
+          </div>
+        </article>
+
+        <!-- PROGRAM 3: PENDIDIKAN & SEKOLAH DARURAT -->
+        <article class="program-detail-card">
+          <div class="program-visual-side">
+            <i class="fa-solid fa-school" style="font-size: 54px; margin-bottom: 12px; color: var(--lilac-primary);"></i>
+            <strong style="font-size: 15px; font-family: var(--font-heading);">[ Foto Ruang Belajar Anak ]</strong>
+            <span style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Dokumentasi sekolah darurat & senyum anak-anak penerima beasiswa</span>
+          </div>
+          <div class="program-info-side">
+            <span class="program-pill">Pilar 3: Pendidikan Generasi</span>
+            <h3>Ruang Belajar & Sekolah Darurat Ramah Anak</h3>
+            <p>
+              Memastikan tidak ada anak yang kehilangan hak belajarnya akibat kemiskinan ekstrem atau fasilitas sekolah yang hancur pascabencana. Lembaga menyediakan ruang kelas tenda, alat tulis, dan beasiswa yatim dhuafa.
+            </p>
+            <div class="impact-points">
+              <strong>Fokus Intervensi:</strong>
+              <ul>
+                <li>Pendirian tenda sekolah darurat dan pojok baca ceria anak.</li>
+                <li>Bantuan paket seragam, tas, dan alat tulis untuk anak pedalaman.</li>
+                <li>Pendampingan trauma healing pascabencana oleh konselor perempuan.</li>
+              </ul>
+            </div>
+            <a href="tunaikan-zakat.html" class="btn-act-program"><i class="fa-solid fa-hand-holding-heart"></i> Ulurkan Bantuan untuk Program Ini</a>
+          </div>
+        </article>
+
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="site-footer">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h4>LAZ WANITA INDONESIA</h4>
+            <p>Badan Khusus Organisasi Kemasyarakatan Wanita Indonesia. Berkhidmat mengangkat harkat perempuan dan ketahanan keluarga berbasis syariat Islam.</p>
+          </div>
+          <div class="footer-col">
+            <h5>Navigasi</h5>
+            <ul>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="tentang-kami.html">Tentang Kami & Sejarah</a></li>
+              <li><a href="program.html">Program Pemberdayaan</a></li>
+              <li><a href="laporan.html">Laporan Publik (Pleno)</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Layanan & Sekretariat</h5>
+            <p style="color: #DDD4E4; font-size: 13px; line-height: 1.6;">
+              Kantor Pusat Wanita Indonesia<br>
+              WhatsApp Amil: 0812-XXXX-XXXX<br>
+              Email: info@wanitaindonesia.or.id
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; 2026 LAZ Wanita Indonesia. Hak Cipta Dilindungi Undang-Undang.
+        </div>
+      </footer>
+
+      <!-- MOBILE BOTTOM BAR -->
+      <div class="mobile-bottom-bar">
+        <a href="tunaikan-zakat.html" class="btn-mobile-act btn-mobile-donasi"><i class="fa-solid fa-hand-holding-dollar"></i> Tunaikan Zakat</a>
+        <a href="https://wa.me/" target="_blank" class="btn-mobile-act btn-mobile-wa"><i class="fa-brands fa-whatsapp"></i> Chat Amil</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function setMode(mode) {
+      const frame = document.getElementById('deviceFrame');
+      const btnDesktop = document.getElementById('btnDesktop');
+      const btnMobile = document.getElementById('btnMobile');
+
+      if (mode === 'mobile') {
+        frame.className = 'device-container mobile-view';
+        btnMobile.classList.add('active');
+        btnDesktop.classList.remove('active');
+      } else {
+        frame.className = 'device-container desktop-view';
+        btnDesktop.classList.add('active');
+        btnMobile.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>

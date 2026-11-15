@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Monitoring Peluncuran Website LAZ Wanita Indonesia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --lilac-primary: #7B5294;
+      --lilac-dark: #4F2D64;
+      --lilac-light: #F6F1F9;
+      --gold-accent: #C59A3F;
+      --gold-light: #FDF7E7;
+      --text-main: #1E1E26;
+      --text-muted: #6B6C7E;
+      --bg-page: #F4F5F8;
+      --card-bg: #FFFFFF;
+      --border-color: #E2E3EB;
+      --status-done: #10B981;
+      --status-done-bg: #ECFDF5;
+      --status-prog: #F59E0B;
+      --status-prog-bg: #FFFBEB;
+      --status-todo: #6B7280;
+      --status-todo-bg: #F3F4F6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      padding: 24px;
+    }
+
+    .dashboard-wrapper {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .header-bar {
+      background: linear-gradient(135deg, var(--lilac-dark), var(--lilac-primary));
+      border-radius: 16px;
+      padding: 24px 30px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 25px rgba(79, 45, 100, 0.2);
+      margin-bottom: 24px;
+    }
+
+    .header-title h1 {
+      font-size: 22px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .badge-budget {
+      background: rgba(197, 154, 63, 0.25);
+      border: 1px solid var(--gold-accent);
+      color: #FFDE8A;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .header-title p {
+      font-size: 13px;
+      color: #E7DBEF;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-action-header {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-action-header:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* STATS ROW */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 18px 20px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .stat-info h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.1;
+    }
+
+    .stat-info span {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* PROGRESS BAR UTAMA */
+    .progress-banner {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 20px 24px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 24px;
+    }
+
+    .progress-header-text {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      height: 12px;
+      background: #E5E7EB;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--lilac-primary), var(--gold-accent));
+      width: 25%;
+      border-radius: 20px;
+      transition: width 0.4s ease;
+    }
+
+    /* MAIN COLUMNS */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+    }
+
+    /* CARD CONTAINER */
+    .panel-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .panel-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FAF9FC;
+    }
+
+    .panel-header h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--lilac-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* CHECKLIST ITEMS */
+    .checklist-list {
+      padding: 8px 0;
+    }
+
+    .check-item {
+      padding: 12px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      border-bottom: 1px solid #F1F2F6;
+      transition: background 0.15s;
+    }
+
+    .check-item:last-child {
+      border-bottom: none;
+    }
+
+    .check-item:hover {
+      background: #FAFAFC;
+    }
+
+    .check-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--lilac-primary);
+      cursor: pointer;
+    }
+
+    .check-content {
+      flex-grow: 1;
+    }
+
+    .check-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .check-item.done .check-title {
+      text-decoration: line-through;
+      color: #9CA3AF;
+    }
+
+    .check-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    .check-badge {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .badge-internal {
+      background: var(--lilac-light);
+      color: var(--lilac-dark);
+      border: 1px solid var(--border-color);
+    }
+
+    .badge-vendor {
+      background: var(--gold-light);
+      color: #8D6B1F;
+      border: 1px solid #E9D5A6;
+    }
+
+    /* TIMELINE STYLES */
+    .timeline-container {
+      padding: 20px;
+    }
+
+    .timeline-step {
+      position: relative;
+      padding-left: 32px;
+      padding-bottom: 24px;
+    }
+
+    .timeline-step:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-step::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 20px;
+      bottom: 0;
+      width: 2px;
+      background: #E5E7EB;
+    }
+
+    .timeline-step:last-child::before {
+      display: none;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid #D1D5DB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #6B7280;
+    }
+
+    .timeline-step.active .timeline-dot {
+      border-color: var(--gold-accent);
+      background: var(--gold-accent);
+      color: white;
+      box-shadow: 0 0 0 4px rgba(197, 154, 63, 0.2);
+    }
+
+    .timeline-step.completed .timeline-dot {
+      border-color: var(--status-done);
+      background: var(--status-done);
+      color: white;
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .step-time {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .step-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* QUICK ACTIONS / NOTES */
+    .notes-box {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 12px;
+      color: #92400E;
+      line-height: 1.5;
+      margin: 16px 20px;
+    }
+
+    @media (max-width: 900px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-wrapper">
+
+    <!-- 1. HEADER UTAMA -->
+    <div class="header-bar">
+      <div class="header-title">
+        <h1>
+          <i class="fa-solid fa-gauge-high" style="color: var(--gold-accent);"></i>
+          Dashboard Pengawalan Web LAZ Wanita Indonesia
+          
+        </h1>
+        <p>Pantau kelengkapan berkas internal, progress vendor WordPress Elementor, hingga hari peluncuran.</p>
+      </div>
+      <div class="header-actions">
+        <a href="index.html" target="_blank" class="btn-action-header">
+          <i class="fa-solid fa-eye"></i> Buka Mockup Web
+        </a>
+      </div>
+    </div>
+
+    <!-- 2. STATISTIK CEPAT -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon" style="background: var(--lilac-light); color: var(--lilac-primary);">
+          <i class="fa-solid fa-list-check"></i>
+        </div>
+        <div class="stat-info">
+          <h3 id="statCompleted">3 / 12</h3>
+          <span>Tugas Selesai</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: var(--gold-light); color: var(--gold-accent);">
+          <i class="fa-solid fa-hourglass-half"></i>
+        </div>
+        <div class="stat-info">
+          <h3>Fase 1</h3>
+          <span>Penyiapan Aset</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: #E0F2FE; color: #0284C7;">
+          <i class="fa-solid fa-calendar-day"></i>
+        </div>
+        <div class="stat-info">
+          <h3>Selasa</h3>
+          <span>Struktur Selesai</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: #ECFDF5; color: #10B981;">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div class="stat-info">
+          <h3>On-Track</h3>
+          <span>Status Proyek</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. PROGRESS BAR KELENGKAPAN -->
+    <div class="progress-banner">
+      <div class="progress-header-text">
+        <span>Tingkat Kesiapan Peluncuran Website</span>
+        <span id="percentText">25% Lengkap</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressBar" style="width: 25%;"></div>
+      </div>
+    </div>
+
+    <!-- 4. GRID UTAMA -->
+    <div class="main-grid">
+
+      <!-- KOLOM KIRI: CHECKLIST INFORMASI & TUGAS -->
+      <div>
+
+        <!-- PANEL 1: KELENGKAPAN TIM INTERNAL LAZ WI -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2><i class="fa-solid fa-folder-open"></i> A. Kelengkapan Berkas Internal (Milik LAZ WI)</h2>
+            <span class="check-badge badge-internal">Tugas Tim WI</span>
+          </div>
+          <div class="checklist-list" id="internalTasks">
+
+            <div class="check-item done">
+              <input type="checkbox" checked onchange="toggleTask(this)">
+              <div class="check-content">
+                <div class="check-title">Konsep & Mockup Visual Disepakati</div>
+                <div class="check-desc">Skema warna Lilac, Gold, Abu-abu, serta layout desktop & HP sudah dibuat.</div>
+              </div>
+            </div>
+
+            <div class="check-item done">
+              <input type="checkbox" checked onchange="toggleTask(this)">
+              <div class="check-content">
+                <div class="check-title">Pilihan Mekanisme Donasi Diputuskan</div>
+                <div class="check-desc">Menggunakan kombinasi Transfer Bank Manual + QRIS Statis + Konfirmasi WA.</div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <div class="check-content">
+                <div class="check-title">Penetapan Nama Domain Resmi</div>
+                <div class="check-desc">Tentukan domain (contoh: <code>lazwanitaindonesia.or.id</code> atau <code>.id</code>) beserta syarat KTP/SK Ormas.</div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <div class="check-content">
+                <div class="check-title">Nomor Rekening & Gambar QRIS Statis</div>
+                <div class="check-desc">No. rekening resmi Zakat & Infak/Kemanusiaan atas nama yayasan + file gambar QRIS tajam.</div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <div class="check-content">
+                <div class="check-title">Struktur Organisasi & Dewan Pengawas Syariah</div>
+                <div class="check-desc">Bagan organisasi final (jadwal Selasa) + daftar nama pimpinan & DPS untuk dipublish.</div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <div class="check-content">
+                <div class="check-title">Aset Logo & Foto Dokumentasi Aksi</div>
+                <div class="check-desc">Logo resolusi tinggi + foto kegiatan (sekolah darurat, respon bencana, UMKM) atau arahan ilustrasi.</div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <div class="check-content">
+                <div class="check-title">Kontak Center & Alamat Sekretariat</div>
+                <div class="check-desc">Nomor WhatsApp resmi amil yang siaga dan alamat kantor lembaga.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PANEL 2: PENGAWALAN VENDOR TEKNIS -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2><i class="fa-solid fa-code"></i> B. Pengawalan Pengerjaan Teknis (Pengembang Web)</h2>
+            <span class="check-badge badge-vendor">Tugas Vendor</span>
+          </div>
+          <div class="checklist-list" id="vendorTasks">
+
+            <div class="check-item done">
+              <input type="checkbox" checked onchange="toggleTask(this)">
+              <div class="check-content">
+                <div class="check-title">Penyusunan Brief & Dokumen Acuan (TOR)</div>
+                <div class="check-desc">Dokumen spesifikasi WordPress + Elementor siap diserahkan ke vendor.</div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <div class="check-content">
+                <div class="check-title">Setup Domain, Hosting & SSL HTTPS</div>
+                <div class="check-desc">Memastikan web beroperasi aman dengan gembok hijau (SSL aktif).</div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <div class="check-content">
+                <div class="check-title">Slicing Layout Elementor (Versi Desktop)</div>
+                <div class="check-desc">Membangun tampilan Beranda, Tentang Kami, Program, dan Halaman Donasi sesuai mockup.</div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <div class="check-content">
+                <div class="check-title">Optimasi Khusus Layar HP (Mobile View)</div>
+                <div class="check-desc">Menu responsif, tombol copy rekening, dan sticky bottom bar donasi/WA di smartphone.</div>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <input type="checkbox" onchange="toggleTask(this)">
+              <div class="check-content">
+                <div class="check-title">Serah Terima Akun Admin & Sesi Training Singkat</div>
+                <div class="check-desc">Penyerahan akses WordPress/cPanel + panduan upload berita & ganti info rekening.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- KOLOM KANAN: TIMELINE & CATATAN PENTING -->
+      <div>
+
+        <!-- PANEL TIMELINE PELUNCURAN -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2><i class="fa-solid fa-clock-rotate-left"></i> Timeline Peluncuran (Target 14 Hari)</h2>
+          </div>
+          <div class="timeline-container">
+            
+            <div class="timeline-step completed">
+              <div class="timeline-dot"><i class="fa-solid fa-check"></i></div>
+              <div class="step-title">
+                Fase 1: Konsep & Blueprint
+                <span class="step-time">Selesai</span>
+              </div>
+              <div class="step-desc">Penetapan benchmark Dompet Dhuafa adaptif, skema warna, dan mockup visual.</div>
+            </div>
+
+            <div class="timeline-step active">
+              <div class="timeline-dot"><i class="fa-solid fa-pen"></i></div>
+              <div class="step-title">
+                Fase 2: Pengumpulan Aset Internal
+                <span class="step-time">Hari 1–3</span>
+              </div>
+              <div class="step-desc">Penyelesaian struktur pengurus (Selasa), no. rekening, QRIS, dan pemilihan domain.</div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="timeline-dot">3</div>
+              <div class="step-title">
+                Fase 3: Eksekusi Vendor di Elementor
+                <span class="step-time">Hari 4–9</span>
+              </div>
+              <div class="step-desc">Vendor membangun website versi desktop & mobile berdasarkan mockup yang disepakati.</div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="timeline-dot">4</div>
+              <div class="step-title">
+                Fase 4: Input Konten & Uji Fungsi
+                <span class="step-time">Hari 10–12</span>
+              </div>
+              <div class="step-desc">Uji coba donasi transfer di HP, uji tombol WA, dan perbaikan revisi minor.</div>
+            </div>
+
+            <div class="timeline-step">
+              <div class="timeline-dot">5</div>
+              <div class="step-title">
+                Fase 5: Peluncuran Resmi (Go-Live)
+                <span class="step-time">Hari 13–14</span>
+              </div>
+              <div class="step-desc">Serah terima password, training admin internal, dan rilis publik ke pengurus pusat WI.</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PANEL CATATAN AMUNISI KONSULTAN -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2><i class="fa-solid fa-lightbulb" style="color: var(--gold-accent);"></i> Pengingat Manajemen Pengingat Konsultan (Bujet 3 Jt) Koordinasi</h2>
+          </div>
+          <div class="notes-box">
+            <strong>Kunci Keberhasilan:</strong> Tim pengembang web bekerja berdasarkan bahan yang Anda sediakan. Semakin cepat nomor rekening, foto kegiatan, dan teks program diserahkan dalam 1 folder Google Drive, semakin cepat website ini tayang!
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function toggleTask(checkbox) {
+      const item = checkbox.closest('.check-item');
+      if (checkbox.checked) {
+        item.classList.add('done');
+      } else {
+        item.classList.remove('done');
+      }
+      recalculateStats();
+    }
+
+    function recalculateStats() {
+      const checkboxes = document.querySelectorAll('.check-item input[type="checkbox"]');
+      const total = checkboxes.length;
+      let checked = 0;
+
+      checkboxes.forEach(cb => {
+        if (cb.checked) checked++;
+      });
+
+      const percent = Math.round((checked / total) * 100);
+      document.getElementById('statCompleted').innerText = checked + ' / ' + total;
+      document.getElementById('percentText').innerText = percent + '% Lengkap';
+      document.getElementById('progressBar').style.width = percent + '%';
+    }
+  </script>
+</body>
+</html>
