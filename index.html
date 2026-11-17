@@ -14,11 +14,11 @@
   
   <style>
     :root {
-      --lilac-primary: #7B5294;
-      --lilac-dark: #4F2D64;
-      --lilac-light: #F7F2FA;
-      --lilac-soft: #E8DCEF;
-      --gold-accent: #D4AF37; --gold-gradient: linear-gradient(135deg, #ECC874 0%, #C59A3F 50%, #9E7422 100%); --gold-glow: 0 4px 15px rgba(197, 154, 63, 0.4);
+      --lilac-primary: #54366F;
+      --lilac-dark: #3D2452;
+      --lilac-light: #F5F0FA;
+      --lilac-soft: #D9C9E8;
+      --gold-accent: #C5A46D; --gold-gradient: linear-gradient(135deg, #ECC874 0%, #C59A3F 50%, #9E7422 100%); --gold-glow: 0 4px 15px rgba(197, 154, 63, 0.4);
       --gold-light: #FDF7E7;
       --text-dark: #22222B;
       --text-muted: #666675;
@@ -220,7 +220,7 @@
 
     /* TOPBAR */
     .topbar {
-      background: linear-gradient(90deg, #3E1E52 0%, #58336E 50%, #46225B 100%);
+      background: linear-gradient(90deg, #3E1E52 0%, #54366F 50%, #46225B 100%);
       color: white;
       padding: 9px 30px;
       font-size: 12px;
@@ -327,7 +327,7 @@
     }
 
     .btn-donasi-header {
-      background: linear-gradient(135deg, #F5D77F 0%, #D4AF37 40%, #B3862D 100%) !important;
+      background: linear-gradient(135deg, #F5D77F 0%, #C5A46D 40%, #B3862D 100%) !important;
       color: #362203 !important;
       text-shadow: 0 1px 0 rgba(255,255,255,0.4);
       padding: 10px 22px;
@@ -335,7 +335,7 @@
       font-size: 13px !important;
       font-weight: 800 !important;
       box-shadow: 0 4px 15px rgba(197, 154, 63, 0.45), inset 0 1px 1px rgba(255,255,255,0.6);
-      border: 1px solid #E6C265 !important;
+      border: 1px solid #C5A46D !important;
       transition: all 0.25s ease;
       display: inline-flex;
       align-items: center;
@@ -407,7 +407,7 @@
     }
 
     .btn-primary-hero {
-      background: linear-gradient(135deg, #956AB2 0%, #7B5294 50%, #5C3275 100%);
+      background: linear-gradient(135deg, #956AB2 0%, #54366F 50%, #5C3275 100%);
       color: white;
       padding: 13px 26px;
       border-radius: 8px;
@@ -460,6 +460,51 @@
       font-weight: 700;
       font-size: 14px;
       text-decoration: none;
+    }
+
+    
+    /* HERO SLIDER AUTO SLIDESHOW */
+    .hero-slider-wrap {
+      position: relative;
+    }
+    .slider-container {
+      position: relative;
+      background: var(--lilac-light);
+      border: 2px dashed #B8A1C9;
+      border-radius: 20px;
+      min-height: 300px;
+      overflow: hidden;
+    }
+    .hero-slide {
+      display: none;
+      padding: 45px 24px;
+      text-align: center;
+      animation: fadeEffect 0.6s ease;
+    }
+    .hero-slide.active {
+      display: block;
+    }
+    @keyframes fadeEffect {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .slider-dots .dot {
+      width: 28px;
+      height: 6px;
+      border-radius: 4px;
+      background: #D9C9E8;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .slider-dots .dot.active {
+      background: var(--lilac-primary);
+      width: 44px;
     }
 
     /* PLACEHOLDER VISUAL HERO */
@@ -646,7 +691,7 @@
     }
 
     .btn-card-donasi:hover {
-      background: linear-gradient(135deg, #F5D77F 0%, #D4AF37 45%, #B3862D 100%);
+      background: linear-gradient(135deg, #F5D77F 0%, #C5A46D 45%, #B3862D 100%);
       color: #362203;
       border-color: #C59A3F;
       box-shadow: 0 4px 12px rgba(197, 154, 63, 0.35);
@@ -1014,7 +1059,7 @@
       color: white;
       padding: 45px 30px 24px 30px;
       font-size: 13px;
-      border-top: 3px solid #D4AF37;
+      border-top: 3px solid #C5A46D;
     }
 
     .footer-content {
@@ -1098,10 +1143,10 @@
     }
 
     .btn-mobile-donasi {
-      background: linear-gradient(135deg, #F5D77F 0%, #D4AF37 40%, #B3862D 100%);
+      background: linear-gradient(135deg, #F5D77F 0%, #C5A46D 40%, #B3862D 100%);
       color: #362203;
       font-weight: 800;
-      border: 1px solid #E6C265;
+      border: 1px solid #C5A46D;
       box-shadow: 0 2px 8px rgba(197, 154, 63, 0.35);
     }
 
@@ -1300,11 +1345,36 @@
           </div>
         </div>
 
-        <div class="hero-visual-card">
-          <div class="visual-badge">Aset Visual Asli 800x600px</div>
-          <div class="visual-icon"><i class="fa-solid fa-people-roof"></i></div>
-          <div class="visual-title">[ Foto Asli Dokumentasi Lapangan ]</div>
-          <div class="visual-desc">Wajib foto asli pengurus berseragam WI saat bakti sosial, aksi bencana Aceh/karhutla, atau senyum ibu binaan UMKM. Hindari render AI palsu.</div>
+                <div class="hero-slider-wrap">
+          <div class="slider-container" id="heroSlider">
+            <!-- SLIDE 1 -->
+            <div class="hero-slide active">
+              <div class="visual-badge">Dokumentasi Program 1</div>
+              <div class="visual-icon"><i class="fa-solid fa-store"></i></div>
+              <div class="visual-title">[ Foto Pemberdayaan UMKM Ibu Tangguh ]</div>
+              <div class="visual-desc">Dokumentasi asli penyerahan modal usaha bergulir & mentoring bebas jerat rentenir di wilayah binaan.</div>
+            </div>
+            <!-- SLIDE 2 -->
+            <div class="hero-slide">
+              <div class="visual-badge" style="background: #54366F;">Dokumentasi Program 2</div>
+              <div class="visual-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+              <div class="visual-title">[ Foto Tanggap Bencana & Karhutla ]</div>
+              <div class="visual-desc">Aksi tanggap darurat relawan perempuan: dapur umum ramah balita, tenda darurat & distribusi masker.</div>
+            </div>
+            <!-- SLIDE 3 -->
+            <div class="hero-slide">
+              <div class="visual-badge">Dokumentasi Program 3</div>
+              <div class="visual-icon"><i class="fa-solid fa-school"></i></div>
+              <div class="visual-title">[ Foto Ruang Belajar & Sekolah Darurat ]</div>
+              <div class="visual-desc">Penyediaan ruang kelas darurat, paket alat tulis, dan pendampingan trauma healing anak pelosok.</div>
+            </div>
+          </div>
+          <!-- SLIDER CONTROLS -->
+          <div class="slider-dots">
+            <span class="dot active" onclick="setSlide(0)"></span>
+            <span class="dot" onclick="setSlide(1)"></span>
+            <span class="dot" onclick="setSlide(2)"></span>
+          </div>
         </div>
       </section>
 
@@ -1617,6 +1687,29 @@
   </div>
 
   <script>
+    
+    let currentSlideIdx = 0;
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+
+    function showSlide(idx) {
+      if (!slides.length) return;
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      
+      currentSlideIdx = (idx + slides.length) % slides.length;
+      slides[currentSlideIdx].classList.add('active');
+      dots[currentSlideIdx].classList.add('active');
+    }
+
+    function setSlide(idx) {
+      showSlide(idx);
+    }
+
+    setInterval(() => {
+      showSlide(currentSlideIdx + 1);
+    }, 4000);
+
     function setMode(mode) {
       const frame = document.getElementById('deviceFrame');
       const btnDesktop = document.getElementById('btnDesktop');
