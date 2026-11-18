@@ -195,12 +195,19 @@
       display: none !important;
     }
 
-    @media (min-width: 769px) {
-      .mobile-drawer-menu,
-      .mobile-right-actions,
-      .mobile-bottom-bar {
-        display: none !important;
-      }
+    /* Pastikan elemen mobile tersembunyi di desktop view */
+    .device-container.desktop-view .mobile-drawer-menu,
+    .device-container.desktop-view .mobile-right-actions,
+    .device-container.desktop-view .mobile-bottom-bar {
+      display: none !important;
+    }
+
+    /* Pastikan elemen mobile SELALU AKTIF di mobile view (meski diakses dari layar laptop) */
+    .device-container.mobile-view .mobile-right-actions {
+      display: flex !important;
+    }
+    .device-container.mobile-view .mobile-bottom-bar {
+      display: flex !important;
     }
 
     /* Mode Mobile */
