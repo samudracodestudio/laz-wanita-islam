@@ -183,17 +183,108 @@
     .footer-col a { color: #DDD4E4; text-decoration: none; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px; text-align: center; color: #BBA9CA; font-size: 12px; }
 
+    /* STICKY BOTTOM BAR & BACK-TO-TOP (PERSIS BENCHMARK DOMPET DHUAFA) */
     .mobile-bottom-bar {
-      display: none; position: sticky; bottom: 0; left: 0; right: 0; background: white;
-      box-shadow: 0 -4px 15px rgba(0,0,0,0.1); padding: 10px 16px; border-top: 1px solid var(--border-color);
-      z-index: 999; justify-content: space-between; gap: 10px;
+      display: none;
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #FFFFFF;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+      padding: 6px 16px 10px 16px;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      z-index: 999;
+      align-items: center;
+      justify-content: space-between;
+      overflow: visible;
     }
-    .btn-mobile-act {
-      flex: 1; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 700; text-align: center;
-      text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px;
+
+        /* TOMBOL SCROLL TO TOP ALA DOMPET DHUAFA (SEJAJAR CENTER DI ATAS TAB BERANDA) */
+    .mobile-back-to-top {
+      position: absolute;
+      top: -39px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 32px;
+      background: linear-gradient(180deg, #6A448C 0%, var(--lilac-primary) 100%);
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      border-bottom: none;
+      color: #FFFFFF;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 -4px 12px rgba(84, 54, 111, 0.25);
+      z-index: 998;
     }
-    .btn-mobile-donasi { background: var(--gold-gradient); color: #362203; border: 1px solid #C5A46D; font-weight: 800; }
-    .btn-mobile-wa { background: #25D366; color: white; }
+    .mobile-back-to-top:hover,
+    .mobile-back-to-top:active {
+      opacity: 1 !important;
+      transform: translateX(-50%) translateY(-2px);
+    }
+
+    .btn-mobile-nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #4A4A58;
+      font-size: 11.5px;
+      font-weight: 600;
+      gap: 3px;
+      padding: 4px 10px;
+      min-width: 60px;
+      transition: all 0.2s ease;
+    }
+    .btn-mobile-nav-tab i {
+      font-size: 21px;
+      color: var(--lilac-primary);
+      transition: transform 0.2s ease;
+    }
+    .btn-mobile-nav-tab.tab-layanan i {
+      color: #16A34A;
+    }
+    .btn-mobile-nav-tab:active i {
+      transform: scale(1.15);
+    }
+
+    /* TOMBOL TUNAIKAN TENGAH (FLOATING ELEVATED) */
+    .btn-mobile-donasi-center {
+      height: 48px;
+      padding: 0 24px;
+      margin-top: -18px;
+      background: linear-gradient(135deg, #ECC874 0%, #C59A3F 50%, #9E7422 100%);
+      color: #2A1700 !important;
+      font-weight: 800;
+      font-size: 14.5px;
+      letter-spacing: 0.2px;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(197, 154, 63, 0.48), 0 2px 6px rgba(0,0,0,0.08);
+      border: 2.5px solid #FFFFFF;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-mobile-donasi-center:hover {
+      box-shadow: 0 10px 25px rgba(197, 154, 63, 0.58);
+      transform: translateY(-2px);
+    }
+    .btn-mobile-donasi-center:active {
+      transform: translateY(0);
+    }
 
     .mobile-right-actions {
       display: none;
