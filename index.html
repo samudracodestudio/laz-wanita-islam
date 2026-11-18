@@ -1210,11 +1210,12 @@
       overflow: visible;
     }
 
-    /* TOMBOL SCROLL TO TOP ALA DOMPET DHUAFA (DI ATAS TAB BERANDA SEBELAH KIRI) */
+        /* TOMBOL SCROLL TO TOP ALA DOMPET DHUAFA (SEJAJAR CENTER DI ATAS TAB BERANDA) */
     .mobile-back-to-top {
       position: absolute;
       top: -32px;
-      left: 16px;
+      left: 50%;
+      transform: translateX(-50%);
       width: 44px;
       height: 32px;
       background: linear-gradient(180deg, #6A448C 0%, var(--lilac-primary) 100%);
@@ -1236,7 +1237,7 @@
     .mobile-back-to-top:hover,
     .mobile-back-to-top:active {
       opacity: 1 !important;
-      transform: translateY(-2px);
+      transform: translateX(-50%) translateY(-2px);
     }
 
     .btn-mobile-nav-tab {
@@ -1904,18 +1905,18 @@
         </div>
       </footer>
 
-      <!-- MOBILE BOTTOM BAR PERSIS DOMPET DHUAFA (BERANDA - TUNAIKAN TENGAH - LAYANAN + BACK TO TOP) -->
+      <!-- MOBILE BOTTOM BAR PERSIS DOMPET DHUAFA (BERANDA - TUNAIKAN TENGAH - LAYANAN + BACK TO TOP SEJAJAR) -->
       <div class="mobile-bottom-bar">
-        <!-- TOMBOL BACK TO TOP KIRI DI ATAS BERANDA -->
-        <button class="mobile-back-to-top" id="mobileBackToTop" onclick="scrollToTop()" aria-label="Kembali ke atas">
-          <i class="fa-solid fa-arrow-up"></i>
-        </button>
-
-        <!-- 1. KIRI: BERANDA -->
-        <a href="index.html" class="btn-mobile-nav-tab">
-          <i class="fa-solid fa-house"></i>
-          <span>Beranda</span>
-        </a>
+        <!-- 1. KIRI: BERANDA & TOMBOL BACK TO TOP PERSIS SEJAJAR CENTER -->
+        <div style="position: relative; display: flex; flex-direction: column; align-items: center;">
+          <button class="mobile-back-to-top" id="mobileBackToTop" onclick="scrollToTop()" aria-label="Kembali ke atas">
+            <i class="fa-solid fa-arrow-up"></i>
+          </button>
+          <a href="index.html" class="btn-mobile-nav-tab">
+            <i class="fa-solid fa-house"></i>
+            <span>Beranda</span>
+          </a>
+        </div>
 
         <!-- 2. TENGAH: TUNAIKAN (FLOATING MENONJOL KE ATAS) -->
         <a href="#donasi" class="btn-mobile-donasi-center">
