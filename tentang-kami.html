@@ -195,14 +195,92 @@
     .btn-mobile-donasi { background: var(--gold-gradient); color: #362203; border: 1px solid #C5A46D; font-weight: 800; }
     .btn-mobile-wa { background: #25D366; color: white; }
 
+    .mobile-right-actions {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+    .mobile-btn-donasi-header {
+      background: var(--gold-gradient);
+      color: #362203 !important;
+      padding: 7px 14px;
+      border-radius: 18px;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid #C5A46D;
+      box-shadow: 0 2px 8px rgba(197, 164, 109, 0.35);
+    }
+    .hamburger-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      padding: 7px 11px;
+      border-radius: 8px;
+      font-size: 16px;
+      color: var(--lilac-primary);
+      cursor: pointer;
+    }
+
+    .mobile-drawer-menu {
+      display: none;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      padding: 16px 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    .mobile-drawer-menu.active {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+    .mobile-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .mobile-drawer-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #F3F4F6;
+    }
+    .mobile-drawer-links a:hover { color: var(--lilac-primary); }
+
     /* MOBILE VIEW TWEAKS */
     .device-container.mobile-view .topbar { display: none; }
     .device-container.mobile-view .nav-links, .device-container.mobile-view .btn-donasi-header { display: none; }
-    .device-container.mobile-view .navbar { padding: 12px 18px; padding-top: 28px; }
+    .device-container.mobile-view .mobile-right-actions { display: flex !important; }
+    .device-container.mobile-view .navbar { padding: 10px 16px !important; justify-content: space-between !important; flex-direction: row !important; }
     .device-container.mobile-view .mandate-grid, .device-container.mobile-view .visi-misi-grid { grid-template-columns: 1fr; gap: 20px; }
     .device-container.mobile-view .structure-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .device-container.mobile-view .footer-content { grid-template-columns: 1fr; gap: 20px; }
     .device-container.mobile-view .mobile-bottom-bar { display: flex; }
+
+    /* MEDIA QUERY RESPONSIVE REAL DEVICE (SMARTPHONE) */
+    @media (max-width: 768px) {
+      body { padding: 0 !important; }
+      .preview-header { display: none !important; }
+      .viewport-wrapper { padding: 0 !important; }
+      .device-container { border-radius: 0 !important; border: none !important; box-shadow: none !important; max-width: 100% !important; width: 100% !important; }
+      .topbar { display: none !important; }
+      .navbar { padding: 10px 16px !important; justify-content: space-between !important; flex-direction: row !important; position: sticky !important; top: 0 !important; z-index: 1000 !important; }
+      .nav-links, .btn-donasi-header { display: none !important; }
+      .mobile-right-actions { display: flex !important; }
+      .page-hero { padding: 30px 16px !important; }
+      .page-hero h2 { font-size: 26px !important; }
+      .mandate-grid, .visi-misi-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .structure-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+      .footer-content { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .mobile-bottom-bar { display: flex !important; }
+    }
   </style>
 </head>
 <body>
@@ -246,12 +324,10 @@
       <!-- NAVBAR -->
       <nav class="navbar">
         <div class="brand-logo">
-        <div class="logo-badge" style="width: auto; min-width: 52px; padding: 0 10px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: transparent; border: none;">
-          <!-- LOGO RESMI LAZ WANITA ISLAM (HANYA LOGO/ICON IMAGE) -->
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_Wanita_Islam.png/300px-Logo_Wanita_Islam.png" alt="Logo LAZ Wanita Islam" style="max-height: 48px; width: auto; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div style="display: none; width: 48px; height: 48px; background: linear-gradient(135deg, #54366F, #3D2452); border: 2px solid #C5A46D; border-radius: 10px; color: white; font-weight: 800; font-size: 18px; align-items: center; justify-content: center;">WI</div>
+          <a href="index.html">
+            <img src="https://laz.wanitaislam.or.id/wp-content/uploads/2026/11/logo-lazwi-fa02-web.webp" alt="Logo LAZ Wanita Islam" style="height: 48px; width: auto; display: block;">
+          </a>
         </div>
-      </div>
         <ul class="nav-links">
           <li><a href="index.html">Beranda</a></li>
           <li><a href="tentang-kami.html" class="active">Tentang Kami</a></li>
@@ -259,7 +335,55 @@
           <li><a href="kabar.html">Kabar & Cerita</a></li>
           <li><a href="tunaikan-zakat.html" class="btn-donasi-header"><i class="fa-solid fa-hand-holding-heart"></i> Tunaikan Zakat & Kebaikan</a></li>
         </ul>
+
+        <!-- ELEMEN KHUSUS HP (ALA DOMPET DHUAFA) -->
+        <div class="mobile-right-actions">
+          <a href="tunaikan-zakat.html" class="mobile-btn-donasi-header">
+            <i class="fa-solid fa-heart"></i> Tunaikan
+          </a>
+          <button class="hamburger-btn" onclick="toggleMobileNav()" aria-label="Menu">
+            <i class="fa-solid fa-bars" id="mobileNavIcon"></i>
+          </button>
+        </div>
       </nav>
+
+      <!-- DRAWER MENU MOBILE -->
+      <div class="mobile-drawer-menu" id="mobileNavDrawer">
+        <ul class="mobile-drawer-links">
+          <li><a href="index.html"><i class="fa-solid fa-house" style="width: 24px; color: var(--gold-accent);"></i> Beranda</a></li>
+          <li><a href="tentang-kami.html"><i class="fa-solid fa-landmark" style="width: 24px; color: var(--gold-accent);"></i> Tentang Kami</a></li>
+          <li><a href="program.html"><i class="fa-solid fa-hand-holding-heart" style="width: 24px; color: var(--gold-accent);"></i> Program Pemberdayaan</a></li>
+          <li><a href="kabar.html"><i class="fa-solid fa-newspaper" style="width: 24px; color: var(--gold-accent);"></i> Kabar & Cerita</a></li>
+        </ul>
+
+        <!-- LAYANAN DONATUR PERSIS DOMPET DHUAFA -->
+        <div style="margin-top: 20px; padding: 18px 0 6px 0; border-top: 1px solid #EFEFEF; font-family: 'Plus Jakarta Sans', sans-serif;">
+          <div style="font-size: 15px; font-weight: 700; color: #22222B; margin-bottom: 14px;">Layanan Donatur</div>
+          <div style="display: flex; flex-direction: column; gap: 13px; font-size: 14px; color: #2C2C35;">
+            
+            <a href="tel:02179192455" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+              <i class="fa-solid fa-phone" style="color: #16A34A; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span>(021) 7919-2455 (Call Center)</span>
+            </a>
+
+            <a href="https://wa.me/6281211112222" target="_blank" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+              <i class="fa-brands fa-whatsapp" style="color: #16A34A; font-size: 18px; width: 20px; text-align: center;"></i>
+              <span>WhatsApp: 6281211112222</span>
+            </a>
+
+            <a href="mailto:sapa@laz.wanitaislam.or.id" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+              <i class="fa-regular fa-envelope" style="color: #16A34A; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span>sapa@laz.wanitaislam.or.id</span>
+            </a>
+
+            <a href="tunaikan-zakat.html#rekeningZakat" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+              <i class="fa-solid fa-wallet" style="color: #16A34A; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span>Rekening Donasi</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
 
       <!-- PAGE HERO -->
       <header class="page-hero">
@@ -439,6 +563,19 @@
   </div>
 
   <script>
+    function toggleMobileNav() {
+      var drawer = document.getElementById('mobileNavDrawer');
+      var icon = document.getElementById('mobileNavIcon');
+      if (!drawer) return;
+      if (drawer.style.display === 'block') {
+        drawer.style.display = 'none';
+        if (icon) icon.className = 'fa-solid fa-bars';
+      } else {
+        drawer.style.display = 'block';
+        if (icon) icon.className = 'fa-solid fa-xmark';
+      }
+    }
+
     function setMode(mode) {
       const frame = document.getElementById('deviceFrame');
       const btnDesktop = document.getElementById('btnDesktop');

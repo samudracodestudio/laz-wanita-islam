@@ -362,14 +362,152 @@
       gap: 20px;
     }
 
+    .mobile-right-actions {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+    .mobile-btn-donasi-header {
+      background: var(--gold-gradient);
+      color: #362203 !important;
+      padding: 7px 14px;
+      border-radius: 18px;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid #C5A46D;
+      box-shadow: 0 2px 8px rgba(197, 164, 109, 0.35);
+    }
+    .hamburger-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      padding: 7px 11px;
+      border-radius: 8px;
+      font-size: 16px;
+      color: var(--lilac-primary);
+      cursor: pointer;
+    }
+
+    .mobile-drawer-menu {
+      display: none;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      padding: 16px 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    .mobile-drawer-menu.active {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+    .mobile-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .mobile-drawer-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #F3F4F6;
+    }
+    .mobile-drawer-links a:hover { color: var(--lilac-primary); }
+
     .device-container.mobile-view .calc-tabs {
       flex-direction: column;
       gap: 6px;
     }
 
+    .device-container.mobile-view .nav-links,
+    .device-container.mobile-view .btn-donasi-header {
+      display: none !important;
+    }
+    .device-container.mobile-view .mobile-right-actions {
+      display: flex !important;
+    }
+    .device-container.mobile-view .navbar {
+      padding: 10px 16px !important;
+      justify-content: space-between !important;
+      flex-direction: row !important;
+    }
+
     .device-container.mobile-view .donation-grid-main { grid-template-columns: 1fr; gap: 24px; }
     .device-container.mobile-view .footer-content { grid-template-columns: 1fr; gap: 20px; }
     .device-container.mobile-view .mobile-bottom-bar { display: flex; }
+
+    /* MEDIA QUERY RESPONSIVE REAL DEVICE (SMARTPHONE) */
+    @media (max-width: 768px) {
+      body {
+        padding: 0 !important;
+      }
+      .preview-header {
+        display: none !important;
+      }
+      .viewport-wrapper {
+        padding: 0 !important;
+      }
+      .device-container {
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      .topbar {
+        display: none !important;
+      }
+      .navbar {
+        padding: 10px 16px !important;
+        justify-content: space-between !important;
+        flex-direction: row !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
+      }
+      .nav-links,
+      .btn-donasi-header {
+        display: none !important;
+      }
+      .mobile-right-actions {
+        display: flex !important;
+      }
+      .page-hero {
+        padding: 30px 16px !important;
+      }
+      .page-hero h2 {
+        font-size: 26px !important;
+      }
+      .donation-page-container {
+        padding: 24px 16px !important;
+      }
+      .calc-body-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      .calc-tabs {
+        flex-direction: column !important;
+        gap: 6px !important;
+      }
+      .donation-grid-main {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      .footer-content {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      .mobile-bottom-bar {
+        display: flex !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -412,12 +550,10 @@
       <!-- NAVBAR -->
       <nav class="navbar">
         <div class="brand-logo">
-        <div class="logo-badge" style="width: auto; min-width: 52px; padding: 0 10px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: transparent; border: none;">
-          <!-- LOGO RESMI LAZ WANITA ISLAM (HANYA LOGO/ICON IMAGE) -->
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_Wanita_Islam.png/300px-Logo_Wanita_Islam.png" alt="Logo LAZ Wanita Islam" style="max-height: 48px; width: auto; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div style="display: none; width: 48px; height: 48px; background: linear-gradient(135deg, #54366F, #3D2452); border: 2px solid #C5A46D; border-radius: 10px; color: white; font-weight: 800; font-size: 18px; align-items: center; justify-content: center;">WI</div>
+          <a href="index.html">
+            <img src="https://laz.wanitaislam.or.id/wp-content/uploads/2026/11/logo-lazwi-fa02-web.webp" alt="Logo LAZ Wanita Islam" style="height: 48px; width: auto; display: block;">
+          </a>
         </div>
-      </div>
         <ul class="nav-links">
           <li><a href="index.html">Beranda</a></li>
           <li><a href="tentang-kami.html">Tentang Kami</a></li>
@@ -425,7 +561,55 @@
           <li><a href="kabar.html">Kabar & Cerita</a></li>
           <li><a href="tunaikan-zakat.html" class="btn-donasi-header"><i class="fa-solid fa-hand-holding-heart"></i> Tunaikan Zakat & Kebaikan</a></li>
         </ul>
+
+        <!-- ELEMEN KHUSUS HP (ALA DOMPET DHUAFA) -->
+        <div class="mobile-right-actions">
+          <a href="tunaikan-zakat.html" class="mobile-btn-donasi-header">
+            <i class="fa-solid fa-heart"></i> Tunaikan
+          </a>
+          <button class="hamburger-btn" onclick="toggleMobileNav()" aria-label="Menu">
+            <i class="fa-solid fa-bars" id="mobileNavIcon"></i>
+          </button>
+        </div>
       </nav>
+
+      <!-- DRAWER MENU MOBILE -->
+      <div class="mobile-drawer-menu" id="mobileNavDrawer">
+        <ul class="mobile-drawer-links">
+          <li><a href="index.html"><i class="fa-solid fa-house" style="width: 24px; color: var(--gold-accent);"></i> Beranda</a></li>
+          <li><a href="tentang-kami.html"><i class="fa-solid fa-landmark" style="width: 24px; color: var(--gold-accent);"></i> Tentang Kami</a></li>
+          <li><a href="program.html"><i class="fa-solid fa-hand-holding-heart" style="width: 24px; color: var(--gold-accent);"></i> Program Pemberdayaan</a></li>
+          <li><a href="kabar.html"><i class="fa-solid fa-newspaper" style="width: 24px; color: var(--gold-accent);"></i> Kabar & Cerita</a></li>
+        </ul>
+
+        <!-- LAYANAN DONATUR PERSIS DOMPET DHUAFA -->
+        <div style="margin-top: 20px; padding: 18px 0 6px 0; border-top: 1px solid #EFEFEF; font-family: 'Plus Jakarta Sans', sans-serif;">
+          <div style="font-size: 15px; font-weight: 700; color: #22222B; margin-bottom: 14px;">Layanan Donatur</div>
+          <div style="display: flex; flex-direction: column; gap: 13px; font-size: 14px; color: #2C2C35;">
+            
+            <a href="tel:02179192455" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+              <i class="fa-solid fa-phone" style="color: #16A34A; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span>(021) 7919-2455 (Call Center)</span>
+            </a>
+
+            <a href="https://wa.me/6281211112222" target="_blank" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+              <i class="fa-brands fa-whatsapp" style="color: #16A34A; font-size: 18px; width: 20px; text-align: center;"></i>
+              <span>WhatsApp: 6281211112222</span>
+            </a>
+
+            <a href="mailto:sapa@laz.wanitaislam.or.id" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+              <i class="fa-regular fa-envelope" style="color: #16A34A; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span>sapa@laz.wanitaislam.or.id</span>
+            </a>
+
+            <a href="#rekeningZakat" onclick="toggleMobileNav()" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+              <i class="fa-solid fa-wallet" style="color: #16A34A; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span>Rekening Donasi</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
 
       <!-- PAGE HERO -->
       <header class="page-hero">
@@ -509,22 +693,33 @@
               Rekening Khusus Zakat Maal & Zakat Fitrah
             </div>
             
-            <div class="bank-card">
-              <div class="bank-info">
-                <h5>Bank Syariah Indonesia (BSI)</h5>
-                <div class="acc-number">3170014702</div>
-                <div class="acc-name">a.n. Perkumpulan Wanita Islam - Zakat</div>
+            <!-- BANK MUAMALAT UTAMA -->
+            <div class="bank-card bank-card-featured" style="border: 1.5px solid #D9C9E8; background: #FFFFFF; border-radius: 12px; padding: 16px 18px; margin-bottom: 14px; box-shadow: 0 4px 15px rgba(84, 54, 111, 0.05);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #F2EFF6; padding-bottom: 10px;">
+                <img src="Logo LAZWI/bank-muamalat.png" alt="Bank Muamalat" style="height: 32px; width: auto; object-fit: contain;">
+                <span style="font-size: 11px; font-weight: 700; color: #54366F; background: #F3ECF8; padding: 3px 10px; border-radius: 20px; border: 1px solid #D9C9E8;">
+                  <i class="fa-solid fa-star" style="color: #C5A46D; font-size: 10px;"></i> Rekening Utama Syariah
+                </span>
               </div>
-              <button class="btn-copy" onclick="copyText('3170014702')"><i class="fa-regular fa-copy"></i> Salin No. Rek</button>
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 10px;">
+                <div class="bank-info">
+                  <div style="font-size: 11px; font-weight: 600; color: #888899; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Bank Muamalat (Zakat Maal & Fitrah)</div>
+                  <div class="acc-number" style="font-family: 'Courier New', monospace; font-size: 21px; font-weight: 800; color: #22222B; letter-spacing: 1.5px; margin-bottom: 3px;">3170014702</div>
+                  <div class="acc-name" style="font-size: 13px; color: #555566; font-weight: 600;">a.n. Perkumpulan Wanita Islam</div>
+                </div>
+                <button class="btn-copy" onclick="copyAccount('3170014702', this)" style="background: linear-gradient(135deg, #FDF7E7 0%, #F5ECDA 100%); border: 1px solid #C5A46D; color: #54366F; font-weight: 700; padding: 8px 16px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 13px;">
+                  <i class="fa-regular fa-copy"></i> <span>Salin No. Rek</span>
+                </button>
+              </div>
             </div>
 
             <div class="bank-card">
               <div class="bank-info">
-                <h5>Bank Muamalat</h5>
-                <div class="acc-number">3170014702</div>
+                <h5>Bank Syariah Indonesia (BSI)</h5>
+                <div class="acc-number">718-999-0012</div>
                 <div class="acc-name">a.n. Perkumpulan Wanita Islam - Zakat</div>
               </div>
-              <button class="btn-copy" onclick="copyText('3170014702')"><i class="fa-regular fa-copy"></i> Salin No. Rek</button>
+              <button class="btn-copy" onclick="copyAccount('7189990012', this)"><i class="fa-regular fa-copy"></i> Salin No. Rek</button>
             </div>
 
             <!-- REKENING INFAK & KEMANUSIAAN -->
@@ -555,7 +750,7 @@
             <div class="wa-confirm-card">
               <h4><i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Konfirmasi Donasi Anda</h4>
               <p>Agar dana Anda tercatat dan diterbitkan bukti setor zakat resmi, mohon kirimkan bukti transfer ke Amil kami:</p>
-              <a href="https://wa.me/?text=Assalamu%27alaikum%20Amil%20LAZ%20Wanita%20Indonesia%2C%20saya%20sudah%20mentransfer%20donasi%20sebesar%20Rp..." target="_blank" class="btn-wa-confirm-large">
+              <a href="https://wa.me/?text=Assalamu%27alaikum%20Amil%20LAZ%20Wanita%20Islam%2C%20saya%20sudah%20mentransfer%20donasi%20sebesar%20Rp..." target="_blank" class="btn-wa-confirm-large">
                 <i class="fa-brands fa-whatsapp"></i> Konfirmasi via WhatsApp Sekarang
               </a>
             </div>
@@ -724,6 +919,39 @@
         frame.className = 'device-container desktop-view';
         btnDesktop.classList.add('active');
         btnMobile.classList.remove('active');
+      }
+    }
+
+    function toggleMobileNav() {
+      var drawer = document.getElementById('mobileNavDrawer');
+      var icon = document.getElementById('mobileNavIcon');
+      if (!drawer) return;
+      if (drawer.style.display === 'block') {
+        drawer.style.display = 'none';
+        if (icon) icon.className = 'fa-solid fa-bars';
+      } else {
+        drawer.style.display = 'block';
+        if (icon) icon.className = 'fa-solid fa-xmark';
+      }
+    }
+
+    function copyAccount(text, btn) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(function() {
+          if (btn) {
+            var origHtml = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-check" style="color: #10B981;"></i> <span style="color: #10B981;">Tersalin!</span>';
+            btn.style.borderColor = '#10B981';
+            setTimeout(function() {
+              btn.innerHTML = origHtml;
+              btn.style.borderColor = '';
+            }, 2000);
+          }
+        }).catch(function() {
+          copyText(text);
+        });
+      } else {
+        copyText(text);
       }
     }
 

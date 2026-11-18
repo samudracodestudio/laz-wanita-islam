@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="100%" height="100%">
+  <defs>
+    <linearGradient id="muamalatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6B1D73"/>
+      <stop offset="100%" stop-color="#48114E"/>
+    </linearGradient>
+  </defs>
+  <!-- Simbol Geometris Muamalat -->
+  <g transform="translate(15, 12)">
+    <rect x="0" y="12" width="32" height="32" rx="6" fill="url(#muamalatGrad)" transform="rotate(45 16 28)"/>
+    <path d="M8 28 L16 16 L24 28 L16 40 Z" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="16" cy="28" r="4" fill="#E5B25D"/>
+  </g>
+  <!-- Tipografi Teks Bank Muamalat -->
+  <text x="72" y="38" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="20" font-weight="800" fill="#5A1A66" letter-spacing="0.5">Bank Muamalat</text>
+  <text x="74" y="54" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="10.5" font-weight="600" fill="#888899" letter-spacing="1.5">PERTAMA MURNI SYARIAH</text>
+</svg>

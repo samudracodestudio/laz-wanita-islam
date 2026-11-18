@@ -1297,6 +1297,75 @@
     .device-container.mobile-view .mobile-bottom-bar {
       display: flex;
     }
+
+    /* MEDIA QUERY RESPONSIVE REAL DEVICE (SMARTPHONE) */
+    @media (max-width: 768px) {
+      body {
+        padding: 0 !important;
+      }
+      .preview-header {
+        display: none !important;
+      }
+      .viewport-wrapper {
+        padding: 0 !important;
+      }
+      .device-container {
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      .topbar,
+      .legality-strip {
+        display: none !important;
+      }
+      .navbar {
+        padding: 10px 16px !important;
+        justify-content: space-between !important;
+        flex-direction: row !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
+      }
+      .nav-links,
+      .btn-donasi-header,
+      .mobile-menu-btn {
+        display: none !important;
+      }
+      .mobile-right-actions {
+        display: flex !important;
+      }
+      .hero-section {
+        grid-template-columns: 1fr !important;
+        padding: 24px 16px !important;
+        gap: 20px !important;
+      }
+      .hero-content h2 {
+        font-size: 26px !important;
+      }
+      .hero-btns {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+      }
+      .values-strip,
+      .program-grid,
+      .story-card-wrapper,
+      .news-grid,
+      .donation-box,
+      .footer-content {
+        grid-template-columns: 1fr !important;
+        padding: 20px 16px !important;
+      }
+      .governance-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+      .mobile-bottom-bar {
+        display: flex !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1411,25 +1480,25 @@
                         <!-- LAYANAN DONATUR PERSIS DOMPET DHUAFA -->
         <div style="margin-top: 20px; padding: 18px 0 6px 0; border-top: 1px solid #EFEFEF; font-family: 'Plus Jakarta Sans', sans-serif;">
           <div style="font-size: 15px; font-weight: 700; color: #22222B; margin-bottom: 14px;">Layanan Donatur</div>
-          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: #2C2C35;">
+          <div style="display: flex; flex-direction: column; gap: 13px; font-size: 14px; color: #2C2C35;">
             
-            <a href="tel:021-XXXXXXX" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
-              <i class="fa-solid fa-phone-volume" style="color: #10B981; font-size: 16px; width: 18px;"></i>
-              <span>(021) XXXX-XXXX (Call Center)</span>
+            <a href="tel:02179192455" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+              <i class="fa-solid fa-phone" style="color: #16A34A; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span>(021) 7919-2455 (Call Center)</span>
             </a>
 
-            <a href="https://wa.me/" target="_blank" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
-              <i class="fa-brands fa-whatsapp" style="color: #10B981; font-size: 18px; width: 18px;"></i>
-              <span>WhatsApp: 0812-XXXX-XXXX</span>
+            <a href="https://wa.me/6281211112222" target="_blank" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+              <i class="fa-brands fa-whatsapp" style="color: #16A34A; font-size: 18px; width: 20px; text-align: center;"></i>
+              <span>WhatsApp: 6281211112222</span>
             </a>
 
             <a href="mailto:sapa@laz.wanitaislam.or.id" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
-              <i class="fa-regular fa-envelope" style="color: #10B981; font-size: 16px; width: 18px;"></i>
+              <i class="fa-regular fa-envelope" style="color: #16A34A; font-size: 16px; width: 20px; text-align: center;"></i>
               <span>sapa@laz.wanitaislam.or.id</span>
             </a>
 
-            <a href="tunaikan-zakat.html" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
-              <i class="fa-solid fa-wallet" style="color: #10B981; font-size: 16px; width: 18px;"></i>
+            <a href="#donasi" onclick="toggleMobileNav()" style="color: #2C2C35; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+              <i class="fa-solid fa-wallet" style="color: #16A34A; font-size: 16px; width: 20px; text-align: center;"></i>
               <span>Rekening Donasi</span>
             </a>
 
@@ -1713,22 +1782,36 @@
           <div class="bank-list">
             <h4 style="font-size: 15px; color: var(--lilac-dark); margin-bottom: 12px; font-family: var(--font-heading);">Rekening Resmi Lembaga:</h4>
             
-            <div class="bank-card">
-              <div class="bank-info">
-                <h5>Bank Muamalat - Zakat & Sedekah</h5>
-                <div class="acc-number">3170014702</div>
-                <div class="acc-name">a.n. Perkumpulan Wanita Islam</div>
+            <div class="bank-card bank-card-featured" style="border: 1.5px solid #D9C9E8; background: #FFFFFF; border-radius: 12px; padding: 16px 18px; margin-bottom: 14px; box-shadow: 0 4px 15px rgba(84, 54, 111, 0.05);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #F2EFF6; padding-bottom: 10px;">
+                <img src="Logo LAZWI/bank-muamalat.png" alt="Bank Muamalat" style="height: 32px; width: auto; object-fit: contain;">
+                <span style="font-size: 11px; font-weight: 700; color: #54366F; background: #F3ECF8; padding: 3px 10px; border-radius: 20px; border: 1px solid #D9C9E8;">
+                  <i class="fa-solid fa-star" style="color: #C5A46D; font-size: 10px;"></i> Rekening Utama
+                </span>
               </div>
-              <button class="btn-copy" onclick="copyText('3170014702')"><i class="fa-regular fa-copy"></i> Salin</button>
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 10px;">
+                <div class="bank-info">
+                  <div style="font-size: 11px; font-weight: 600; color: #888899; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Zakat, Infak & Sedekah</div>
+                  <div class="acc-number" style="font-family: 'Courier New', monospace; font-size: 21px; font-weight: 800; color: #22222B; letter-spacing: 1.5px; margin-bottom: 3px;">3170014702</div>
+                  <div class="acc-name" style="font-size: 13px; color: #555566; font-weight: 600;">a.n. Perkumpulan Wanita Islam</div>
+                </div>
+                <button class="btn-copy" onclick="copyAccount('3170014702', this)" style="background: linear-gradient(135deg, #FDF7E7 0%, #F5ECDA 100%); border: 1px solid #C5A46D; color: #54366F; font-weight: 700; padding: 8px 16px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 13px;">
+                  <i class="fa-regular fa-copy"></i> <span>Salin No. Rek</span>
+                </button>
+              </div>
             </div>
 
-            <div class="bank-card">
-              <div class="bank-info">
-                <h5>Bank Mandiri - Infak & Kemanusiaan</h5>
-                <div class="acc-number">137-00-9876-5432</div>
-                <div class="acc-name">a.n. Perkumpulan Wanita Islam</div>
+            <div class="bank-card" style="border: 1px solid var(--border-color); background: #FFFFFF; border-radius: 12px; padding: 14px 18px; margin-bottom: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 10px; width: 100%;">
+                <div class="bank-info">
+                  <h5>Bank Mandiri - Infak & Kemanusiaan</h5>
+                  <div class="acc-number" style="font-family: 'Courier New', monospace; font-size: 18px; font-weight: 700; color: #22222B;">137-00-9876-5432</div>
+                  <div class="acc-name" style="font-size: 12.5px; color: #666675;">a.n. Perkumpulan Wanita Islam</div>
+                </div>
+                <button class="btn-copy" onclick="copyAccount('1370098765432', this)" style="background: #F8F9FA; border: 1px solid #D1D5DB; color: #4B5563; font-weight: 600; padding: 7px 14px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 12px;">
+                  <i class="fa-regular fa-copy"></i> <span>Salin</span>
+                </button>
               </div>
-              <button class="btn-copy" onclick="copyText('1370098765432')"><i class="fa-regular fa-copy"></i> Salin</button>
             </div>
 
             <div class="whatsapp-confirm-box">
@@ -1862,6 +1945,26 @@
         root.style.setProperty('--font-heading', "'Bodoni Moda', serif");
       } else if (fontType === 'jakarta') {
         root.style.setProperty('--font-heading', "'Plus Jakarta Sans', sans-serif");
+      }
+    }
+
+    function copyAccount(text, btn) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(function() {
+          if (btn) {
+            var origHtml = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-check" style="color: #10B981;"></i> <span style="color: #10B981;">Tersalin!</span>';
+            btn.style.borderColor = '#10B981';
+            setTimeout(function() {
+              btn.innerHTML = origHtml;
+              btn.style.borderColor = '';
+            }, 2000);
+          }
+        }).catch(function() {
+          copyText(text);
+        });
+      } else {
+        copyText(text);
       }
     }
 
