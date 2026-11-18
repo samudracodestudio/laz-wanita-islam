@@ -10,14 +10,8 @@
     --font-body: 'Plus Jakarta Sans', sans-serif;
   }
 
-  /* OTOMATIS FULL-WIDTH DARI UJUNG KIRI KE UJUNG KANAN LAYAR (MESKI DI DALAM CONTAINER BOXED ELEMENTOR) */
   .site-footer {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    width: 100%;
     box-sizing: border-box;
     font-family: var(--font-body);
     background: linear-gradient(135deg, #3B1B4F 0%, #4F2D64 60%, #351747 100%);
@@ -25,6 +19,7 @@
     padding: 48px 32px 30px 32px;
     font-size: 13.5px;
     border-top: 3px solid #C5A46D;
+    position: relative;
     z-index: 10;
   }
 
@@ -90,7 +85,6 @@
     font-size: 12.5px;
   }
 
-  /* Penyesuaian Mobile: Padding bawah ekstra agar copyright tidak tertutup Bottom Bar */
   @media (max-width: 768px) {
     .site-footer {
       padding: 36px 20px 85px 20px;
@@ -122,7 +116,7 @@
       </ul>
     </div>
     
-    <!-- Kolom 3: Layanan Donatur Resmi (Tanpa Garis Bawah di Tautan) -->
+    <!-- Kolom 3: Layanan Donatur Resmi -->
     <div class="footer-col">
       <h5>Layanan & Sekretariat</h5>
       <p style="color: #DDD4E4; font-size: 13px; line-height: 1.65; margin: 0;">
