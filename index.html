@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Preview Desain & Tipografi LAZ Wanita Islam</title>
   
-  <!-- GOOGLE FONTS KOLEKSI "FEMININ & BERMARTABAT" -->
+  <!-- GOOGLE FONTS (STANDAR RESMI PLUS JAKARTA SANS) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
@@ -27,7 +27,7 @@
       --border-color: #E6E4EA;
 
       /* DYNAMIC FONT VARIABLES */
-      --font-heading: 'Playfair Display', serif;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
     }
 
@@ -1397,8 +1397,7 @@
         <a href="tentang-kami.html" class="btn-font" style="padding: 6px 12px; text-decoration: none;">Tentang Kami</a>
         <a href="program.html" class="btn-font" style="padding: 6px 12px; text-decoration: none;">Program</a>
         <a href="tunaikan-zakat.html" class="btn-font" style="padding: 6px 12px; text-decoration: none;">ZIS & Rekening</a>
-        <a href="laporan.html" class="btn-font" style="padding: 6px 12px; text-decoration: none;">Laporan</a>
-      </div>
+              </div>
 
       <div class="view-switcher">
         <button class="btn-switch active" id="btnDesktop" onclick="setMode('desktop')">
@@ -1411,29 +1410,7 @@
     </div>
 
     <!-- TABS PILIHAN FONT INTERAKTIF -->
-        <!-- TABS PILIHAN GAYA DESAIN (3 OPSI FINAL RAPAT) -->
-    <div class="font-selector-bar">
-      <div class="font-label"><i class="fa-solid fa-layer-group"></i> Pilihan Konsep Desain:</div>
-      
-      <!-- OPSI 1: PLAYFAIR DISPLAY -->
-      <button class="btn-font active" onclick="changeFont('playfair', this)">
-        <strong>Opsi 1: Anggun & Berwibawa</strong>
-        <span>Playfair Display (Sentuhan Klasik Feminin)</span>
-      </button>
-
-      <!-- OPSI 2: CORMORANT GARAMOND -->
-      <button class="btn-font" onclick="changeFont('cormorant', this)">
-        <strong>Opsi 2: Halus & Bersahaja</strong>
-        <span>Cormorant Garamond (Elegan & Hangat)</span>
-      </button>
-
-      <!-- OPSI 3: PLUS JAKARTA SANS (BENCHMARK DOMPET DHUAFA) -->
-      <button class="btn-font" onclick="changeFont('jakarta', this)">
-        <strong>Opsi 3: Modern & Terpercaya (Benchmark Dompet Dhuafa)</strong>
-        <span>Plus Jakarta Sans (Standar Font Resmi dompetdhuafa.org)</span>
-      </button>
-    </div>
-  </div>
+        </div>
 
   <!-- VIEWPORT CONTAINER -->
   <div class="viewport-wrapper">
@@ -1941,25 +1918,6 @@
         if (icon) icon.className = 'fa-solid fa-bars';
       }
     });
-
-    function changeFont(fontType, btnElement) {
-      document.querySelectorAll('.btn-font').forEach(b => b.classList.remove('active'));
-      btnElement.classList.add('active');
-
-      const root = document.documentElement;
-
-      if (fontType === 'playfair') {
-        root.style.setProperty('--font-heading', "'Playfair Display', serif");
-      } else if (fontType === 'cormorant') {
-        root.style.setProperty('--font-heading', "'Cormorant Garamond', serif");
-      } else if (fontType === 'lora') {
-        root.style.setProperty('--font-heading', "'Lora', serif");
-      } else if (fontType === 'bodoni') {
-        root.style.setProperty('--font-heading', "'Bodoni Moda', serif");
-      } else if (fontType === 'jakarta') {
-        root.style.setProperty('--font-heading', "'Plus Jakarta Sans', sans-serif");
-      }
-    }
 
     function copyAccount(text, btn) {
       if (navigator.clipboard) {
