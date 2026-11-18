@@ -1,0 +1,499 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --lilac-primary: #54366F;
+    --lilac-dark: #3D2452;
+    --lilac-light: #F5F0FA;
+    --lilac-soft: #D9C9E8;
+    --gold-accent: #C5A46D;
+    --gold-gradient: linear-gradient(135deg, #ECC874 0%, #C59A3F 50%, #9E7422 100%);
+    --gold-glow: 0 4px 15px rgba(197, 154, 63, 0.4);
+    --gold-light: #FDF7E7;
+    --text-dark: #22222B;
+    --text-muted: #666675;
+    --border-color: #E6E4EA;
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .laz-header-wrapper {
+    font-family: var(--font-body);
+    width: 100%;
+    position: relative;
+    z-index: 9999;
+    background: #FFFFFF;
+  }
+
+  /* TOPBAR */
+  .laz-topbar {
+    background: linear-gradient(90deg, #3E1E52 0%, #54366F 50%, #46225B 100%);
+    color: #FFFFFF;
+    padding: 8px 32px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(197, 164, 109, 0.3);
+  }
+  .laz-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+  }
+  .laz-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .laz-topbar-right a {
+    color: #E9DDF5;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .laz-topbar-right a:hover {
+    color: #ECC874;
+  }
+
+  /* NAVBAR */
+  .laz-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 32px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #ECEAEF;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  }
+  .laz-brand-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .laz-brand-logo img {
+    height: 48px;
+    width: auto;
+    display: block;
+  }
+  .laz-nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 28px;
+    align-items: center;
+  }
+  .laz-nav-links a {
+    text-decoration: none;
+    color: #2D2D38;
+    font-size: 14.5px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+    position: relative;
+    padding: 6px 0;
+  }
+  .laz-nav-links a:hover {
+    color: var(--lilac-primary);
+  }
+  .laz-nav-links a.active {
+    color: var(--lilac-primary);
+    font-weight: 700;
+  }
+  .laz-nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: var(--gold-gradient);
+    border-radius: 2px;
+  }
+
+  .laz-btn-donasi-header {
+    background: var(--gold-gradient);
+    color: #362203 !important;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 24px;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #C5A46D;
+    box-shadow: 0 4px 15px rgba(197, 154, 63, 0.4);
+    transition: all 0.3s ease;
+  }
+  .laz-btn-donasi-header:hover {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(197, 154, 63, 0.55);
+  }
+
+  /* MOBILE ACTIONS (ALA DOMPET DHUAFA) */
+  .laz-mobile-right-actions {
+    display: none;
+    align-items: center;
+    gap: 10px;
+  }
+  .laz-mobile-btn-donasi {
+    background: var(--gold-gradient);
+    color: #362203 !important;
+    padding: 7px 14px;
+    border-radius: 18px;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #C5A46D;
+    box-shadow: 0 2px 8px rgba(197, 164, 109, 0.35);
+  }
+  .laz-hamburger-btn {
+    background: transparent;
+    border: 1px solid #E2E0E8;
+    padding: 7px 11px;
+    border-radius: 8px;
+    font-size: 17px;
+    color: var(--lilac-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* MOBILE DRAWER ACCORDION */
+  .laz-mobile-drawer {
+    display: none;
+    background: #FFFFFF;
+    border-top: 1px solid #ECEAEF;
+    padding: 16px 20px 24px 20px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+  }
+  @media (min-width: 769px) {
+    .laz-mobile-drawer,
+    .laz-mobile-right-actions {
+      display: none !important;
+    }
+  }
+  .laz-mobile-drawer.active {
+    display: block;
+    animation: lazSlideDown 0.25s ease-out;
+  }
+  @keyframes lazSlideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .laz-mobile-drawer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .laz-mobile-drawer-links a {
+    text-decoration: none;
+    color: #22222B;
+    font-size: 14.5px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #F3F4F6;
+  }
+  .laz-mobile-drawer-links a:hover {
+    color: var(--lilac-primary);
+  }
+
+  /* LAYANAN DONATUR SECTION PERSIS DOMPET DHUAFA */
+  .laz-drawer-service {
+    margin-top: 18px;
+    padding: 18px 0 6px 0;
+    border-top: 1px solid #ECECEC;
+  }
+  .laz-drawer-service-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #22222B;
+    margin-bottom: 14px;
+  }
+  .laz-drawer-service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+  .laz-drawer-service-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+    color: #2D3748;
+    text-decoration: none;
+    padding: 3px 0;
+    transition: color 0.2s ease;
+  }
+  .laz-drawer-service-item i {
+    font-size: 17px;
+    width: 20px;
+    text-align: center;
+  }
+  .laz-drawer-service-item:hover {
+    color: var(--lilac-primary);
+  }
+
+  /* RESPONSIVE BREAKPOINT <= 768px */
+  @media (max-width: 768px) {
+    .laz-topbar {
+      display: none !important;
+    }
+    .laz-navbar {
+      padding: 10px 16px !important;
+    }
+    .laz-nav-links,
+    .laz-btn-donasi-header {
+      display: none !important;
+    }
+    .laz-mobile-right-actions {
+      display: flex !important;
+    }
+  }
+</style>
+
+<div class="laz-header-wrapper">
+  <!-- TOPBAR -->
+  <div class="laz-topbar">
+    <div class="laz-topbar-left">
+      <i class="fa-solid fa-award" style="color: var(--gold-accent);"></i>
+      <span>Badan Khusus Ormas Wanita Islam | Menjaga Amanah, Menguatkan Keluarga</span>
+    </div>
+    <div class="laz-topbar-right">
+      <a href="https://www.instagram.com/laz.wanitaislam" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <a href="https://youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+      <a href="mailto:sapa@laz.wanitaislam.or.id"><i class="fa-regular fa-envelope"></i> sapa@laz.wanitaislam.or.id</a>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="laz-navbar">
+    <div class="laz-brand-logo">
+      <a href="/">
+        <img src="https://laz.wanitaislam.or.id/wp-content/uploads/2026/11/logo-lazwi-fa02-web.webp" alt="Logo LAZ Wanita Islam">
+      </a>
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <ul class="laz-nav-links">
+      <li><a href="/" class="active">Beranda</a></li>
+      <li><a href="/tentang-kami">Tentang Kami</a></li>
+      <li><a href="/program">Program</a></li>
+      <li><a href="/kabar">Kabar & Cerita</a></li>
+    </ul>
+
+    <!-- DESKTOP CTA -->
+    <a href="/tunaikan-zakat" class="laz-btn-donasi-header">
+      <i class="fa-solid fa-hand-holding-heart"></i> Tunaikan Zakat & Kebaikan
+    </a>
+
+    <!-- MOBILE ACTIONS (ALA DOMPET DHUAFA) -->
+    <div class="laz-mobile-right-actions">
+      <a href="/tunaikan-zakat" class="laz-mobile-btn-donasi">
+        <i class="fa-solid fa-heart"></i> Tunaikan
+      </a>
+      <button class="laz-hamburger-btn" onclick="toggleLazMobileNav()" aria-label="Menu Navigasi">
+        <i class="fa-solid fa-bars" id="lazMobileNavIcon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="laz-mobile-drawer" id="lazMobileNavDrawer">
+    <ul class="laz-mobile-drawer-links">
+      <li><a href="/"><i class="fa-solid fa-house" style="width: 20px; color: var(--gold-accent);"></i> Beranda</a></li>
+      <li><a href="/tentang-kami"><i class="fa-solid fa-landmark" style="width: 20px; color: var(--gold-accent);"></i> Tentang Kami</a></li>
+      <li><a href="/program"><i class="fa-solid fa-hand-holding-heart" style="width: 20px; color: var(--gold-accent);"></i> Program Pemberdayaan</a></li>
+      <li><a href="/kabar"><i class="fa-solid fa-newspaper" style="width: 20px; color: var(--gold-accent);"></i> Kabar & Cerita</a></li>
+    </ul>
+
+    <!-- LAYANAN DONATUR PERSIS DOMPET DHUAFA -->
+    <div class="laz-drawer-service">
+      <div class="laz-drawer-service-title">Layanan Donatur</div>
+      <div class="laz-drawer-service-list">
+        <a href="https://wa.me/" target="_blank" class="laz-drawer-service-item">
+          <i class="fa-brands fa-whatsapp" style="color: #16A34A;"></i>
+          <span>WhatsApp: Layanan Donatur</span>
+        </a>
+        <a href="https://www.instagram.com/laz.wanitaislam" target="_blank" class="laz-drawer-service-item">
+          <i class="fa-brands fa-instagram" style="color: #E1306C;"></i>
+          <span>Instagram: @laz.wanitaislam</span>
+        </a>
+        <a href="mailto:sapa@laz.wanitaislam.or.id" class="laz-drawer-service-item">
+          <i class="fa-regular fa-envelope" style="color: #16A34A;"></i>
+          <span>sapa@laz.wanitaislam.or.id</span>
+        </a>
+        <a href="/tunaikan-zakat#rekeningZakat" class="laz-drawer-service-item">
+          <i class="fa-solid fa-wallet" style="color: #16A34A;"></i>
+          <span>Rekening Donasi</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleLazMobileNav() {
+    var drawer = document.getElementById('lazMobileNavDrawer');
+    var icon = document.getElementById('lazMobileNavIcon');
+    if (!drawer) return;
+    if (drawer.classList.contains('active') || drawer.style.display === 'block') {
+      drawer.classList.remove('active');
+      drawer.style.display = 'none';
+      if (icon) icon.className = 'fa-solid fa-bars';
+    } else {
+      drawer.classList.add('active');
+      drawer.style.display = 'block';
+      if (icon) icon.className = 'fa-solid fa-xmark';
+    }
+  }
+</script>
+<!-- STICKY MOBILE BOTTOM BAR & BACK-TO-TOP (PERSIS BENCHMARK DOMPET DHUAFA) -->
+<style>
+  .laz-mobile-bottom-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    padding: 6px 16px 10px 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    z-index: 9999;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;
+  }
+  @media (max-width: 768px) {
+    .laz-mobile-bottom-bar {
+      display: flex !important;
+    }
+  }
+  @media (min-width: 769px) {
+    .laz-mobile-bottom-bar {
+      display: none !important;
+    }
+  }
+
+  .laz-mobile-back-to-top {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px;
+    height: 32px;
+    background: linear-gradient(180deg, #6A448C 0%, #54366F 100%);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    border-bottom: none;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 -4px 12px rgba(84, 54, 111, 0.25);
+    z-index: 9998;
+  }
+  .laz-mobile-back-to-top:hover,
+  .laz-mobile-back-to-top:active {
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(-2px);
+  }
+
+  .laz-btn-mobile-nav-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #4A4A58;
+    font-size: 11.5px;
+    font-weight: 600;
+    gap: 3px;
+    padding: 4px 10px;
+    min-width: 60px;
+    transition: all 0.2s ease;
+  }
+  .laz-btn-mobile-nav-tab i {
+    font-size: 21px;
+    color: #54366F;
+    transition: transform 0.2s ease;
+  }
+  .laz-btn-mobile-nav-tab.tab-layanan i {
+    color: #16A34A;
+  }
+
+  .laz-btn-mobile-donasi-center {
+    height: 48px;
+    padding: 0 24px;
+    margin-top: -18px;
+    background: linear-gradient(135deg, #ECC874 0%, #C59A3F 50%, #9E7422 100%);
+    color: #2A1700 !important;
+    font-weight: 800;
+    font-size: 14.5px;
+    letter-spacing: 0.2px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: 0 8px 22px rgba(197, 154, 63, 0.48), 0 2px 6px rgba(0,0,0,0.08);
+    border: 2.5px solid #FFFFFF;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+</style>
+
+<div class="laz-mobile-bottom-bar">
+  <div style="position: relative; display: flex; flex-direction: column; align-items: center;">
+    <button class="laz-mobile-back-to-top" id="lazMobileBackToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Kembali ke atas">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <a href="/" class="laz-btn-mobile-nav-tab">
+      <i class="fa-solid fa-house"></i>
+      <span>Beranda</span>
+    </a>
+  </div>
+  <a href="/tunaikan-zakat" class="laz-btn-mobile-donasi-center">
+    <i class="fa-solid fa-heart" style="color: #613E02;"></i> Tunaikan
+  </a>
+  <a href="https://wa.me/" target="_blank" class="laz-btn-mobile-nav-tab tab-layanan">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>Layanan</span>
+  </a>
+</div>
+
+<script>
+  function updateLazBackToTop() {
+    var btn = document.getElementById('lazMobileBackToTop');
+    if (!btn) return;
+    var s = window.scrollY || document.documentElement.scrollTop || 0;
+    btn.style.display = 'flex';
+    var op = Math.min(1.0, 0.82 + (s / 1500));
+    btn.style.opacity = op;
+  }
+  window.addEventListener('scroll', updateLazBackToTop);
+  document.addEventListener('DOMContentLoaded', updateLazBackToTop);
+  updateLazBackToTop();
+</script>
