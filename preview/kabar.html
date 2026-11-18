@@ -539,23 +539,32 @@
         </div>
       </footer>
 
-      <!-- MOBILE BOTTOM BAR (HOME, WA, DAN BUTTON TUNAIKAN PROMINENT) -->
+      <!-- MOBILE BOTTOM BAR PERSIS DOMPET DHUAFA (BERANDA - TUNAIKAN TENGAH - LAYANAN + BACK TO TOP) -->
       <div class="mobile-bottom-bar">
-        <a href="index.html" class="btn-mobile-icon-tab">
+        <!-- TOMBOL BACK TO TOP KIRI DI ATAS BERANDA -->
+        <button class="mobile-back-to-top" id="mobileBackToTop" onclick="scrollToTop()" aria-label="Kembali ke atas">
+          <i class="fa-solid fa-arrow-up"></i>
+        </button>
+
+        <!-- 1. KIRI: BERANDA -->
+        <a href="index.html" class="btn-mobile-nav-tab">
           <i class="fa-solid fa-house"></i>
           <span>Beranda</span>
         </a>
-        <a href="https://wa.me/" target="_blank" class="btn-mobile-icon-tab btn-tab-wa">
-          <i class="fa-brands fa-whatsapp"></i>
-          <span>Chat WA</span>
-        </a>
-        <a href="tunaikan-zakat.html" class="btn-mobile-donasi-prominent">
+
+        <!-- 2. TENGAH: TUNAIKAN (FLOATING MENONJOL KE ATAS) -->
+        <a href="tunaikan-zakat.html" class="btn-mobile-donasi-center">
           <i class="fa-solid fa-heart" style="color: #613E02;"></i> Tunaikan
         </a>
-      </div>
 
+        <!-- 3. KANAN: LAYANAN (MEMBUKA LAYANAN DONATUR / WA) -->
+        <a href="https://wa.me/" target="_blank" class="btn-mobile-nav-tab tab-layanan">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Layanan</span>
+        </a>
+      </div>
     </div>
-  </div>
+</div>
 
   <script>
     function toggleMobileNav() {
@@ -599,6 +608,27 @@
         if (icon) icon.className = 'fa-solid fa-bars';
       }
     });
+  
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // LISTENER SCROLL UNTUK TOMBOL BACK TO TOP (TRANSPARANSI SESUAI TINGKAT SCROLL)
+    window.addEventListener('scroll', function() {
+      var btnTop = document.getElementById('mobileBackToTop');
+      if (!btnTop) return;
+      var scrollY = window.scrollY || document.documentElement.scrollTop;
+      if (scrollY > 180) {
+        btnTop.style.display = 'flex';
+        // Semakin ke bawah transparansi menyesuaikan (0.65 hingga 0.9)
+        var opacity = Math.min(0.9, 0.6 + (scrollY / 2000));
+        btnTop.style.opacity = opacity;
+      } else {
+        btnTop.style.opacity = '0';
+        btnTop.style.display = 'none';
+      }
+    });
+
   </script>
 </body>
 </html>

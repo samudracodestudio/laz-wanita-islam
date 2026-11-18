@@ -696,6 +696,27 @@
       document.getElementById('percentText').innerText = percent + '% Lengkap';
       document.getElementById('progressBar').style.width = percent + '%';
     }
+  
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // LISTENER SCROLL UNTUK TOMBOL BACK TO TOP (TRANSPARANSI SESUAI TINGKAT SCROLL)
+    window.addEventListener('scroll', function() {
+      var btnTop = document.getElementById('mobileBackToTop');
+      if (!btnTop) return;
+      var scrollY = window.scrollY || document.documentElement.scrollTop;
+      if (scrollY > 180) {
+        btnTop.style.display = 'flex';
+        // Semakin ke bawah transparansi menyesuaikan (0.65 hingga 0.9)
+        var opacity = Math.min(0.9, 0.6 + (scrollY / 2000));
+        btnTop.style.opacity = opacity;
+      } else {
+        btnTop.style.opacity = '0';
+        btnTop.style.display = 'none';
+      }
+    });
+
   </script>
 </body>
 </html>
