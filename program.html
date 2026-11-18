@@ -284,7 +284,7 @@
       <div class="topbar">
         <div><i class="fa-solid fa-award" style="color: var(--gold-accent);"></i> Badan Khusus Ormas Wanita Islam | Menjaga Amanah, Menguatkan Keluarga</div>
         <div>
-          <a href="https://www.instagram.com/laz.wanitaislam" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href="https://www.instagram.com/laz.wanitaislam" target="_blank"><i class="fa-brands fa-instagram"></i> @laz.wanitaislam</a>
           <a href="https://youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
           <a href="mailto:sapa@laz.wanitaislam.or.id"><i class="fa-regular fa-envelope"></i> sapa@laz.wanitaislam.or.id</a>
         </div>
@@ -496,6 +496,8 @@
       const frame = document.getElementById('deviceFrame');
       const btnDesktop = document.getElementById('btnDesktop');
       const btnMobile = document.getElementById('btnMobile');
+      const drawer = document.getElementById('mobileNavDrawer');
+      const icon = document.getElementById('mobileNavIcon');
 
       if (mode === 'mobile') {
         frame.className = 'device-container mobile-view';
@@ -505,8 +507,19 @@
         frame.className = 'device-container desktop-view';
         btnDesktop.classList.add('active');
         btnMobile.classList.remove('active');
+        if (drawer) drawer.style.display = 'none';
+        if (icon) icon.className = 'fa-solid fa-bars';
       }
     }
+
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        var drawer = document.getElementById('mobileNavDrawer');
+        var icon = document.getElementById('mobileNavIcon');
+        if (drawer) drawer.style.display = 'none';
+        if (icon) icon.className = 'fa-solid fa-bars';
+      }
+    });
   </script>
 </body>
 </html>
