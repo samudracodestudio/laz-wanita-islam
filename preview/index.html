@@ -1186,47 +1186,74 @@
       font-size: 12px;
     }
 
-    /* STICKY BOTTOM BAR (Khusus Smartphone) */
+        /* STICKY BOTTOM BAR (Khusus Smartphone) */
     .mobile-bottom-bar {
       display: none;
       position: sticky;
       bottom: 0;
       left: 0;
       right: 0;
-      background: white;
-      box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
-      padding: 10px 16px;
-      border-top: 1px solid var(--border-color);
+      background: #FFFFFF;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+      padding: 8px 16px 12px 16px;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
       z-index: 999;
-      justify-content: space-between;
-      gap: 10px;
+      align-items: center;
+      gap: 12px;
+      overflow: visible;
     }
 
-    .btn-mobile-act {
-      flex: 1;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      text-align: center;
+    .btn-mobile-icon-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-decoration: none;
+      color: #4A4A58;
+      font-size: 11px;
+      font-weight: 600;
+      gap: 3px;
+      padding: 4px 6px;
+      min-width: 48px;
+      transition: all 0.2s ease;
+    }
+    .btn-mobile-icon-tab i {
+      font-size: 20px;
+      color: var(--lilac-primary);
+      transition: transform 0.2s ease;
+    }
+    .btn-mobile-icon-tab.btn-tab-wa i {
+      color: #25D366;
+    }
+    .btn-mobile-icon-tab:active i {
+      transform: scale(1.15);
+    }
+
+    .btn-mobile-donasi-prominent {
+      flex: 1;
+      height: 48px;
+      margin-top: -16px;
+      background: linear-gradient(135deg, #ECC874 0%, #C59A3F 50%, #9E7422 100%);
+      color: #2A1700 !important;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.2px;
+      border-radius: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(197, 154, 63, 0.45), 0 2px 6px rgba(0,0,0,0.08);
+      border: 2.5px solid #FFFFFF;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-
-    .btn-mobile-donasi {
-      background: linear-gradient(135deg, #F5D77F 0%, #C5A46D 40%, #B3862D 100%);
-      color: #362203;
-      font-weight: 800;
-      border: 1px solid #C5A46D;
-      box-shadow: 0 2px 8px rgba(197, 154, 63, 0.35);
+    .btn-mobile-donasi-prominent:hover {
+      box-shadow: 0 10px 25px rgba(197, 154, 63, 0.55);
+      transform: translateY(-2px);
     }
-
-    .btn-mobile-wa {
-      background: #25D366;
-      color: white;
+    .btn-mobile-donasi-prominent:active {
+      transform: translateY(0);
     }
 
     /* MOBILE CONTAINER ADAPTATION */
@@ -1843,11 +1870,19 @@
         </div>
       </footer>
 
-      <!-- MOBILE BOTTOM BAR (3 TOMBOL: HITUNG ZAKAT, DONASI, WA) -->
+      <!-- MOBILE BOTTOM BAR (HOME, WA, DAN BUTTON TUNAIKAN PROMINENT) -->
       <div class="mobile-bottom-bar">
-        <a href="tunaikan-zakat.html" class="btn-mobile-act" style="background: white; border: 1px solid var(--lilac-primary); color: var(--lilac-dark);"><i class="fa-solid fa-calculator" style="color: var(--gold-accent);"></i> Hitung</a>
-        <a href="#donasi" class="btn-mobile-act btn-mobile-donasi"><i class="fa-solid fa-hand-holding-dollar"></i> Tunaikan</a>
-        <a href="https://wa.me/" target="_blank" class="btn-mobile-act btn-mobile-wa"><i class="fa-brands fa-whatsapp"></i> Chat WA</a>
+        <a href="index.html" class="btn-mobile-icon-tab">
+          <i class="fa-solid fa-house"></i>
+          <span>Beranda</span>
+        </a>
+        <a href="https://wa.me/" target="_blank" class="btn-mobile-icon-tab btn-tab-wa">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Chat WA</span>
+        </a>
+        <a href="#donasi" class="btn-mobile-donasi-prominent">
+          <i class="fa-solid fa-heart" style="color: #613E02;"></i> Tunaikan
+        </a>
       </div>
 
     </div>
