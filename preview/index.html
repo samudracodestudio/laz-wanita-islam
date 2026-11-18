@@ -218,6 +218,67 @@
       display: block;
     }
 
+    
+    /* ELEMEN MOBILE RIGHT ACTIONS ALA DOMPET DHUAFA */
+    .mobile-right-actions {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+    .mobile-btn-donasi-header {
+      background: var(--gold-gradient);
+      color: #362203 !important;
+      padding: 7px 14px;
+      border-radius: 18px;
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid #C5A46D;
+      box-shadow: 0 2px 8px rgba(197, 164, 109, 0.35);
+    }
+    .hamburger-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      padding: 7px 11px;
+      border-radius: 8px;
+      font-size: 16px;
+      color: var(--lilac-primary);
+      cursor: pointer;
+    }
+    /* MOBILE DRAWER ACCORDION */
+    .mobile-drawer-menu {
+      display: none;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      padding: 16px 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    .mobile-drawer-menu.active {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+    .mobile-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .mobile-drawer-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #F3F4F6;
+    }
+    .mobile-drawer-links a:hover { color: var(--lilac-primary); }
+
     /* TOPBAR */
     .topbar {
       background: linear-gradient(90deg, #3E1E52 0%, #54366F 50%, #46225B 100%);
@@ -1167,12 +1228,17 @@
     }
 
     .device-container.mobile-view .nav-links,
-    .device-container.mobile-view .btn-donasi-header {
-      display: none;
-    }
-
+    .device-container.mobile-view .btn-donasi-header,
     .device-container.mobile-view .mobile-menu-btn {
-      display: block;
+      display: none !important;
+    }
+    .device-container.mobile-view .mobile-right-actions {
+      display: flex !important;
+    }
+    .device-container.mobile-view .navbar {
+      padding: 10px 16px !important;
+      justify-content: space-between !important;
+      flex-direction: row !important;
     }
 
     .device-container.mobile-view .hero-section {
@@ -1311,24 +1377,44 @@
       <!-- 2. NAVBAR -->
       <nav class="navbar">
         <div class="brand-logo">
-        <div class="logo-badge" style="width: auto; min-width: 52px; padding: 0 10px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: transparent; border: none;">
-          <!-- LOGO RESMI LAZ WANITA ISLAM (HANYA LOGO/ICON IMAGE) -->
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_Wanita_Islam.png/300px-Logo_Wanita_Islam.png" alt="Logo LAZ Wanita Islam" style="max-height: 48px; width: auto; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div style="display: none; width: 48px; height: 48px; background: linear-gradient(135deg, #54366F, #3D2452); border: 2px solid #C5A46D; border-radius: 10px; color: white; font-weight: 800; font-size: 18px; align-items: center; justify-content: center;">WI</div>
+          <a href="index.html">
+            <img src="https://laz.wanitaislam.or.id/wp-content/uploads/2026/11/logo-lazwi-fa02-web.webp" alt="Logo LAZ Wanita Islam" style="height: 48px; width: auto; display: block;">
+          </a>
         </div>
-      </div>
         <ul class="nav-links">
           <li><a href="index.html" style="color: var(--lilac-primary);">Beranda</a></li>
           <li><a href="tentang-kami.html">Tentang Kami</a></li>
           <li><a href="program.html">Program</a></li>
           <li><a href="kabar.html">Kabar & Cerita</a></li>
           <li><a href="laporan.html">Laporan Publik</a></li>
-          <li><a href="tunaikan-zakat.html" class="btn-donasi-header"><i class="fa-solid fa-hand-holding-heart"></i> Tunaikan Zakat & Kebaikan</a></li>
         </ul>
-        <div class="mobile-menu-btn">
-          <i class="fa-solid fa-bars"></i>
+        <a href="tunaikan-zakat.html" class="btn-donasi-header"><i class="fa-solid fa-hand-holding-heart"></i> Tunaikan Zakat & Kebaikan</a>
+
+        <!-- ELEMEN KHUSUS HP (ALA DOMPET DHUAFA) -->
+        <div class="mobile-right-actions">
+          <a href="tunaikan-zakat.html" class="mobile-btn-donasi-header">
+            <i class="fa-solid fa-heart"></i> Tunaikan
+          </a>
+          <button class="hamburger-btn" onclick="toggleMobileNav()" aria-label="Menu">
+            <i class="fa-solid fa-bars" id="mobileNavIcon"></i>
+          </button>
         </div>
       </nav>
+
+      <!-- DRAWER MENU MOBILE -->
+      <div class="mobile-drawer-menu" id="mobileNavDrawer">
+        <ul class="mobile-drawer-links">
+          <li><a href="index.html"><i class="fa-solid fa-house" style="width: 24px; color: var(--gold-accent);"></i> Beranda</a></li>
+          <li><a href="tentang-kami.html"><i class="fa-solid fa-landmark" style="width: 24px; color: var(--gold-accent);"></i> Tentang Kami</a></li>
+          <li><a href="program.html"><i class="fa-solid fa-hand-holding-heart" style="width: 24px; color: var(--gold-accent);"></i> Program Pemberdayaan</a></li>
+          <li><a href="kabar.html"><i class="fa-solid fa-newspaper" style="width: 24px; color: var(--gold-accent);"></i> Kabar & Cerita</a></li>
+          <li><a href="laporan.html"><i class="fa-solid fa-file-pdf" style="width: 24px; color: var(--gold-accent);"></i> Laporan Publik (Pleno)</a></li>
+        </ul>
+        <div style="display: flex; gap: 16px; font-size: 13px; padding-top: 8px;">
+          <a href="https://instagram.com/" target="_blank" style="color: var(--lilac-primary); font-weight: 700; text-decoration: none;"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href="https://youtube.com/" target="_blank" style="color: var(--lilac-primary); font-weight: 700; text-decoration: none;"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        </div>
+      </div>
 
       <!-- 3. HERO SECTION -->
       <section class="hero-section">
