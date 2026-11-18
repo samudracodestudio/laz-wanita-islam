@@ -133,3 +133,29 @@
     &copy; 2026 LAZ Wanita Islam. Hak Cipta Dilindungi Undang-Undang.
   </div>
 </footer>
+
+<script>
+  // Otomatis lepaskan batasan container pembungkus agar footer merapat 100% ke tepi layar
+  (function() {
+    function autoStretch() {
+      var footer = document.querySelector('.site-footer');
+      if (!footer) return;
+      var el = footer.parentElement;
+      while (el && el !== document.body) {
+        if (el.classList.contains('elementor-widget-container') || 
+            el.classList.contains('elementor-column-wrap') || 
+            el.classList.contains('elementor-widget-wrap') || 
+            el.classList.contains('elementor-container')) {
+          el.style.setProperty('padding-left', '0', 'important');
+          el.style.setProperty('padding-right', '0', 'important');
+          el.style.setProperty('max-width', '100%', 'important');
+          el.style.setProperty('width', '100%', 'important');
+        }
+        el = el.parentElement;
+      }
+    }
+    autoStretch();
+    window.addEventListener('load', autoStretch);
+    document.addEventListener('DOMContentLoaded', autoStretch);
+  })();
+</script>
