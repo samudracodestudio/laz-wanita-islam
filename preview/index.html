@@ -1773,6 +1773,19 @@
   </div>
 
   <script>
+    function toggleMobileNav() {
+      var drawer = document.getElementById('mobileNavDrawer');
+      var icon = document.getElementById('mobileNavIcon');
+      if (!drawer) return;
+      if (drawer.style.display === 'block') {
+        drawer.style.display = 'none';
+        if (icon) icon.className = 'fa-solid fa-bars';
+      } else {
+        drawer.style.display = 'block';
+        if (icon) icon.className = 'fa-solid fa-xmark';
+      }
+    }
+
     
     let currentSlideIdx = 0;
     const slides = document.querySelectorAll('.hero-slide');
