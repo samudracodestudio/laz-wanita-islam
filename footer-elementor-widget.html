@@ -10,9 +10,13 @@
     --font-body: 'Plus Jakarta Sans', sans-serif;
   }
 
-  .site-footer {
-    width: 100%;
-    box-sizing: border-box;
+  /* OVERRIDE TOTAL DARI BAWAAN TEMA HELLO ELEMENTOR */
+  footer.site-footer.dynamic-footer,
+  .site-footer.dynamic-footer {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
     font-family: var(--font-body);
     background: linear-gradient(135deg, #3B1B4F 0%, #4F2D64 60%, #351747 100%);
     color: #FFFFFF;
@@ -86,8 +90,9 @@
   }
 
   @media (max-width: 768px) {
-    .site-footer {
-      padding: 36px 20px 85px 20px;
+    footer.site-footer.dynamic-footer,
+    .site-footer.dynamic-footer {
+      padding: 36px 20px 85px 20px !important;
     }
     .footer-content {
       grid-template-columns: 1fr;
@@ -97,7 +102,7 @@
   }
 </style>
 
-<footer class="site-footer">
+<footer class="site-footer dynamic-footer" style="max-width:100%;width:100%;margin:0;">
   <div class="footer-content">
     <!-- Kolom 1: Profil Organisasi -->
     <div class="footer-brand">
@@ -133,29 +138,3 @@
     &copy; 2026 LAZ Wanita Islam. Hak Cipta Dilindungi Undang-Undang.
   </div>
 </footer>
-
-<script>
-  // Otomatis lepaskan batasan container pembungkus agar footer merapat 100% ke tepi layar
-  (function() {
-    function autoStretch() {
-      var footer = document.querySelector('.site-footer');
-      if (!footer) return;
-      var el = footer.parentElement;
-      while (el && el !== document.body) {
-        if (el.classList.contains('elementor-widget-container') || 
-            el.classList.contains('elementor-column-wrap') || 
-            el.classList.contains('elementor-widget-wrap') || 
-            el.classList.contains('elementor-container')) {
-          el.style.setProperty('padding-left', '0', 'important');
-          el.style.setProperty('padding-right', '0', 'important');
-          el.style.setProperty('max-width', '100%', 'important');
-          el.style.setProperty('width', '100%', 'important');
-        }
-        el = el.parentElement;
-      }
-    }
-    autoStretch();
-    window.addEventListener('load', autoStretch);
-    document.addEventListener('DOMContentLoaded', autoStretch);
-  })();
-</script>
