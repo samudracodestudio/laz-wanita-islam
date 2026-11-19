@@ -136,7 +136,7 @@
     }
 
     /* FOOTER */
-    .site-footer {
+    footer.site-footer.dynamic-footer, .site-footer {
       background: linear-gradient(135deg, #3B1B4F 0%, #4F2D64 60%, #351747 100%);
       color: white; padding: 45px 30px 24px 30px; font-size: 13px; border-top: 3px solid #C5A46D;
     }
@@ -169,7 +169,7 @@
         /* TOMBOL SCROLL TO TOP ALA DOMPET DHUAFA (SEJAJAR CENTER DI ATAS TAB BERANDA) */
     .mobile-back-to-top {
       position: absolute;
-      top: -39px;
+      bottom: calc(100% + 6px);
       left: 50%;
       transform: translateX(-50%);
       width: 44px;
@@ -179,15 +179,15 @@
       border-top-right-radius: 12px;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      border: 1.5px solid rgba(255, 255, 255, 0.7);
       border-bottom: none;
       color: #FFFFFF;
-      display: none;
+      display: flex;
       align-items: center;
       justify-content: center;
       font-size: 15px;
       cursor: pointer;
-      opacity: 0;
+      opacity: 0.85;
       transition: opacity 0.3s ease, transform 0.2s ease;
       box-shadow: 0 -4px 12px rgba(84, 54, 111, 0.25);
       z-index: 998;
@@ -447,30 +447,28 @@
 
       <!-- PAGE HERO -->
       <header class="page-hero">
-        <h2>3 Pilar Program <span>LAZ Wanita Islam</span></h2>
+        <h2>5 Pilar Program Utama <span>LAZ Wanita Islam</span></h2>
         <p>Disalurkan secara tepat sasaran, terukur, dan berkelanjutan untuk mengangkat martabat mustahik perempuan dan ketahanan keluarga di wilayah tertinggal.</p>
       </header>
 
       <!-- DETAIL PROGRAM -->
       <main class="programs-container">
         
-        <!-- PROGRAM 1: UMKM PEREMPUAN -->
+        <!-- PILAR 1: KEMANDIRIAN EKONOMI (UMKM IBU TANGGUH) -->
         <article class="program-detail-card">
-          <div class="program-visual-side">
-            <i class="fa-solid fa-store" style="font-size: 54px; margin-bottom: 12px; color: var(--lilac-primary);"></i>
-            <strong style="font-size: 15px; font-family: var(--font-heading);">[ Foto Ibu Pelaku Usaha Binaan ]</strong>
-            <span style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Dokumentasi asli pendampingan warung makan / kerajinan ibu-ibu di DIY</span>
+          <div class="program-visual-side" style="padding:0;overflow:hidden;background:#241434;">
+            <img src="assets/programs/pilar-1-ekonomi.jpg" alt="Pilar 1 - Kemandirian Ekonomi UMKM Ibu Tangguh" style="width:100%;height:100%;min-height:280px;object-fit:cover;">
           </div>
           <div class="program-info-side">
             <span class="program-pill">Pilar 1: Kemandirian Ekonomi</span>
             <h3>Penguatan Modal Usaha Bebas Riba (Ibu Tangguh)</h3>
             <p>
-              Program permodalan bergulir qardhul hasan (tanpa bunga) dan pelatihan manajemen keuangan rumah tangga yang dirancang khusus untuk memutus jeratan rentenir keliling dan pinjaman online ilegal yang mengancam keutuhan keluarga miskin.
+              Program permodalan bergulir qardhul hasan (tanpa bunga) dan inkubasi usaha mikro rumahan yang dirancang khusus untuk memutus jeratan rentenir keliling dan pinjaman online ilegal yang mengancam keutuhan keluarga miskin.
             </p>
             <div class="impact-points">
               <strong>Fokus Intervensi:</strong>
               <ul>
-                <li>Suntikan modal alat dan bahan baku usaha mikro rumahan.</li>
+                <li>Suntikan modal alat produksi dan bahan baku usaha mikro rumahan.</li>
                 <li>Mentoring pencatatan kas harian & literasi syariah bebas bunga.</li>
                 <li>Pemberdayaan kelompok usaha bersama berbasis majelis taklim perempuan.</li>
               </ul>
@@ -479,50 +477,92 @@
           </div>
         </article>
 
-        <!-- PROGRAM 2: TANGGAP BENCANA & KARHUTLA -->
+        <!-- PILAR 2: PENDIDIKAN GENERASI -->
         <article class="program-detail-card">
-          <div class="program-visual-side">
-            <i class="fa-solid fa-fire-flame-curved" style="font-size: 54px; margin-bottom: 12px; color: var(--lilac-primary);"></i>
-            <strong style="font-size: 15px; font-family: var(--font-heading);">[ Foto Posko Kemanusiaan ]</strong>
-            <span style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Dokumentasi aksi lapangan bencana di Aceh & respons tanggap karhutla</span>
+          <div class="program-visual-side" style="padding:0;overflow:hidden;background:#241434;">
+            <img src="assets/programs/pilar-2-pendidikan.jpg" alt="Pilar 2 - Pendidikan Generasi & Beasiswa Dhuafa" style="width:100%;height:100%;min-height:280px;object-fit:cover;">
           </div>
           <div class="program-info-side">
-            <span class="program-pill">Pilar 2: Tanggap Darurat & Sosial</span>
-            <h3>Respons Cepat Kemanusiaan, Kebencanaan & Karhutla</h3>
+            <span class="program-pill">Pilar 2: Pendidikan Generasi</span>
+            <h3>Ruang Belajar, Sekolah Ramah Anak & Beasiswa</h3>
             <p>
-              Memanfaatkan rekam jejak panjang relawan Wanita Islam dalam merespons bencana alam di berbagai titik (seperti penanganan banjir, gempa, hingga kabut asap karhutla) dengan pendekatan ramah ibu dan anak.
+              Memastikan tidak ada anak yang kehilangan hak belajarnya akibat kemiskinan ekstrem atau bencana alam. LAZWI menghadirkan beasiswa yatim dhuafa, sekolah darurat, perlengkapan belajar, dan pendampingan karakter Islami.
             </p>
             <div class="impact-points">
               <strong>Fokus Intervensi:</strong>
               <ul>
-                <li>Dapur umum higienis khusus nutrisi balita, ibu hamil, dan lansia.</li>
-                <li>Penyaluran hygiene kit wanita dan perlengkapan bayi darurat.</li>
-                <li>Bantuan oksigen & masker medis di kawasan terdampak kebakaran hutan.</li>
+                <li>Beasiswa pendidikan santri, pelajar yatim, dan dhuafa di wilayah 3T.</li>
+                <li>Pendirian ruang kelas tenda ramah anak & pojok literasi desa.</li>
+                <li>Distribusi paket perlengkapan sekolah lengkap & pendampingan trauma healing.</li>
               </ul>
             </div>
             <a href="tunaikan-zakat.html" class="btn-act-program"><i class="fa-solid fa-hand-holding-heart"></i> Ulurkan Bantuan untuk Program Ini</a>
           </div>
         </article>
 
-        <!-- PROGRAM 3: PENDIDIKAN & SEKOLAH DARURAT -->
+        <!-- PILAR 3: KESEHATAN IBU & ANAK -->
         <article class="program-detail-card">
-          <div class="program-visual-side">
-            <i class="fa-solid fa-school" style="font-size: 54px; margin-bottom: 12px; color: var(--lilac-primary);"></i>
-            <strong style="font-size: 15px; font-family: var(--font-heading);">[ Foto Ruang Belajar Anak ]</strong>
-            <span style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Dokumentasi sekolah darurat & senyum anak-anak penerima beasiswa</span>
+          <div class="program-visual-side" style="padding:0;overflow:hidden;background:#241434;">
+            <img src="assets/programs/pilar-3-kesehatan.jpg" alt="Pilar 3 - Kesehatan Ibu, Balita & Bebas Stunting" style="width:100%;height:100%;min-height:280px;object-fit:cover;">
           </div>
           <div class="program-info-side">
-            <span class="program-pill">Pilar 3: Pendidikan Generasi</span>
-            <h3>Ruang Belajar & Sekolah Darurat Ramah Anak</h3>
+            <span class="program-pill">Pilar 3: Kesehatan Ibu & Anak</span>
+            <h3>Gizi Sehat Balita, Ibu Hamil & Bebas Stunting</h3>
             <p>
-              Memastikan tidak ada anak yang kehilangan hak belajarnya akibat kemiskinan ekstrem atau fasilitas sekolah yang hancur pascabencana. Lembaga menyediakan ruang kelas tenda, alat tulis, dan beasiswa yatim dhuafa.
+              Intervensi gizi terpadu untuk menyelamatkan 1.000 Hari Pertama Kehidupan (HPK). Bekerja sama dengan Posyandu binaan untuk memantau tumbuh kembang balita, memberi asupan PMT bergizi, dan skrining medis ibu hamil prasejahtera.
             </p>
             <div class="impact-points">
               <strong>Fokus Intervensi:</strong>
               <ul>
-                <li>Pendirian tenda sekolah darurat dan pojok baca ceria anak.</li>
-                <li>Bantuan paket seragam, tas, dan alat tulis untuk anak pedalaman.</li>
-                <li>Pendampingan trauma healing pascabencana oleh konselor perempuan.</li>
+                <li>Paket Pemberian Makanan Tambahan (PMT) nutrisi tinggi untuk balita wasting & stunting.</li>
+                <li>Pemeriksaan kesehatan, vitamin penambah darah, dan suplemen ibu hamil dhuafa.</li>
+                <li>Layanan skrining kesehatan lansia dhuafa dan penyuluhan sanitasi keluarga sehat.</li>
+              </ul>
+            </div>
+            <a href="tunaikan-zakat.html" class="btn-act-program"><i class="fa-solid fa-hand-holding-heart"></i> Ulurkan Bantuan untuk Program Ini</a>
+          </div>
+        </article>
+
+        <!-- PILAR 4: TANGGAP BENCANA & KEMANUSIAAN -->
+        <article class="program-detail-card">
+          <div class="program-visual-side" style="padding:0;overflow:hidden;background:#241434;">
+            <img src="assets/programs/pilar-4-kemanusiaan.jpg" alt="Pilar 4 - Kemanusiaan & Tanggap Bencana" style="width:100%;height:100%;min-height:280px;object-fit:cover;">
+          </div>
+          <div class="program-info-side">
+            <span class="program-pill">Pilar 4: Kemanusiaan & Bencana</span>
+            <h3>Respons Cepat Kemanusiaan, Kebencanaan & Karhutla</h3>
+            <p>
+              Memanfaatkan jejaring relawan perempuan Wanita Islam di seluruh Indonesia dalam merespons tanggap darurat bencana alam dengan pendekatan ramah ibu menyusui, balita, dan lansia.
+            </p>
+            <div class="impact-points">
+              <strong>Fokus Intervensi:</strong>
+              <ul>
+                <li>Dapur umum higienis khusus pemenuhan nutrisi balita dan ibu menyusui di posko pengungsian.</li>
+                <li>Distribusi paket sembako, hygiene kit perempuan, dan popok/susu formula darurat.</li>
+                <li>Penyaluran tabung oksigen, masker medis, dan posko udara bersih karhutla.</li>
+              </ul>
+            </div>
+            <a href="tunaikan-zakat.html" class="btn-act-program"><i class="fa-solid fa-hand-holding-heart"></i> Ulurkan Bantuan untuk Program Ini</a>
+          </div>
+        </article>
+
+        <!-- PILAR 5: DAKWAH & KETAHANAN KELUARGA SAKINAH -->
+        <article class="program-detail-card">
+          <div class="program-visual-side" style="padding:0;overflow:hidden;background:#241434;">
+            <img src="assets/programs/pilar-5-dakwah-keluarga.jpg" alt="Pilar 5 - Dakwah & Ketahanan Keluarga Sakinah" style="width:100%;height:100%;min-height:280px;object-fit:cover;">
+          </div>
+          <div class="program-info-side">
+            <span class="program-pill">Pilar 5: Dakwah & Advokasi</span>
+            <h3>Ketahanan Keluarga Sakinah & Syiar Islam</h3>
+            <p>
+              Membangun fondasi spiritual umat melalui pembinaan majelis taklim perempuan, konseling keluarga sakinah, parenting Islami, advokasi hak-hak perempuan dan anak, serta perluasan literasi ZISWAF.
+            </p>
+            <div class="impact-points">
+              <strong>Fokus Intervensi:</strong>
+              <ul>
+                <li>Binaan rutin majelis taklim ibu-ibu pedesaan dan pengentasan buta aksara Al-Qur'an.</li>
+                <li>Pusat konsultasi & mediasi ketahanan keluarga sakinah mawaddah warahmah.</li>
+                <li>Advokasi perlindungan hak perempuan dhuafa dan edukasi zakat produktif.</li>
               </ul>
             </div>
             <a href="tunaikan-zakat.html" class="btn-act-program"><i class="fa-solid fa-hand-holding-heart"></i> Ulurkan Bantuan untuk Program Ini</a>
@@ -532,7 +572,7 @@
       </main>
 
       <!-- FOOTER -->
-      <footer class="site-footer">
+      <footer class="site-footer dynamic-footer" style="max-width:100%;width:100%;margin:0;">
         <div class="footer-content">
           <div class="footer-brand">
             <h4>LAZ WANITA ISLAM</h4>
@@ -634,21 +674,18 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // LISTENER SCROLL UNTUK TOMBOL BACK TO TOP (TRANSPARANSI SESUAI TINGKAT SCROLL)
-    window.addEventListener('scroll', function() {
+    // LISTENER SCROLL UNTUK TOMBOL BACK TO TOP (OPASITAS MENYESUAIKAN TINGKAT SCROLL)
+    function updateBackToTop() {
       var btnTop = document.getElementById('mobileBackToTop');
       if (!btnTop) return;
-      var scrollY = window.scrollY || document.documentElement.scrollTop;
-      if (scrollY > 180) {
-        btnTop.style.display = 'flex';
-        // Semakin ke bawah transparansi menyesuaikan (0.65 hingga 0.9)
-        var opacity = Math.min(0.9, 0.6 + (scrollY / 2000));
-        btnTop.style.opacity = opacity;
-      } else {
-        btnTop.style.opacity = '0';
-        btnTop.style.display = 'none';
-      }
-    });
+      var scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+      btnTop.style.display = 'flex';
+      var opacity = Math.min(1.0, 0.82 + (scrollY / 1500));
+      btnTop.style.opacity = opacity;
+    }
+    window.addEventListener('scroll', updateBackToTop);
+    document.addEventListener('DOMContentLoaded', updateBackToTop);
+    updateBackToTop();
 
   </script>
 </body>
