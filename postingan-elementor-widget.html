@@ -1,0 +1,817 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --lilac-primary: #54366F;
+    --lilac-dark: #3D2452;
+    --lilac-light: #F5F0FA;
+    --lilac-soft: #D9C9E8;
+    --gold-accent: #C5A46D;
+    --gold-gradient: linear-gradient(135deg, #ECC874 0%, #C59A3F 50%, #9E7422 100%);
+    --gold-glow: 0 4px 15px rgba(197, 154, 63, 0.4);
+    --gold-light: #FDF7E7;
+    --text-dark: #22222B;
+    --text-muted: #666675;
+    --bg-gray: #F8F9FA;
+    --border-color: #E6E4EA;
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .post-template-container {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background-color: #FFFFFF;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px 60px 20px;
+    box-sizing: border-box;
+  }
+
+  /* BREADCRUMBS */
+  .post-breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+  .post-breadcrumbs a {
+    color: var(--lilac-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .post-breadcrumbs a:hover {
+    color: var(--gold-accent);
+  }
+  .post-breadcrumbs i {
+    font-size: 10px;
+    color: #A0A0B0;
+  }
+  .post-breadcrumbs span.current {
+    color: #777785;
+    max-width: 320px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* POST HEADER */
+  .post-header {
+    margin-bottom: 30px;
+  }
+  .post-cat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--lilac-light);
+    color: var(--lilac-primary);
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    border: 1px solid var(--lilac-soft);
+  }
+  .post-title {
+    font-family: var(--font-heading);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: var(--lilac-dark);
+    margin: 0 0 18px 0;
+    letter-spacing: -0.3px;
+  }
+  .post-meta-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .post-author-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--lilac-primary);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .author-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .author-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+  .post-date-read {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .post-share-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-share {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-gray);
+    color: #555566;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+  }
+  .btn-share:hover {
+    transform: translateY(-2px);
+    color: #FFFFFF;
+  }
+  .btn-share.wa:hover { background: #25D366; border-color: #25D366; }
+  .btn-share.fb:hover { background: #1877F2; border-color: #1877F2; }
+  .btn-share.tw:hover { background: #1DA1F2; border-color: #1DA1F2; }
+  .btn-share.copy:hover { background: var(--lilac-primary); border-color: var(--lilac-primary); }
+
+  /* FEATURED IMAGE */
+  .post-featured-media {
+    margin-bottom: 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    border: 1px solid var(--border-color);
+  }
+  .featured-img-placeholder {
+    width: 100%;
+    height: 480px;
+    background: linear-gradient(135deg, #F0E8F7 0%, #E3D6ED 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--lilac-primary);
+    text-align: center;
+    padding: 30px;
+    position: relative;
+  }
+  .featured-img-caption {
+    background: #FAFAFD;
+    padding: 12px 20px;
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    font-style: italic;
+  }
+
+  /* 2-COLUMN LAYOUT */
+  .post-layout-grid {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* ARTICLE BODY TYPOGRAPHY */
+  .post-article-content {
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: #33333F;
+  }
+  .post-article-content p {
+    margin-bottom: 24px;
+  }
+  .post-article-content .lead-paragraph {
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.75;
+    color: var(--lilac-dark);
+    margin-bottom: 28px;
+  }
+  .post-article-content h2 {
+    font-family: var(--font-heading);
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--lilac-dark);
+    margin: 36px 0 16px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--lilac-light);
+    position: relative;
+  }
+  .post-article-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--gold-accent);
+  }
+  .post-article-content h3 {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--lilac-primary);
+    margin: 28px 0 14px 0;
+  }
+  .post-article-content ul,
+  .post-article-content ol {
+    margin: 0 0 24px 24px;
+  }
+  .post-article-content li {
+    margin-bottom: 8px;
+  }
+
+  /* BLOCKQUOTE */
+  .post-article-content blockquote {
+    margin: 32px 0;
+    padding: 24px 28px;
+    background: var(--lilac-light);
+    border-left: 5px solid var(--lilac-primary);
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--lilac-dark);
+    position: relative;
+  }
+  .post-article-content blockquote cite {
+    display: block;
+    margin-top: 12px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--gold-accent);
+    font-style: normal;
+  }
+
+  /* EMBEDDED CTA DONATION BOX */
+  .post-cta-donate-box {
+    background: linear-gradient(135deg, #3E1E52 0%, #54366F 100%);
+    color: #FFFFFF;
+    border-radius: 16px;
+    padding: 32px 28px;
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    box-shadow: 0 10px 25px rgba(84, 54, 111, 0.2);
+    border: 1px solid rgba(197, 164, 109, 0.4);
+  }
+  .post-cta-donate-box h4 {
+    font-family: var(--font-heading);
+    font-size: 21px;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    color: #FFFFFF;
+  }
+  .post-cta-donate-box p {
+    font-size: 13.5px;
+    color: #E2D5EC;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .btn-cta-post {
+    background: var(--gold-gradient);
+    color: #362203 !important;
+    font-weight: 800;
+    font-size: 14px;
+    padding: 13px 26px;
+    border-radius: 28px;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(197, 154, 63, 0.4);
+    transition: all 0.2s ease;
+  }
+  .btn-cta-post:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(197, 154, 63, 0.55);
+  }
+
+  /* POST FOOTER TAGS & SHARE */
+  .post-footer-actions {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag-item {
+    background: var(--bg-gray);
+    color: #555566;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+  }
+  .tag-item:hover {
+    background: var(--lilac-primary);
+    color: #FFFFFF;
+    border-color: var(--lilac-primary);
+  }
+
+  /* SIDEBAR */
+  .post-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: sticky;
+    top: 20px;
+  }
+  .sidebar-widget {
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  }
+  .widget-title {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--lilac-dark);
+    margin: 0 0 16px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--lilac-light);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* REKENING WIDGET */
+  .sidebar-bank-card {
+    background: #FAF7FC;
+    border: 1.5px solid var(--lilac-soft);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .sidebar-bank-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--lilac-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .sidebar-bank-num {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin: 6px 0;
+    letter-spacing: 0.5px;
+  }
+  .sidebar-bank-holder {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .btn-sidebar-donate {
+    display: block;
+    width: 100%;
+    background: var(--gold-gradient);
+    color: #362203 !important;
+    text-align: center;
+    font-weight: 800;
+    font-size: 13.5px;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-sizing: border-box;
+    box-shadow: 0 3px 10px rgba(197, 154, 63, 0.35);
+  }
+
+  /* RECENT POSTS LIST */
+  .sidebar-recent-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .recent-post-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .recent-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    background: #EDE6F2;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lilac-primary);
+    font-size: 18px;
+  }
+  .recent-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .recent-info span.date {
+    font-size: 11.5px;
+    color: #888898;
+  }
+  .recent-info a {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.2s;
+  }
+  .recent-info a:hover {
+    color: var(--lilac-primary);
+  }
+
+  /* RELATED POSTS SECTION */
+  .related-posts-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 2px solid var(--bg-gray);
+  }
+  .related-title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--lilac-dark);
+    margin: 0 0 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .related-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  }
+  .related-img {
+    height: 160px;
+    background: #F2ECF7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lilac-primary);
+    font-size: 24px;
+  }
+  .related-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .related-body .cat {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--gold-accent);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .related-body h5 {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 10px 0;
+  }
+  .related-body h5 a {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .related-body h5 a:hover {
+    color: var(--lilac-primary);
+  }
+  .related-link {
+    margin-top: auto;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--lilac-primary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 991px) {
+    .post-layout-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .post-sidebar {
+      position: static;
+    }
+    .related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .post-template-container {
+      padding: 18px 14px 50px 14px;
+    }
+    .post-title {
+      font-size: 24px;
+    }
+    .featured-img-placeholder {
+      height: 240px;
+    }
+    .post-cta-donate-box {
+      flex-direction: column;
+      align-items: stretch;
+      text-align: center;
+    }
+    .btn-cta-post {
+      justify-content: center;
+    }
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="post-template-container">
+  
+  <!-- 1. BREADCRUMBS -->
+  <nav class="post-breadcrumbs" aria-label="Navigasi Jejak">
+    <a href="/"><i class="fa-solid fa-house"></i> Beranda</a>
+    <i class="fa-solid fa-chevron-right"></i>
+    <a href="/kabar">Kabar & Cerita</a>
+    <i class="fa-solid fa-chevron-right"></i>
+    <a href="#">Pemberdayaan Ekonomi</a>
+    <i class="fa-solid fa-chevron-right"></i>
+    <span class="current">Respons Cepat Bencana & Pemberdayaan Ibu Tangguh</span>
+  </nav>
+
+  <!-- 2. POST HEADER -->
+  <header class="post-header">
+    <div class="post-cat-badge">
+      <i class="fa-solid fa-tag" style="color: var(--gold-accent);"></i>
+      <span>Pemberdayaan Keluarga</span>
+    </div>
+
+    <h1 class="post-title">
+      Respons Cepat Bencana & Pemberdayaan Ekonomi: Menjaga Ketahanan Keluarga Berbasis Syariat
+    </h1>
+
+    <div class="post-meta-bar">
+      <div class="post-author-info">
+        <div class="author-avatar">WI</div>
+        <div class="author-details">
+          <span class="author-name">Redaksi LAZ Wanita Islam</span>
+          <div class="post-date-read">
+            <span><i class="fa-regular fa-calendar"></i> 18 November 2026</span>
+            <span>&bull;</span>
+            <span><i class="fa-regular fa-clock"></i> 4 menit baca</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-share-top">
+        <span style="font-size: 12.5px; font-weight: 600; color: var(--text-muted); margin-right: 4px;">Bagikan:</span>
+        <a href="https://api.whatsapp.com/send?text=Respons%20Cepat%20Bencana%20LAZ%20Wanita%20Islam" target="_blank" class="btn-share wa" title="Bagikan ke WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#" class="btn-share fb" title="Bagikan ke Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="btn-share tw" title="Bagikan ke X"><i class="fa-brands fa-x-twitter"></i></a>
+        <button class="btn-share copy" onclick="navigator.clipboard.writeText(window.location.href); alert('Tautan artikel berhasil disalin!');" title="Salin Tautan"><i class="fa-solid fa-link"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. FEATURED IMAGE -->
+  <figure class="post-featured-media">
+    <div class="featured-img-placeholder">
+      <i class="fa-solid fa-hand-holding-hand" style="font-size: 56px; margin-bottom: 12px; opacity: 0.85;"></i>
+      <h3 style="font-size: 20px; font-weight: 700; margin: 0 0 6px 0;">[ DOKUMENTASI AKSI PEMBERDAYAAN LAPANGAN ]</h3>
+      <p style="font-size: 14px; color: #5D3B78; margin: 0; max-width: 500px;">Pendampingan intensif bagi ibu-ibu mustahik penerima modal bergulir syariah</p>
+    </div>
+    <figcaption class="featured-img-caption">
+      Dokumentasi: Relawan LAZ Wanita Islam menyalurkan bantuan modal bergulir dan paket pemenuhan gizi keluarga binaan di Jawa Barat.
+    </figcaption>
+  </figure>
+
+  <!-- 4. MAIN ARTICLE & SIDEBAR GRID -->
+  <div class="post-layout-grid">
+    
+    <!-- KOLOM KIRI: ISI POSTINGAN -->
+    <article class="post-article-content">
+      <p class="lead-paragraph">
+        Kemandirian sebuah keluarga berakar kuat dari ketangguhan seorang ibu. Melalui optimalisasi zakat, infak, dan sedekah yang terkelola secara syar'i dan profesional, LAZ Wanita Islam terus memperluas jangkauan manfaat ke pelosok daerah.
+      </p>
+
+      <p>
+        Sebagai Badan Khusus Organisasi Kemasyarakatan Wanita Islam yang telah puluhan tahun mengabdi di ranah kemaslahatan umat, kami meyakini bahwa pemberdayaan ekonomi perempuan bukan sekadar memberikan bantuan konsumtif sesaat, melainkan menghidupkan ekosistem usaha mandiri yang berkelanjutan.
+      </p>
+
+      <h2>Fokus Pendampingan: Usaha Mikro & Ketahanan Gizi</h2>
+      <p>
+        Dalam program tahun ini, fokus bantuan diformulasikan ke dalam dua pilar strategis yang saling menopang:
+      </p>
+      <ul>
+        <li><strong>Inkubasi UMKM Ibu Mandiri:</strong> Memberikan stimulan permodalan usaha tanpa riba serta pelatihan manajemen keuangan rumah tangga.</li>
+        <li><strong>Penyuluhan Kesehatan & Pemenuhan Gizi Balita:</strong> Mencegah risiko stunting sejak dini dengan menyediakan paket pangan bergizi berkala.</li>
+        <li><strong>Bimbingan Rohani & Parenting Islami:</strong> Memperkuat sendi-sendi tauhid dan akhlakul karimah dalam membina anak-anak generasi penerus.</li>
+      </ul>
+
+      <blockquote>
+        "Mengangkat harkat dan martabat seorang ibu berarti menyelamatkan ketahanan satu generasi keluarga. Setiap rupiah zakat dan sedekah yang dititipkan donatur adalah amanah suci yang kami transformasikan menjadi kemandirian nyata."
+        <cite>&mdash; Pengurus LAZ Wanita Islam Pusat</cite>
+      </blockquote>
+
+      <h2>Transparansi dan Akuntabilitas Syariah</h2>
+      <p>
+        Setiap program pemberdayaan yang digulirkan melewati proses seleksi mustahik sesuai 8 asnaf Al-Qur'an secara teliti. Dokumentasi dan pelaporan berkala dilaporkan secara terbuka sebagai wujud pertanggungjawaban kepada Allah SWT, para muzakki, serta Dewan Pengawas Syariah.
+      </p>
+
+      <!-- EMBEDDED CTA BOX DONASI -->
+      <div class="post-cta-donate-box">
+        <div>
+          <h4>Mari Ambil Bagian dalam Kebaikan Ini</h4>
+          <p>Tunaikan zakat, infak, dan sedekah Anda bersama LAZ Wanita Islam. Kuatkan keluarga mustahik agar berdaya dan mandiri.</p>
+        </div>
+        <a href="/tunaikan-zakat" class="btn-cta-post">
+          <i class="fa-solid fa-heart" style="color: #613E02;"></i> Tunaikan Zakat
+        </a>
+      </div>
+
+      <p>
+        Kami mengajak seluruh elemen masyarakat, kaum muslimin dan muslimat, untuk bersinergi melipatgandakan dampak kemanfaatan ini. Insya Allah, setiap kebaikan yang disalurkan menjadi amal jariyah yang terus mengalir pahalanya.
+      </p>
+
+      <!-- POST FOOTER: TAGS & SHARE -->
+      <div class="post-footer-actions">
+        <div class="post-tags">
+          <span style="font-size: 12.5px; font-weight: 700; color: var(--text-muted); align-self: center;">Tag:</span>
+          <a href="#" class="tag-item">#Pemberdayaan</a>
+          <a href="#" class="tag-item">#ZakatSyariah</a>
+          <a href="#" class="tag-item">#IbuTangguh</a>
+          <a href="#" class="tag-item">#WanitaIslam</a>
+        </div>
+
+        <div class="post-share-top">
+          <a href="https://api.whatsapp.com/send?text=Respons%20Cepat%20Bencana%20LAZ%20Wanita%20Islam" target="_blank" class="btn-share wa" title="Bagikan ke WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="btn-share fb" title="Bagikan ke Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="btn-share tw" title="Bagikan ke X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- KOLOM KANAN: SIDEBAR INTERAKTIF -->
+    <aside class="post-sidebar">
+      
+      <!-- WIDGET 1: KOTAK DONASI & REKENING CEPAT -->
+      <div class="sidebar-widget">
+        <h4 class="widget-title">
+          <i class="fa-solid fa-hand-holding-dollar" style="color: var(--gold-accent);"></i>
+          Salurkan Donasi Anda
+        </h4>
+        <div class="sidebar-bank-card">
+          <div class="sidebar-bank-title">Bank Muamalat (Syariah)</div>
+          <div class="sidebar-bank-num">311 008 1902</div>
+          <div class="sidebar-bank-holder">a.n. LAZ Wanita Islam</div>
+        </div>
+        <a href="/tunaikan-zakat" class="btn-sidebar-donate">
+          <i class="fa-solid fa-calculator"></i> Hitung & Tunaikan Zakat
+        </a>
+      </div>
+
+      <!-- WIDGET 2: KABAR TERBARU LAINNYA -->
+      <div class="sidebar-widget">
+        <h4 class="widget-title">
+          <i class="fa-regular fa-newspaper" style="color: var(--gold-accent);"></i>
+          Kabar Terkini
+        </h4>
+        <ul class="sidebar-recent-list">
+          <li class="recent-post-item">
+            <div class="recent-thumb"><i class="fa-solid fa-basket-shopping"></i></div>
+            <div class="recent-info">
+              <span class="date">15 Nov 2026</span>
+              <a href="#">Distribusi 500 Paket Sembako Ibu Dhuafa di Jawa Barat</a>
+            </div>
+          </li>
+          <li class="recent-post-item">
+            <div class="recent-thumb"><i class="fa-solid fa-book-open-reader"></i></div>
+            <div class="recent-info">
+              <span class="date">10 Nov 2026</span>
+              <a href="#">Beasiswa Generasi Robbani: Dukung Pendidikan Anak Keluarga Pra-Sejahtera</a>
+            </div>
+          </li>
+          <li class="recent-post-item">
+            <div class="recent-thumb"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="recent-info">
+              <span class="date">04 Nov 2026</span>
+              <a href="#">Layanan Kesehatan Keliling & Skrining Balita Sehat</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- WIDGET 3: KONSULTASI DONATUR -->
+      <div class="sidebar-widget" style="background: var(--lilac-light); border-color: var(--lilac-soft);">
+        <h4 class="widget-title" style="color: var(--lilac-primary); border-bottom-color: var(--lilac-soft);">
+          <i class="fa-solid fa-headset" style="color: var(--lilac-primary);"></i>
+          Layanan Donatur
+        </h4>
+        <p style="font-size: 13px; color: #555566; line-height: 1.5; margin: 0 0 12px 0;">
+          Butuh konfirmasi transfer atau konsultasi perhitungan nisab zakat maal dan profesi?
+        </p>
+        <a href="mailto:sapa@laz.wanitaislam.or.id" style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--lilac-primary); text-decoration: none;">
+          <i class="fa-regular fa-envelope"></i> sapa@laz.wanitaislam.or.id
+        </a>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- 5. REKOMENDASI ARTIKEL TERKAIT -->
+  <section class="related-posts-section">
+    <h3 class="related-title">
+      <i class="fa-solid fa-sparkles" style="color: var(--gold-accent);"></i>
+      Kabar & Cerita Terkait Lainnya
+    </h3>
+    <div class="related-grid">
+      
+      <div class="related-card">
+        <div class="related-img"><i class="fa-solid fa-seedling"></i></div>
+        <div class="related-body">
+          <span class="cat">Ekonomi Keluarga</span>
+          <h5><a href="#">Pelatihan Olahan Pangan Lokal Meningkatkan Pendapatan Keluarga di Ciamis</a></h5>
+          <a href="#" class="related-link">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="related-card">
+        <div class="related-img"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div class="related-body">
+          <span class="cat">Sosial Kemanusiaan</span>
+          <h5><a href="#">Penyaluran Perlengkapan Sekolah & Seragam untuk Yatim Dhuafa</a></h5>
+          <a href="#" class="related-link">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="related-card">
+        <div class="related-img"><i class="fa-solid fa-scale-balanced"></i></div>
+        <div class="related-body">
+          <span class="cat">Edukasi Zakat</span>
+          <h5><a href="#">Panduan Lengkap Zakat Emas dan Perak Sesuai Fatwa MUI</a></h5>
+          <a href="#" class="related-link">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
