@@ -577,43 +577,657 @@
         </div>
       </section>
 
-      <!-- SECTION 3: STRUKTUR PENGURUS & DEWAN SYARIAH (Selasa Final) -->
-      <section class="structure-section" id="pengurus">
-        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-          <h3 style="font-family: var(--font-heading); font-size: 26px; color: var(--lilac-dark); margin-bottom: 8px;">Struktur Kepengurusan & DPS</h3>
-          <p style="font-size: 13px; color: var(--text-muted);">Diisi oleh tokoh perempuan, akademisi, dan alim ulama terpercaya yang menjaga marwah amanah dana umat.</p>
+<!-- ========================================================
+  WIDGET STRUKTUR ORGANISASI LAZNAS WANITA ISLAM
+  Desain Hierarki Modern, Anggun, Responsif & Kepatuhan Syariah
+======================================================== -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --lilac-primary: #54366F;
+    --lilac-dark: #3D2452;
+    --lilac-light: #F5F0FA;
+    --lilac-soft: #D9C9E8;
+    --lilac-tint: #ECE5F3;
+    --gold-accent: #C5A46D;
+    --gold-gradient: linear-gradient(135deg, #ECC874 0%, #C59A3F 50%, #9E7422 100%);
+    --gold-glow: 0 4px 15px rgba(197, 154, 63, 0.4);
+    --gold-light: #FDF7E7;
+    --text-dark: #22222B;
+    --text-muted: #666675;
+    --bg-gray: #F8F9FA;
+    --border-color: #E6E4EA;
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .lazwi-org-section {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background: linear-gradient(180deg, #FFFFFF 0%, #FAF8FC 50%, #FFFFFF 100%);
+    padding: 70px 20px 80px 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lazwi-org-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .org-header {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 50px auto;
+  }
+
+  .org-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--lilac-light);
+    color: var(--lilac-primary);
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--lilac-soft);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .org-title {
+    font-family: var(--font-heading);
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--lilac-dark);
+    margin: 0 0 14px 0;
+    line-height: 1.25;
+  }
+
+  .org-title span {
+    color: var(--gold-accent);
+  }
+
+  .org-subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ORGANOGRAM WRAPPER */
+  .organogram-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+  }
+
+  /* TIER CARD BASE */
+  .org-group-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 30px 26px;
+    box-shadow: 0 8px 25px rgba(84, 54, 111, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .org-group-card:hover {
+    border-color: var(--lilac-soft);
+    box-shadow: 0 12px 35px rgba(84, 54, 111, 0.1);
+  }
+
+  .org-group-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .org-group-title i {
+    color: var(--gold-accent);
+    font-size: 18px;
+  }
+
+  .org-group-title h4 {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--lilac-dark);
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* MEMBER GRID INSIDE GROUP */
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
+  .member-item {
+    background: var(--bg-gray);
+    border: 1px solid #ECEAEF;
+    border-radius: 14px;
+    padding: 16px 14px;
+    text-align: center;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .member-item:hover {
+    background: #FFFFFF;
+    border-color: var(--lilac-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(84, 54, 111, 0.08);
+  }
+
+  .member-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--lilac-light);
+    border: 2px solid var(--gold-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lilac-primary);
+    font-size: 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(197, 164, 109, 0.2);
+  }
+
+  .member-name {
+    font-family: var(--font-heading);
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    line-height: 1.35;
+  }
+
+  .member-tag {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--lilac-primary);
+    background: var(--lilac-tint);
+    padding: 3px 10px;
+    border-radius: 12px;
+    display: inline-block;
+  }
+
+  /* =========================================
+     TIER 1: PEMBINA & PENGAWAS SYARIAH
+  ========================================= */
+  .tier-1-governance {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+
+  .tier-1-governance .org-group-card {
+    border-top: 4px solid var(--gold-accent);
+  }
+
+  /* =========================================
+     TIER 2: DIREKTUR EKSEKUTIF (PROMINENT CENTER)
+  ========================================= */
+  .tier-2-executive {
+    max-width: 680px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .executive-hero-card {
+    background: linear-gradient(135deg, #FAF7FD 0%, #FFFFFF 100%);
+    border: 2px solid var(--lilac-soft);
+    border-radius: 22px;
+    padding: 32px 30px;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(84, 54, 111, 0.09);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .executive-hero-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--gold-gradient);
+  }
+
+  .exec-avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--lilac-primary), var(--lilac-dark));
+    border: 3px solid var(--gold-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 32px;
+    margin: 0 auto 16px auto;
+    box-shadow: 0 6px 20px rgba(84, 54, 111, 0.25);
+  }
+
+  .exec-role-badge {
+    background: var(--gold-gradient);
+    color: #362203;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 5px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: var(--gold-glow);
+  }
+
+  .exec-name {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--lilac-dark);
+    margin: 0 0 6px 0;
+  }
+
+  .exec-desc {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* =========================================
+     TIER 3: SEKRETARIS & BENDAHARA
+  ========================================= */
+  .tier-3-support {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+
+  /* =========================================
+     TIER 4: 4 DIREKTORAT OPERASIONAL & PROGRAM
+  ========================================= */
+  .tier-4-directorates {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+  }
+
+  .directorate-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 24px 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .directorate-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--lilac-primary);
+    box-shadow: 0 12px 30px rgba(84, 54, 111, 0.1);
+  }
+
+  .dir-header {
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .dir-header-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--lilac-light);
+    color: var(--lilac-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .dir-header-title {
+    font-family: var(--font-heading);
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--lilac-dark);
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .dir-members-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dir-member-entry {
+    background: var(--bg-gray);
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #EBE9F0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+  }
+
+  .dir-member-entry:hover {
+    background: #FFFFFF;
+    border-color: var(--lilac-soft);
+  }
+
+  .dir-member-bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold-accent);
+    flex-shrink: 0;
+  }
+
+  .dir-member-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.35;
+  }
+
+  /* RESPONSIVE BREAKPOINT */
+  @media (max-width: 900px) {
+    .tier-1-governance,
+    .tier-3-support {
+      grid-template-columns: 1fr;
+    }
+    .org-title {
+      font-size: 26px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .lazwi-org-section {
+      padding: 50px 14px 60px 14px;
+    }
+    .members-grid {
+      grid-template-columns: 1fr;
+    }
+    .tier-4-directorates {
+      grid-template-columns: 1fr;
+    }
+    .org-group-card {
+      padding: 22px 16px;
+    }
+  }
+</style>
+
+<section class="lazwi-org-section" id="struktur-organisasi">
+  <div class="lazwi-org-container">
+
+    <!-- HEADER -->
+    <div class="org-header">
+      <div class="org-badge"><i class="fa-solid fa-sitemap"></i> Tata Kelola Profesional & Amanah</div>
+      <h3 class="org-title">Struktur Organisasi <span>LAZNAS Wanita Islam</span></h3>
+      <p class="org-subtitle">
+        Dikelola secara profesional, akuntabel, dan berintegritas tinggi oleh jajaran tokoh perempuan nasional, akademisi, dan alim ulama terpercaya.
+      </p>
+    </div>
+
+    <!-- ORGANOGRAM FLOW -->
+    <div class="organogram-wrapper">
+
+      <!-- ==========================================
+           TIER 1: PEMBINA & PENGAWAS SYARIAH
+      ========================================== -->
+      <div class="tier-1-governance">
+
+        <!-- DEWAN PEMBINA -->
+        <div class="org-group-card">
+          <div class="org-group-title">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h4>Dewan Pembina</h4>
+          </div>
+          <div class="members-grid">
+            <div class="member-item">
+              <div class="member-avatar"><i class="fa-solid fa-user-graduate"></i></div>
+              <div class="member-name">Prof. DR. Aliyah Rasyid Baswedan, MA</div>
+              <span class="member-tag">Pembina</span>
+            </div>
+            <div class="member-item">
+              <div class="member-avatar"><i class="fa-solid fa-user-shield"></i></div>
+              <div class="member-name">Hj. Sri Harti Jauhari, S.Ag., MM</div>
+              <span class="member-tag">Pembina</span>
+            </div>
+            <div class="member-item">
+              <div class="member-avatar"><i class="fa-solid fa-user-check"></i></div>
+              <div class="member-name">Dr. Hanip Pujiati</div>
+              <span class="member-tag">Pembina</span>
+            </div>
+          </div>
         </div>
 
-        <div class="structure-grid">
-          <div class="struct-card">
-            <div class="avatar-ph"><i class="fa-solid fa-user-tie"></i></div>
-            <div class="struct-name">[ Nama Dewan Syariah ]</div>
-            <div class="struct-role">Dewan Pengawas Syariah</div>
-            <p style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">Menjaga kepatuhan syariat seluruh akad dan penyaluran ZIS.</p>
+        <!-- DEWAN PENGAWAS SYARIAH -->
+        <div class="org-group-card">
+          <div class="org-group-title">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <h4>Dewan Pengawas Syariah</h4>
           </div>
-
-          <div class="struct-card">
-            <div class="avatar-ph"><i class="fa-solid fa-user-shield"></i></div>
-            <div class="struct-name">[ Nama Pimpinan WI ]</div>
-            <div class="struct-role">Dewan Pembina / Pengawas</div>
-            <p style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">Perwakilan Pengurus Pusat Ormas Wanita Islam.</p>
-          </div>
-
-          <div class="struct-card">
-            <div class="avatar-ph"><i class="fa-solid fa-user-check"></i></div>
-            <div class="struct-name">[ Nama Direktur Eksekutif ]</div>
-            <div class="struct-role">Direktur / Ketua LAZ</div>
-            <p style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">Penanggung jawab operasional harian dan program.</p>
-          </div>
-
-          <div class="struct-card">
-            <div class="avatar-ph"><i class="fa-solid fa-coins"></i></div>
-            <div class="struct-name">[ Nama Bendahara ]</div>
-            <div class="struct-role">Direktur Keuangan & Amil</div>
-            <p style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">Mengelola akuntabilitas arus kas dan pelaporan audit.</p>
+          <div class="members-grid">
+            <div class="member-item">
+              <div class="member-avatar"><i class="fa-solid fa-book-quran"></i></div>
+              <div class="member-name">Dra. Hj. Marfuah Musthofa, M.Pd</div>
+              <span class="member-tag">Pengawas Syariah</span>
+            </div>
+            <div class="member-item">
+              <div class="member-avatar"><i class="fa-solid fa-book-quran"></i></div>
+              <div class="member-name">Hj. Lubenah, S.Ag., MM</div>
+              <span class="member-tag">Pengawas Syariah</span>
+            </div>
+            <div class="member-item">
+              <div class="member-avatar"><i class="fa-solid fa-book-quran"></i></div>
+              <div class="member-name">Hj. Istianah Hamid, A.Md</div>
+              <span class="member-tag">Pengawas Syariah</span>
+            </div>
           </div>
         </div>
-      </section>
+
+      </div>
+
+      <!-- ==========================================
+           TIER 2: DIREKTUR EKSEKUTIF (PROMINENT CENTER)
+      ========================================== -->
+      <div class="tier-2-executive">
+        <div class="executive-hero-card">
+          <div class="exec-avatar"><i class="fa-solid fa-user-tie"></i></div>
+          <span class="exec-role-badge"><i class="fa-solid fa-star"></i> Pucuk Pimpinan Eksekutif</span>
+          <h4 class="exec-name">Hj. Nurfajriah Siregar, S.Ag</h4>
+          <p class="exec-desc">Direktur Eksekutif LAZNAS Wanita Islam</p>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           TIER 3: SEKRETARIS & BENDAHARA
+      ========================================= -->
+      <div class="tier-3-support">
+
+        <!-- SEKRETARIS -->
+        <div class="org-group-card">
+          <div class="org-group-title">
+            <i class="fa-solid fa-signature"></i>
+            <h4>Sekretaris</h4>
+          </div>
+          <div class="members-grid">
+            <div class="member-item">
+              <div class="member-avatar"><i class="fa-solid fa-user"></i></div>
+              <div class="member-name">Hj. Maylan Sholha, ST, MM</div>
+              <span class="member-tag">Sekretaris</span>
+            </div>
+            <div class="member-item">
+              <div class="member-avatar"><i class="fa-solid fa-user"></i></div>
+              <div class="member-name">Handayani, SE</div>
+              <span class="member-tag">Sekretaris</span>
+            </div>
+            <div class="member-item">
+              <div class="member-avatar"><i class="fa-solid fa-user"></i></div>
+              <div class="member-name">Husnul Amalia Sholiha</div>
+              <span class="member-tag">Sekretaris</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BENDAHARA -->
+        <div class="org-group-card">
+          <div class="org-group-title">
+            <i class="fa-solid fa-coins"></i>
+            <h4>Bendahara</h4>
+          </div>
+          <div class="members-grid">
+            <div class="member-item">
+              <div class="member-avatar"><i class="fa-solid fa-vault"></i></div>
+              <div class="member-name">Imawati Farhan, S.Ag</div>
+              <span class="member-tag">Bendahara</span>
+            </div>
+            <div class="member-item">
+              <div class="member-avatar"><i class="fa-solid fa-vault"></i></div>
+              <div class="member-name">Sumiyati</div>
+              <span class="member-tag">Bendahara</span>
+            </div>
+            <div class="member-item">
+              <div class="member-avatar"><i class="fa-solid fa-vault"></i></div>
+              <div class="member-name">Novianty Widiastuti, SE</div>
+              <span class="member-tag">Bendahara</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==========================================
+           TIER 4: 4 DIREKTORAT OPERASIONAL & PROGRAM
+      ========================================== -->
+      <div class="tier-4-directorates">
+
+        <!-- DIREKTORAT 1: PENGHIMPUNAN & PENDAYAGUNAAN -->
+        <div class="directorate-card">
+          <div class="dir-header">
+            <div class="dir-header-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <div class="dir-header-title">Direktur Penghimpunan & Pendayagunaan</div>
+          </div>
+          <ul class="dir-members-list">
+            <li class="dir-member-entry">
+              <span class="dir-member-bullet"></span>
+              <span class="dir-member-name">Kartika Mayasari, SS</span>
+            </li>
+            <li class="dir-member-entry">
+              <span class="dir-member-bullet"></span>
+              <span class="dir-member-name">Husnul Amalia Sholiha</span>
+            </li>
+            <li class="dir-member-entry">
+              <span class="dir-member-bullet"></span>
+              <span class="dir-member-name">Arini Hasanah Setiati, S.Pd</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- DIREKTORAT 2: PENDISTRIBUSIAN -->
+        <div class="directorate-card">
+          <div class="dir-header">
+            <div class="dir-header-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+            <div class="dir-header-title">Direktur Pendistribusian</div>
+          </div>
+          <ul class="dir-members-list">
+            <li class="dir-member-entry">
+              <span class="dir-member-bullet"></span>
+              <span class="dir-member-name">Dra. Sri Watini</span>
+            </li>
+            <li class="dir-member-entry">
+              <span class="dir-member-bullet"></span>
+              <span class="dir-member-name">Arliana Mumtaza</span>
+            </li>
+            <li class="dir-member-entry">
+              <span class="dir-member-bullet"></span>
+              <span class="dir-member-name">Nindianty Widiastuty</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- DIREKTORAT 3: PENDAYAGUNAAN -->
+        <div class="directorate-card">
+          <div class="dir-header">
+            <div class="dir-header-icon"><i class="fa-solid fa-seedling"></i></div>
+            <div class="dir-header-title">Direktur Pendayagunaan</div>
+          </div>
+          <ul class="dir-members-list">
+            <li class="dir-member-entry">
+              <span class="dir-member-bullet"></span>
+              <span class="dir-member-name">Dr. Nurahmawati Farida Aryani, M.Si</span>
+            </li>
+            <li class="dir-member-entry">
+              <span class="dir-member-bullet"></span>
+              <span class="dir-member-name">Hj. Nurbayanti, S.Pd., M.Pd</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- DIREKTORAT 4: TATA KELOLA & OPERASIONAL -->
+        <div class="directorate-card">
+          <div class="dir-header">
+            <div class="dir-header-icon"><i class="fa-solid fa-gears"></i></div>
+            <div class="dir-header-title">Direktur Tata Kelola & Operasional</div>
+          </div>
+          <ul class="dir-members-list">
+            <li class="dir-member-entry">
+              <span class="dir-member-bullet"></span>
+              <span class="dir-member-name">Nailus Saadah, S.P.</span>
+            </li>
+            <li class="dir-member-entry">
+              <span class="dir-member-bullet"></span>
+              <span class="dir-member-name">Rika Kusum</span>
+            </li>
+            <li class="dir-member-entry">
+              <span class="dir-member-bullet"></span>
+              <span class="dir-member-name">Nindianty Puji Tri Wahyuni</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 
       <!-- FOOTER -->
       <footer class="site-footer dynamic-footer" style="max-width:100%;width:100%;margin:0;">
