@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="100%" height="100%">
+  <defs>
+    <linearGradient id="danamonOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6A00"/>
+      <stop offset="100%" stop-color="#E54E00"/>
+    </linearGradient>
+  </defs>
+  <!-- Simbol Danamon Bar -->
+  <g transform="translate(14, 18)">
+    <!-- Blue notch -->
+    <rect x="0" y="4" width="8" height="34" rx="2" fill="#002D62"/>
+    <!-- Orange bar -->
+    <rect x="12" y="4" width="34" height="34" rx="3" fill="url(#danamonOrange)"/>
+    <!-- Yellow accent stripe -->
+    <rect x="18" y="10" width="6" height="22" rx="1.5" fill="#FFC83B"/>
+  </g>
+  <!-- Tipografi Danamon -->
+  <text x="68" y="38" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="23" font-weight="900" fill="#002D62" letter-spacing="-0.3">Danamon</text>
+  <text x="70" y="55" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="12" font-weight="700" fill="#008891" letter-spacing="1.2">SYARIAH</text>
+</svg>

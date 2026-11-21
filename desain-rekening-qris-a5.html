@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Desain A5 Rekening & QRIS - LAZ Wanita Islam</title>
+  <title>Desain A5 Cetak Rekening & QRIS Lengkap - LAZ Wanita Islam</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,16 +16,17 @@
 
     :root {
       --lilac-primary: #54366F;
-      --lilac-dark: #321647;
-      --lilac-light: #F6F1FA;
+      --lilac-dark: #2F1242;
+      --lilac-deep: #1F082D;
+      --lilac-light: #F7F3FA;
       --lilac-soft: #D9C9E8;
       --gold-accent: #C5A46D;
       --gold-dark: #8F6A2E;
       --gold-gradient: linear-gradient(135deg, #ECC874 0%, #C59A3F 50%, #9E7422 100%);
-      --gold-glow: 0 8px 25px rgba(197, 154, 63, 0.35);
+      --gold-glow: 0 8px 25px rgba(197, 154, 63, 0.28);
       --gold-light: #FDF9F0;
       --text-dark: #1E1B24;
-      --text-muted: #666373;
+      --text-muted: #5D5A6A;
       --font-main: 'Plus Jakarta Sans', sans-serif;
     }
 
@@ -55,7 +56,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 60px 80px 55px 80px;
+      padding: 55px 70px 50px 70px;
       background: #FFFFFF;
       box-sizing: border-box;
     }
@@ -66,7 +67,7 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 570px;
+      height: 480px;
       background: var(--gold-gradient);
       clip-path: ellipse(78% 100% at 50% 0%);
       z-index: 1;
@@ -77,17 +78,17 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 555px;
-      background: linear-gradient(135deg, #280E3B 0%, #4D266B 50%, #36144D 100%);
+      height: 465px;
+      background: linear-gradient(135deg, #240A34 0%, #4D266B 50%, #311047 100%);
       clip-path: ellipse(76% 100% at 50% 0%);
       z-index: 2;
     }
 
     .bg-top-watermark {
       position: absolute;
-      top: 20px;
-      right: 60px;
-      font-size: 320px;
+      top: 15px;
+      right: 50px;
+      font-size: 280px;
       color: #FFFFFF;
       opacity: 0.05;
       z-index: 3;
@@ -97,24 +98,24 @@
     /* BORDER FRAME LUXURY */
     .outer-gold-border {
       position: absolute;
-      top: 24px;
-      left: 24px;
-      right: 24px;
-      bottom: 24px;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
       border: 3px solid #E6D8BC;
-      border-radius: 36px;
+      border-radius: 34px;
       pointer-events: none;
       z-index: 10;
     }
 
     .inner-gold-border {
       position: absolute;
-      top: 34px;
-      left: 34px;
-      right: 34px;
-      bottom: 34px;
+      top: 30px;
+      left: 30px;
+      right: 30px;
+      bottom: 30px;
       border: 1.5px dashed rgba(197, 164, 109, 0.45);
-      border-radius: 28px;
+      border-radius: 26px;
       pointer-events: none;
       z-index: 10;
     }
@@ -132,7 +133,7 @@
     /* 1. HEADER SECTION */
     .poster-header {
       text-align: center;
-      padding-top: 15px;
+      padding-top: 10px;
     }
 
     .top-badge-strip {
@@ -143,15 +144,14 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1.5px solid rgba(255, 255, 255, 0.4);
-      padding: 10px 32px;
+      padding: 8px 30px;
       border-radius: 40px;
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 800;
       color: #FFFFFF;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 26px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 18px;
     }
 
     .top-badge-strip i {
@@ -163,28 +163,28 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 16px 44px;
-      border-radius: 24px;
+      padding: 14px 42px;
+      border-radius: 22px;
       border: 3px solid var(--gold-accent);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-      margin-bottom: 22px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      margin-bottom: 18px;
     }
 
     .header-logo-card img {
-      height: 94px;
+      height: 84px;
       width: auto;
       display: block;
     }
 
     .poster-headline {
-      font-size: 44px;
+      font-size: 42px;
       font-weight: 900;
       color: #FFFFFF;
       text-transform: uppercase;
       letter-spacing: -0.5px;
       line-height: 1.2;
-      margin-bottom: 10px;
-      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+      margin-bottom: 8px;
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
     }
 
     .poster-headline span {
@@ -194,245 +194,381 @@
     }
 
     .poster-tagline {
-      font-size: 23px;
+      font-size: 21px;
       color: #F1E5F8;
       font-weight: 600;
-      line-height: 1.4;
+      line-height: 1.35;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
-    /* 2. MAIN CARDS STACK */
-    .cards-stack {
+    /* 2. BODY SECTION (QRIS & REKENING) */
+    .poster-main-body {
       display: flex;
       flex-direction: column;
-      gap: 32px;
-      margin: 20px 0;
+      gap: 26px;
+      margin: 18px 0;
     }
 
-    /* CARD 1: QRIS BOX */
-    .qris-box-card {
+    /* SECTION HEADER TITLE */
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .section-title-wrap .line {
+      height: 2px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, #D9C9E8, transparent);
+    }
+
+    .section-title-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FAF7FD;
+      border: 2px solid var(--lilac-soft);
+      padding: 8px 24px;
+      border-radius: 30px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--lilac-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-title-badge i {
+      color: var(--gold-accent);
+    }
+
+    /* SECTION 1: DUA QRIS BERDAMPINGAN */
+    .qris-section-box {
       background: #FFFFFF;
-      border: 3px solid var(--lilac-soft);
-      border-radius: 32px;
-      padding: 28px 36px 30px 36px;
-      box-shadow: 0 14px 40px rgba(84, 54, 111, 0.08);
-      text-align: center;
-      position: relative;
+      border: 2.5px solid var(--lilac-soft);
+      border-radius: 28px;
+      padding: 24px 28px;
+      box-shadow: 0 10px 35px rgba(84, 54, 111, 0.06);
     }
 
-    .qris-header-row {
+    .qris-top-banner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 18px;
+      padding-bottom: 14px;
       border-bottom: 2px dashed #E2DCE8;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
-    .qris-title-group {
+    .qris-brand-left {
       display: flex;
       align-items: center;
       gap: 14px;
     }
 
-    .qris-text-logo {
-      font-size: 36px;
+    .qris-brand-left .qris-logo-text {
+      font-size: 34px;
       font-weight: 900;
       color: #ED1C24;
       font-family: sans-serif;
       letter-spacing: -1px;
     }
 
-    .qris-subtitle-text {
-      font-size: 21px;
+    .qris-brand-left .qris-sub {
+      font-size: 19px;
       font-weight: 700;
       color: var(--lilac-dark);
     }
 
-    .gpn-badge-box {
+    .gpn-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: #FFF1F1;
       color: #D32F2F;
       border: 2px solid #FFCDD2;
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 900;
-      padding: 6px 18px;
-      border-radius: 12px;
+      padding: 5px 16px;
+      border-radius: 10px;
     }
 
-    /* QR FRAME */
-    .qr-frame {
-      display: inline-block;
+    /* GRID 2 KOLOM QRIS */
+    .qris-grid-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .qris-card {
+      background: linear-gradient(180deg, #FCFAFE 0%, #FFFFFF 100%);
+      border: 2px solid #E3D9ED;
+      border-radius: 22px;
+      padding: 20px 18px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 6px 20px rgba(84, 54, 111, 0.04);
       position: relative;
-      padding: 16px;
-      background: #FFFFFF;
-      border-radius: 26px;
-      border: 3px solid var(--gold-accent);
-      box-shadow: 0 12px 35px rgba(197, 154, 63, 0.28);
-      margin-bottom: 18px;
     }
 
-    .qr-frame img {
-      width: 490px;
-      height: 490px;
+    .qris-card.featured {
+      border-color: var(--gold-accent);
+      box-shadow: 0 8px 25px rgba(197, 154, 63, 0.18);
+    }
+
+    .qris-card-tag {
+      background: var(--lilac-primary);
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 6px 20px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .qris-card.featured .qris-card-tag {
+      background: var(--gold-gradient);
+      color: #FFFFFF;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .qr-viewfinder {
+      position: relative;
+      padding: 12px;
+      background: #FFFFFF;
+      border: 2.5px solid var(--gold-accent);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      margin-bottom: 14px;
+    }
+
+    .qr-viewfinder img {
+      width: 320px;
+      height: 320px;
       display: block;
       image-rendering: pixelated;
     }
 
-    .corner-bracket {
+    .bracket {
       position: absolute;
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
       border-color: var(--lilac-primary);
       border-style: solid;
       pointer-events: none;
     }
-    .c-tl { top: -4px; left: -4px; border-width: 6px 0 0 6px; border-top-left-radius: 12px; }
-    .c-tr { top: -4px; right: -4px; border-width: 6px 6px 0 0; border-top-right-radius: 12px; }
-    .c-bl { bottom: -4px; left: -4px; border-width: 0 0 6px 6px; border-bottom-left-radius: 12px; }
-    .c-br { bottom: -4px; right: -4px; border-width: 0 6px 6px 0; border-bottom-right-radius: 12px; }
+    .b-tl { top: -3px; left: -3px; border-width: 5px 0 0 5px; border-top-left-radius: 10px; }
+    .b-tr { top: -3px; right: -3px; border-width: 5px 5px 0 0; border-top-right-radius: 10px; }
+    .b-bl { bottom: -3px; left: -3px; border-width: 0 0 5px 5px; border-bottom-left-radius: 10px; }
+    .b-br { bottom: -3px; right: -3px; border-width: 0 5px 5px 0; border-bottom-right-radius: 10px; }
 
-    .qris-meta-info {
-      font-size: 23px;
+    .qris-detail-text {
+      font-size: 19px;
       color: var(--text-muted);
-      line-height: 1.45;
-      margin-bottom: 16px;
+      line-height: 1.4;
+      text-align: center;
     }
 
-    .qris-meta-info strong {
+    .qris-detail-text strong {
       color: var(--lilac-dark);
-      font-size: 25px;
       font-weight: 800;
+      font-size: 21px;
     }
 
-    .apps-pill-row {
+    .qris-purpose-badge {
+      margin-top: 10px;
+      background: #F3ECF8;
+      color: var(--lilac-primary);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--lilac-soft);
+    }
+
+    .apps-strip-footer {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
+      padding-top: 10px;
+      border-top: 1.5px dashed #EAE5F0;
     }
 
-    .app-pill {
+    .app-chip {
       background: var(--lilac-light);
-      border: 1.5px solid var(--lilac-soft);
+      border: 1px solid var(--lilac-soft);
       color: var(--lilac-primary);
-      font-size: 18px;
+      font-size: 16.5px;
       font-weight: 700;
-      padding: 6px 18px;
-      border-radius: 30px;
+      padding: 5px 15px;
+      border-radius: 20px;
     }
 
-    /* CARD 2: REKENING BANK MUAMALAT */
-    .rekening-box-card {
-      background: linear-gradient(135deg, #FAF7FD 0%, #FFFFFF 100%);
-      border: 3px solid var(--gold-accent);
-      border-radius: 32px;
-      padding: 30px 36px 30px 36px;
+    /* SECTION 2: DUA REKENING BANK BERDAMPINGAN */
+    .rekening-section-box {
+      background: #FFFFFF;
+      border: 2.5px solid var(--gold-accent);
+      border-radius: 28px;
+      padding: 24px 28px;
       box-shadow: var(--gold-glow);
-      text-align: center;
-      position: relative;
     }
 
-    .rekening-top-row {
+    .rekening-section-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #F4EEDB;
     }
 
-    .rekening-logo-wrap {
+    .rekening-title-group {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
-    .rekening-logo-wrap img {
-      height: 56px;
-      width: auto;
-      display: block;
+    .rekening-title-group i {
+      font-size: 28px;
+      color: var(--gold-dark);
     }
 
-    .syariah-tag {
+    .rekening-title-group h2 {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--lilac-dark);
+      letter-spacing: -0.3px;
+    }
+
+    .rekening-subtag {
       background: var(--gold-light);
-      color: #8F6A2E;
-      border: 2px solid var(--gold-accent);
-      font-size: 19px;
+      color: var(--gold-dark);
+      border: 1.5px solid var(--gold-accent);
+      font-size: 17px;
       font-weight: 800;
-      padding: 7px 22px;
-      border-radius: 20px;
+      padding: 6px 18px;
+      border-radius: 16px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
-    .account-digits-banner {
-      background: #FFFFFF;
-      border: 3px solid var(--lilac-primary);
+    /* GRID 2 REKENING */
+    .rekening-grid-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .bank-card {
+      background: linear-gradient(135deg, #FAF7FD 0%, #FFFFFF 100%);
+      border: 2.5px solid var(--lilac-soft);
       border-radius: 22px;
-      padding: 16px 28px;
-      margin: 12px 0 16px 0;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 8px 24px rgba(84, 54, 111, 0.05);
+      position: relative;
+    }
+
+    .bank-card.featured-bank {
+      border-color: var(--gold-accent);
+      background: linear-gradient(135deg, #FFFCF7 0%, #FFFFFF 100%);
+    }
+
+    .bank-header-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: inset 0 3px 8px rgba(84, 54, 111, 0.06);
+      margin-bottom: 14px;
     }
 
-    .account-number {
-      font-family: var(--font-main);
-      font-size: 50px;
-      font-weight: 900;
-      color: var(--lilac-dark);
-      letter-spacing: 4px;
-    }
-
-    .account-badge-copy {
-      background: var(--lilac-primary);
-      color: #FFFFFF;
-      font-size: 21px;
-      font-weight: 800;
-      padding: 10px 24px;
-      border-radius: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .account-owner {
-      font-size: 25px;
-      font-weight: 800;
-      color: var(--lilac-dark);
-      margin-bottom: 12px;
-    }
-
-    .allocation-pills {
+    .bank-logo-wrap {
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 14px;
-      font-size: 20px;
-      color: var(--text-muted);
-      font-weight: 600;
     }
 
-    .allocation-pills span::after {
-      content: "•";
-      margin-left: 14px;
-      color: var(--gold-accent);
-      font-weight: 900;
+    .bank-logo-wrap img {
+      height: 48px;
+      width: auto;
+      display: block;
+      object-fit: contain;
     }
-    .allocation-pills span:last-child::after {
-      content: "";
+
+    .bank-badge {
+      background: #FFFFFF;
+      border: 1.5px solid #D9C9E8;
+      color: var(--lilac-primary);
+      font-size: 15px;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 12px;
+      text-transform: uppercase;
+    }
+
+    .bank-card.featured-bank .bank-badge {
+      border-color: var(--gold-accent);
+      color: var(--gold-dark);
+      background: var(--gold-light);
+    }
+
+    .account-digits-box {
+      background: #FFFFFF;
+      border: 2.5px solid var(--lilac-primary);
+      border-radius: 18px;
+      padding: 12px 18px;
+      text-align: center;
+      margin: 10px 0 14px 0;
+      box-shadow: inset 0 2px 6px rgba(84, 54, 111, 0.05);
+    }
+
+    .bank-card.featured-bank .account-digits-box {
+      border-color: var(--gold-dark);
+    }
+
+    .account-num-text {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--lilac-dark);
+      letter-spacing: 3px;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .account-owner-text {
+      font-size: 19.5px;
+      font-weight: 800;
+      color: var(--lilac-primary);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .account-allocations {
+      font-size: 16px;
+      color: var(--text-muted);
+      text-align: center;
+      font-weight: 600;
+      padding-top: 8px;
+      border-top: 1px dashed #E2DCE8;
     }
 
     /* 3. FOOTER SECTION */
     .poster-footer {
-      background: linear-gradient(135deg, #2A0E3D 0%, #54366F 100%);
+      background: linear-gradient(135deg, #240A34 0%, #4D266B 50%, #311047 100%);
       color: #FFFFFF;
       border-radius: 26px;
       padding: 24px 34px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(61, 36, 82, 0.2);
+      box-shadow: 0 10px 30px rgba(47, 18, 66, 0.25);
+      position: relative;
     }
 
     .trust-3a-bar {
@@ -440,27 +576,25 @@
       justify-content: center;
       align-items: center;
       gap: 30px;
-      font-size: 20px;
+      font-size: 19.5px;
       font-weight: 800;
       color: #ECC874;
       text-transform: uppercase;
       letter-spacing: 1px;
       padding-bottom: 14px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      margin-bottom: 16px;
     }
 
     .trust-3a-bar i {
-      font-size: 12px;
+      font-size: 10px;
       color: #FFFFFF;
     }
 
-    .footer-channels-row {
+    .footer-channels-grid {
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 32px;
       font-size: 20px;
       color: #EBDCF5;
     }
@@ -468,16 +602,17 @@
     .channel-item {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .channel-item i {
       color: #ECC874;
-      font-size: 22px;
+      font-size: 26px;
     }
 
     .channel-item strong {
       color: #FFFFFF;
+      font-size: 22px;
     }
   </style>
 </head>
@@ -507,74 +642,140 @@
         </div>
 
         <h1 class="poster-headline">Tunaikan <span>Zakat, Infak & Sedekah</span></h1>
-        <p class="poster-tagline">Berkhidmat Mengangkat Harkat Perempuan & Ketahanan Keluarga Indonesia</p>
+        <p class="poster-tagline">Kemudahan Berdonasi Aman, Tepat Sasaran & Berkah Melalui QRIS dan Rekening Resmi</p>
       </header>
 
-      <!-- DONATION BODY STACK -->
-      <main class="cards-stack">
+      <!-- MAIN DONATION BODY -->
+      <main class="poster-main-body">
 
-        <!-- 1. KOTAK QRIS RESMI -->
-        <div class="qris-box-card">
-          <div class="qris-header-row">
-            <div class="qris-title-group">
-              <span class="qris-text-logo">QRIS</span>
-              <span class="qris-subtitle-text">QR Code Standar Pembayaran Nasional</span>
+        <!-- 1. SEKSI DUA QRIS RESMI -->
+        <div class="qris-section-box">
+          <div class="qris-top-banner">
+            <div class="qris-brand-left">
+              <span class="qris-logo-text">QRIS</span>
+              <span class="qris-sub">QR Code Standar Pembayaran Nasional</span>
             </div>
-            <div class="gpn-badge-box">
+            <div class="gpn-badge">
               <i class="fa-solid fa-shield-halved"></i> GPN
             </div>
           </div>
 
-          <!-- VIEWFINDER QR CODE -->
-          <div class="qr-frame">
-            <div class="corner-bracket c-tl"></div>
-            <div class="corner-bracket c-tr"></div>
-            <div class="corner-bracket c-bl"></div>
-            <div class="corner-bracket c-br"></div>
-            <img src="assets/qris/qr-code-clean.png" alt="QR Code QRIS LAZ Wanita Islam">
+          <!-- GRID 2 QRIS BERDAMPINGAN -->
+          <div class="qris-grid-two">
+            
+            <!-- QRIS 1: LAZ WANITA ISLAM -->
+            <div class="qris-card featured">
+              <div class="qris-card-tag">LAZ WANITA ISLAM</div>
+              <div class="qr-viewfinder">
+                <div class="bracket b-tl"></div>
+                <div class="bracket b-tr"></div>
+                <div class="bracket b-bl"></div>
+                <div class="bracket b-br"></div>
+                <img src="assets/qris/qr-laz-clean.png" alt="QRIS LAZ Wanita Islam">
+              </div>
+              <div class="qris-detail-text">
+                NMID: <strong>ID2026642117256</strong> (A01)<br>
+                Merchant: <strong>LAZ WANITA ISLAM</strong>
+              </div>
+              <div class="qris-purpose-badge">
+                Zakat Maal, Infak & Kemanusiaan
+              </div>
+            </div>
+
+            <!-- QRIS 2: PP WANITA ISLAM -->
+            <div class="qris-card">
+              <div class="qris-card-tag" style="background: var(--lilac-dark);">PP WANITA ISLAM</div>
+              <div class="qr-viewfinder">
+                <div class="bracket b-tl"></div>
+                <div class="bracket b-tr"></div>
+                <div class="bracket b-bl"></div>
+                <div class="bracket b-br"></div>
+                <img src="assets/qris/qr-pp-clean.png" alt="QRIS PP Wanita Islam">
+              </div>
+              <div class="qris-detail-text">
+                NMID: <strong>ID2026547003742</strong><br>
+                Merchant: <strong>ZIS WANITA ISLAM</strong>
+              </div>
+              <div class="qris-purpose-badge">
+                ZIS & Perkumpulan Wanita Islam
+              </div>
+            </div>
+
           </div>
 
-          <div class="qris-meta-info">
-            NMID: <strong>ID2026642117256</strong> • Terminal: <strong>A01</strong><br>
-            Atas Nama: <strong>LAZ WANITA ISLAM</strong>
-          </div>
-
-          <div class="apps-pill-row">
-            <span class="app-pill"><i class="fa-solid fa-mobile-screen"></i> BCA Mobile</span>
-            <span class="app-pill">Livin' Mandiri</span>
-            <span class="app-pill">BRImo</span>
-            <span class="app-pill">BSI Mobile</span>
-            <span class="app-pill">Muamalat DIN</span>
-            <span class="app-pill">GoPay</span>
-            <span class="app-pill">OVO</span>
-            <span class="app-pill">DANA</span>
-            <span class="app-pill">ShopeePay</span>
+          <!-- APPLIKASI PENDUKUNG -->
+          <div class="apps-strip-footer">
+            <span class="app-chip"><i class="fa-solid fa-mobile-screen"></i> BCA Mobile</span>
+            <span class="app-chip">Livin' Mandiri</span>
+            <span class="app-chip">BRImo</span>
+            <span class="app-chip">BSI Mobile</span>
+            <span class="app-chip">Muamalat DIN</span>
+            <span class="app-chip">GoPay</span>
+            <span class="app-chip">OVO</span>
+            <span class="app-chip">DANA</span>
+            <span class="app-chip">ShopeePay</span>
           </div>
         </div>
 
-        <!-- 2. KOTAK REKENING BANK MUAMALAT -->
-        <div class="rekening-box-card">
-          <div class="rekening-top-row">
-            <div class="rekening-logo-wrap">
-              <img src="bank-muamalat.png" alt="Logo Bank Muamalat">
+        <!-- 2. SEKSI DUA REKENING BANK RESMI -->
+        <div class="rekening-section-box">
+          <div class="rekening-section-header">
+            <div class="rekening-title-group">
+              <i class="fa-solid fa-building-columns"></i>
+              <h2>Rekening Resmi Lembaga</h2>
             </div>
-            <div class="syariah-tag">
-              <i class="fa-solid fa-scale-balanced"></i> Rekening Resmi Syariah
+            <div class="rekening-subtag">
+              <i class="fa-solid fa-scale-balanced"></i> Bank Syariah Terpercaya
             </div>
           </div>
 
-          <div class="account-digits-banner">
-            <span class="account-number">311 008 1902</span>
-            <span class="account-badge-copy">Bank Muamalat</span>
-          </div>
+          <!-- GRID 2 REKENING BERDAMPINGAN -->
+          <div class="rekening-grid-two">
 
-          <div class="account-owner">Atas Nama: <strong>LAZ WANITA ISLAM</strong></div>
+            <!-- REKENING 1: BANK MUAMALAT -->
+            <div class="bank-card featured-bank">
+              <div class="bank-header-row">
+                <div class="bank-logo-wrap">
+                  <img src="bank-muamalat.svg" alt="Bank Muamalat">
+                </div>
+                <span class="bank-badge">Muamalat</span>
+              </div>
 
-          <div class="allocation-pills">
-            <span>Zakat Maal & Profesi</span>
-            <span>Infak / Sedekah Subuh</span>
-            <span>Wakaf Uang</span>
-            <span>Program Kemanusiaan</span>
+              <div class="account-digits-box">
+                <span class="account-num-text">3170014702</span>
+              </div>
+
+              <div class="account-owner-text">
+                a.n. <strong>Perkumpulan Wanita Islam</strong>
+              </div>
+
+              <div class="account-allocations">
+                Zakat Maal, Infak, Sedekah & Operasional
+              </div>
+            </div>
+
+            <!-- REKENING 2: BANK DANAMON SYARIAH -->
+            <div class="bank-card">
+              <div class="bank-header-row">
+                <div class="bank-logo-wrap">
+                  <img src="bank-danamon-syariah.svg" alt="Bank Danamon Syariah">
+                </div>
+                <span class="bank-badge">Danamon Syariah</span>
+              </div>
+
+              <div class="account-digits-box">
+                <span class="account-num-text">3688859747</span>
+              </div>
+
+              <div class="account-owner-text">
+                a.n. <strong>Perkumpulan Wanita Islam</strong>
+              </div>
+
+              <div class="account-allocations">
+                Zakat Maal, Infak, Sedekah & Kemanusiaan
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -590,18 +791,29 @@
           <span>Aman NKRI</span>
         </div>
 
-        <div class="footer-channels-row">
+        <div class="footer-channels-grid">
           <div class="channel-item">
             <i class="fa-brands fa-whatsapp"></i>
-            <span>Konfirmasi: <strong>0812-8888-0101</strong></span>
+            <div>
+              <span style="font-size: 16px; opacity: 0.85; display: block;">Konfirmasi via WA:</span>
+              <strong>0812-8888-0101</strong>
+            </div>
           </div>
+
           <div class="channel-item">
             <i class="fa-solid fa-globe"></i>
-            <span><strong>laz.wanitaislam.or.id</strong></span>
+            <div>
+              <span style="font-size: 16px; opacity: 0.85; display: block;">Website Resmi:</span>
+              <strong>laz.wanitaislam.or.id</strong>
+            </div>
           </div>
+
           <div class="channel-item">
             <i class="fa-brands fa-instagram"></i>
-            <span><strong>@laz.wanitaislam</strong></span>
+            <div>
+              <span style="font-size: 16px; opacity: 0.85; display: block;">Media Sosial:</span>
+              <strong>@laz.wanitaislam</strong>
+            </div>
           </div>
         </div>
       </footer>

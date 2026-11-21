@@ -3268,17 +3268,35 @@
           <div class="bank-list">
             <h4 style="font-size: 15px; color: var(--lilac-dark); margin-bottom: 12px; font-family: var(--font-heading);">Rekening Resmi Lembaga:</h4>
             
-            <div class="bank-card bank-card-featured" style="border: 1.5px solid #D9C9E8; background: #FFFFFF; border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; box-shadow: 0 4px 15px rgba(84, 54, 111, 0.05);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #F2EFF6; padding-bottom: 10px;">
-                <img src="Logo LAZWI/bank-muamalat.png" alt="Bank Muamalat" style="height: 32px; width: auto; object-fit: contain;">
+            <!-- 1. Bank Muamalat -->
+            <div class="bank-card bank-card-featured" style="border: 1.5px solid #D9C9E8; background: #FFFFFF; border-radius: 12px; padding: 16px 18px; margin-bottom: 12px; box-shadow: 0 4px 15px rgba(84, 54, 111, 0.05);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid #F2EFF6; padding-bottom: 6px;">
+                <img src="Logo LAZWI/bank-muamalat.png" alt="Bank Muamalat" style="height: 28px; width: auto; object-fit: contain;">
+                <span style="font-size: 10px; font-weight: 700; color: #8F6A2E; background: #FDF9F0; padding: 2px 8px; border-radius: 4px; border: 1px solid #ECC874;">MUAMALAT</span>
               </div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 8px;">
                 <div class="bank-info">
-                  <div style="font-size: 11px; font-weight: 600; color: #888899; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Zakat, Infak & Sedekah</div>
-                  <div class="acc-number" style="font-family: 'Courier New', monospace; font-size: 22px; font-weight: 800; color: #22222B; letter-spacing: 1.5px; margin-bottom: 3px;">3170014702</div>
-                  <div class="acc-name" style="font-size: 13.5px; color: #555566; font-weight: 600;">a.n. Perkumpulan Wanita Islam</div>
+                  <div class="acc-number" style="font-family: 'Courier New', monospace; font-size: 20px; font-weight: 800; color: #22222B; letter-spacing: 1.5px; margin-bottom: 2px;">3170014702</div>
+                  <div class="acc-name" style="font-size: 12.5px; color: #555566; font-weight: 600;">a.n. Perkumpulan Wanita Islam</div>
                 </div>
-                <button class="btn-copy" onclick="copyAccount('3170014702', this)" style="background: linear-gradient(135deg, #FDF7E7 0%, #F5ECDA 100%); border: 1px solid #C5A46D; color: #54366F; font-weight: 700; padding: 8px 16px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 13px;">
+                <button class="btn-copy" onclick="copyAccount('3170014702', this)" style="background: linear-gradient(135deg, #FDF7E7 0%, #F5ECDA 100%); border: 1px solid #C5A46D; color: #54366F; font-weight: 700; padding: 6px 14px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 12px;">
+                  <i class="fa-regular fa-copy"></i> <span>Salin No. Rek</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 2. Bank Danamon Syariah -->
+            <div class="bank-card" style="border: 1.5px solid #D9C9E8; background: #FFFFFF; border-radius: 12px; padding: 16px 18px; margin-bottom: 14px; box-shadow: 0 4px 15px rgba(84, 54, 111, 0.05);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid #F2EFF6; padding-bottom: 6px;">
+                <img src="Logo LAZWI/bank-danamon-syariah.svg" alt="Bank Danamon Syariah" style="height: 28px; width: auto; object-fit: contain;">
+                <span style="font-size: 10px; font-weight: 700; color: #008891; background: #E6F7F8; padding: 2px 8px; border-radius: 4px; border: 1px solid #A8E1E5;">DANAMON SYARIAH</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 8px;">
+                <div class="bank-info">
+                  <div class="acc-number" style="font-family: 'Courier New', monospace; font-size: 20px; font-weight: 800; color: #22222B; letter-spacing: 1.5px; margin-bottom: 2px;">3688859747</div>
+                  <div class="acc-name" style="font-size: 12.5px; color: #555566; font-weight: 600;">a.n. Perkumpulan Wanita Islam</div>
+                </div>
+                <button class="btn-copy" onclick="copyAccount('3688859747', this)" style="background: linear-gradient(135deg, #FDF7E7 0%, #F5ECDA 100%); border: 1px solid #C5A46D; color: #54366F; font-weight: 700; padding: 6px 14px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 6px; font-size: 12px;">
                   <i class="fa-regular fa-copy"></i> <span>Salin No. Rek</span>
                 </button>
               </div>
@@ -3292,15 +3310,23 @@
             </div>
           </div>
 
-          <!-- Kolom QRIS Statis -->
+          <!-- Kolom QRIS Statis (2 QRIS) -->
           <div class="qris-panel">
-            <span style="font-size: 12px; font-weight: 700; color: var(--lilac-dark);">SCAN QRIS CEPAT</span>
-            <div class="qris-code-box">
-              <i class="fa-solid fa-qrcode" style="font-size: 54px; margin-bottom: 8px;"></i>
-              <span>[ GAMBAR QRIS STATIS ]</span>
+            <span style="font-size: 12px; font-weight: 700; color: var(--lilac-dark); display: block; margin-bottom: 10px;">SCAN QRIS RESMI</span>
+            <div style="display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 10px;">
+              <div style="text-align: center; background: white; padding: 8px; border-radius: 8px; border: 1px solid #E2DCE8;">
+                <div style="font-size: 10px; font-weight: 700; color: var(--lilac-primary); margin-bottom: 4px;">LAZ Wanita Islam</div>
+                <img src="Logo LAZWI/qris-laz-wanita-islam.png" alt="QRIS LAZ Wanita Islam" style="width: 100px; height: 100px; display: block; object-fit: contain;">
+                <div style="font-size: 9px; color: #777; margin-top: 3px;">ID2026642117256</div>
+              </div>
+              <div style="text-align: center; background: white; padding: 8px; border-radius: 8px; border: 1px solid #E2DCE8;">
+                <div style="font-size: 10px; font-weight: 700; color: var(--lilac-primary); margin-bottom: 4px;">PP Wanita Islam</div>
+                <img src="Logo LAZWI/qris-pp-wanita-islam.png" alt="QRIS PP Wanita Islam" style="width: 100px; height: 100px; display: block; object-fit: contain;">
+                <div style="font-size: 9px; color: #777; margin-top: 3px;">ID2026547003742</div>
+              </div>
             </div>
-            <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">
-              Mendukung BCA, Mandiri, BSI, GoPay, OVO, ShopeePay, LinkAja, & DANA.
+            <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4; text-align: center;">
+              Mendukung seluruh m-Banking (BCA, Mandiri, BSI, Muamalat) & e-Wallet (GoPay, OVO, ShopeePay, DANA).
             </p>
           </div>
         </div>

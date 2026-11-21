@@ -328,7 +328,7 @@
     .guide-box ol { padding-left: 20px; font-size: 13px; color: #555566; line-height: 1.8; }
 
     /* FOOTER */
-    .site-footer {
+    footer.site-footer.dynamic-footer, .site-footer {
       background: linear-gradient(135deg, #3B1B4F 0%, #4F2D64 60%, #351747 100%);
       color: white; padding: 45px 30px 24px 30px; font-size: 13px; border-top: 3px solid #C5A46D;
     }
@@ -361,7 +361,7 @@
         /* TOMBOL SCROLL TO TOP ALA DOMPET DHUAFA (SEJAJAR CENTER DI ATAS TAB BERANDA) */
     .mobile-back-to-top {
       position: absolute;
-      top: -39px;
+      bottom: calc(100% + 6px);
       left: 50%;
       transform: translateX(-50%);
       width: 44px;
@@ -371,15 +371,15 @@
       border-top-right-radius: 12px;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      border: 1.5px solid rgba(255, 255, 255, 0.7);
       border-bottom: none;
       color: #FFFFFF;
-      display: none;
+      display: flex;
       align-items: center;
       justify-content: center;
       font-size: 15px;
       cursor: pointer;
-      opacity: 0;
+      opacity: 0.85;
       transition: opacity 0.3s ease, transform 0.2s ease;
       box-shadow: 0 -4px 12px rgba(84, 54, 111, 0.25);
       z-index: 998;
@@ -775,27 +775,71 @@
 
         <div class="donation-grid-main" id="rekeningZakat">
           
-          <!-- SISI KIRI: DAFTAR REKENING BANK BERDASARKAN AKAD -->
+          <!-- SISI KIRI: SCAN QRIS DUA LEMBAGA -->
           <div>
-            
-            <!-- REKENING BANK RESMI -->
+            <div class="qris-card-wrap">
+              <span class="qris-badge">SCAN QRIS CEPAT & RESMI</span>
+              <h4 style="font-size: 18px; color: var(--lilac-dark); font-family: var(--font-heading); margin-bottom: 16px;">QRIS Wanita Islam</h4>
+              
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 16px;">
+                <!-- QRIS 1: LAZ WANITA ISLAM -->
+                <div style="background: #FAFAFD; border: 1.5px solid #E6DFF0; border-radius: 12px; padding: 14px; text-align: center;">
+                  <div style="font-size: 12.5px; font-weight: 700; color: var(--lilac-primary); margin-bottom: 8px;">LAZ Wanita Islam</div>
+                  <img src="Logo LAZWI/qris-laz-wanita-islam.png" alt="QRIS LAZ Wanita Islam" style="width: 100%; max-width: 170px; border-radius: 8px; border: 1px solid #DDD; display: block; margin: 0 auto 8px auto;">
+                  <div style="font-size: 10.5px; color: #666;">NMID: <strong>ID2026642117256</strong> (A01)</div>
+                </div>
+
+                <!-- QRIS 2: PP WANITA ISLAM -->
+                <div style="background: #FAFAFD; border: 1.5px solid #E6DFF0; border-radius: 12px; padding: 14px; text-align: center;">
+                  <div style="font-size: 12.5px; font-weight: 700; color: var(--lilac-primary); margin-bottom: 8px;">PP Wanita Islam</div>
+                  <img src="Logo LAZWI/qris-pp-wanita-islam.png" alt="QRIS PP Wanita Islam" style="width: 100%; max-width: 170px; border-radius: 8px; border: 1px solid #DDD; display: block; margin: 0 auto 8px auto;">
+                  <div style="font-size: 10.5px; color: #666;">NMID: <strong>ID2026547003742</strong></div>
+                  <div style="font-size: 9.5px; color: #888;">ZIS WANITA ISLAM</div>
+                </div>
+              </div>
+
+              <p class="qris-note">
+                Bisa di-scan menggunakan seluruh aplikasi Mobile Banking (BCA Mobile, Livin Mandiri, BSI Mobile, BRImo, Muamalat DIN) dan dompet digital (GoPay, OVO, ShopeePay, DANA).
+              </p>
+            </div>
+          </div>
+
+          <!-- SISI KANAN: DAFTAR DUA REKENING RESMI & KONFIRMASI WA -->
+          <div>
             <div class="bank-group-title">
               <i class="fa-solid fa-building-columns" style="color: var(--gold-accent);"></i>
-              Rekening Resmi Lembaga (Zakat, Infak & Sedekah)
+              Rekening Resmi Lembaga
             </div>
             
-            <!-- BANK MUAMALAT UTAMA -->
-            <div class="bank-card bank-card-featured" style="border: 1.5px solid #D9C9E8; background: #FFFFFF; border-radius: 12px; padding: 20px 22px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(84, 54, 111, 0.05);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid #F2EFF6; padding-bottom: 12px;">
-                <img src="Logo LAZWI/bank-muamalat.png" alt="Bank Muamalat" style="height: 36px; width: auto; object-fit: contain;">
+            <!-- 1. BANK MUAMALAT -->
+            <div class="bank-card bank-card-featured" style="border: 1.5px solid #D9C9E8; background: #FFFFFF; border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; box-shadow: 0 4px 15px rgba(84, 54, 111, 0.05);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid #F2EFF6; padding-bottom: 8px;">
+                <img src="Logo LAZWI/bank-muamalat.png" alt="Bank Muamalat" style="height: 32px; width: auto; object-fit: contain;">
+                <span style="font-size: 11px; font-weight: 700; color: #8F6A2E; background: #FDF9F0; padding: 3px 10px; border-radius: 6px; border: 1px solid #ECC874;">BANK MUAMALAT</span>
               </div>
               <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px;">
                 <div class="bank-info">
-                  <div style="font-size: 11.5px; font-weight: 600; color: #888899; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Bank Muamalat - Zakat, Infak, Sedekah & Kemanusiaan</div>
-                  <div class="acc-number" style="font-family: 'Courier New', monospace; font-size: 24px; font-weight: 800; color: #22222B; letter-spacing: 1.5px; margin-bottom: 4px;">3170014702</div>
+                  <div class="acc-number" style="font-family: 'Courier New', monospace; font-size: 26px; font-weight: 800; color: #22222B; letter-spacing: 1.5px; margin-bottom: 4px;">3170014702</div>
                   <div class="acc-name" style="font-size: 13.5px; color: #555566; font-weight: 600;">a.n. Perkumpulan Wanita Islam</div>
                 </div>
-                <button class="btn-copy" onclick="copyAccount('3170014702', this)" style="background: linear-gradient(135deg, #FDF7E7 0%, #F5ECDA 100%); border: 1px solid #C5A46D; color: #54366F; font-weight: 700; padding: 10px 20px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13.5px;">
+                <button class="btn-copy" onclick="copyAccount('3170014702', this)" style="background: linear-gradient(135deg, #FDF7E7 0%, #F5ECDA 100%); border: 1px solid #C5A46D; color: #54366F; font-weight: 700; padding: 8px 18px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13px;">
+                  <i class="fa-regular fa-copy"></i> <span>Salin No. Rek</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 2. BANK DANAMON SYARIAH -->
+            <div class="bank-card" style="border: 1.5px solid #D9C9E8; background: #FFFFFF; border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; box-shadow: 0 4px 15px rgba(84, 54, 111, 0.05);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid #F2EFF6; padding-bottom: 8px;">
+                <img src="Logo LAZWI/bank-danamon-syariah.svg" alt="Bank Danamon Syariah" style="height: 32px; width: auto; object-fit: contain;">
+                <span style="font-size: 11px; font-weight: 700; color: #008891; background: #E6F7F8; padding: 3px 10px; border-radius: 6px; border: 1px solid #A8E1E5;">BANK DANAMON SYARIAH</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px;">
+                <div class="bank-info">
+                  <div class="acc-number" style="font-family: 'Courier New', monospace; font-size: 26px; font-weight: 800; color: #22222B; letter-spacing: 1.5px; margin-bottom: 4px;">3688859747</div>
+                  <div class="acc-name" style="font-size: 13.5px; color: #555566; font-weight: 600;">a.n. Perkumpulan Wanita Islam</div>
+                </div>
+                <button class="btn-copy" onclick="copyAccount('3688859747', this)" style="background: linear-gradient(135deg, #FDF7E7 0%, #F5ECDA 100%); border: 1px solid #C5A46D; color: #54366F; font-weight: 700; padding: 8px 18px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13px;">
                   <i class="fa-regular fa-copy"></i> <span>Salin No. Rek</span>
                 </button>
               </div>
@@ -804,30 +848,12 @@
             <!-- KARTU KONFIRMASI WHATSAPP -->
             <div class="wa-confirm-card">
               <h4><i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Konfirmasi Donasi Anda</h4>
-              <p>Agar dana Anda tercatat dan diterbitkan bukti setor zakat resmi, mohon kirimkan bukti transfer ke Amil kami:</p>
+              <p>Agar dana Anda tercatat dan bukti setor zakat resmi bisa diterbitkan, kirimkan bukti transfer atau tangkapan layar pembayaran QRIS ke Amil kami lewat WhatsApp:</p>
               <a href="https://wa.me/?text=Assalamu%27alaikum%20Amil%20LAZ%20Wanita%20Islam%2C%20saya%20sudah%20mentransfer%20donasi%20sebesar%20Rp..." target="_blank" class="btn-wa-confirm-large">
                 <i class="fa-brands fa-whatsapp"></i> Konfirmasi via WhatsApp Sekarang
               </a>
             </div>
 
-          </div>
-
-          <!-- SISI KANAN: SCAN QRIS STATIS RESOLUSI BESAR -->
-          <div>
-            <div class="qris-card-wrap">
-              <span class="qris-badge">SCAN QRIS CEPAT & RESMI</span>
-              <h4 style="font-size: 16px; color: var(--lilac-dark); font-family: var(--font-heading);">QRIS LAZ Wanita Islam</h4>
-              
-              <div class="qris-box-large">
-                <i class="fa-solid fa-qrcode" style="font-size: 72px; margin-bottom: 12px;"></i>
-                <span>[ GAMBAR QRIS LEMBAGA ]</span>
-                <span style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">NMID: ID1029384756</span>
-              </div>
-
-              <p class="qris-note">
-                Bisa di-scan menggunakan seluruh aplikasi Mobile Banking (BCA Mobile, Livin Mandiri, BSI Mobile, BRImo) dan dompet digital (GoPay, OVO, ShopeePay, DANA, LinkAja).
-              </p>
-            </div>
           </div>
 
         </div>
@@ -845,7 +871,7 @@
       </main>
 
       <!-- FOOTER -->
-      <footer class="site-footer">
+      <footer class="site-footer dynamic-footer" style="max-width:100%;width:100%;margin:0;">
         <div class="footer-content">
           <div class="footer-brand">
             <h4>LAZ WANITA ISLAM</h4>
@@ -1053,21 +1079,18 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // LISTENER SCROLL UNTUK TOMBOL BACK TO TOP (TRANSPARANSI SESUAI TINGKAT SCROLL)
-    window.addEventListener('scroll', function() {
+    // LISTENER SCROLL UNTUK TOMBOL BACK TO TOP (OPASITAS MENYESUAIKAN TINGKAT SCROLL)
+    function updateBackToTop() {
       var btnTop = document.getElementById('mobileBackToTop');
       if (!btnTop) return;
-      var scrollY = window.scrollY || document.documentElement.scrollTop;
-      if (scrollY > 180) {
-        btnTop.style.display = 'flex';
-        // Semakin ke bawah transparansi menyesuaikan (0.65 hingga 0.9)
-        var opacity = Math.min(0.9, 0.6 + (scrollY / 2000));
-        btnTop.style.opacity = opacity;
-      } else {
-        btnTop.style.opacity = '0';
-        btnTop.style.display = 'none';
-      }
-    });
+      var scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+      btnTop.style.display = 'flex';
+      var opacity = Math.min(1.0, 0.82 + (scrollY / 1500));
+      btnTop.style.opacity = opacity;
+    }
+    window.addEventListener('scroll', updateBackToTop);
+    document.addEventListener('DOMContentLoaded', updateBackToTop);
+    updateBackToTop();
 
   </script>
 </body>
